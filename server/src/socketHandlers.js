@@ -6,6 +6,9 @@ import { authStore } from './authStore.js';
 import { applyBall, startInnings, changeBowler, endInnings, updateMatchMeta } from './cricketEngine.js';
 import { createScene, validateScene } from './sceneManager/sceneModel.js';
 import { nanoid } from 'nanoid';
+import { feedManager } from './integrations/index.js';
+import { streamManager } from './routes/streaming.js';
+import { CollaborationManager } from './collaboration/index.js';
 
 // Track connected users and their project rooms
 const connectedUsers = new Map(); // socketId -> { userId, projectIds: Set }
@@ -213,8 +216,13 @@ export function registerHandlers(io, socket) {
 
   // ── Collaboration Events ──────────────────────────────────
 
+  let collabManager = null;
+  try {
+    collabManager = io.engine?.opts?._collabManager || null;
+  } catch {}
+
   socket.on('user:join-project', (data) => {
-    const { projectId, userId } = data;
+    const { projectId, userId, displayName } = data;
     if (!projectId || !userId) return;
 
     const room = `project:${projectId}`;
@@ -225,10 +233,16 @@ export function registerHandlers(io, socket) {
     userInfo.projectIds.add(projectId);
     connectedUsers.set(socket.id, userInfo);
 
-    io.to(room).emit('user:joined', {
+    const color = `hsl(${(userId.charCodeAt(0) * 37) % 360}, 70%, 60%)`;
+    const role = 'viewer';
+
+    io.to(room).emit('collab:user-joined', {
       userId,
+      displayName: displayName || userId,
       socketId: socket.id,
-      timestamp: new Date().toISOString()
+      color,
+      role,
+      timestamp: Date.now()
     });
   });
 
@@ -247,10 +261,10 @@ export function registerHandlers(io, socket) {
       }
     }
 
-    io.to(room).emit('user:left', {
+    io.to(room).emit('collab:user-left', {
       userId,
       socketId: socket.id,
-      timestamp: new Date().toISOString()
+      timestamp: Date.now()
     });
   });
 
@@ -259,27 +273,237 @@ export function registerHandlers(io, socket) {
     if (!projectId) return;
 
     const room = `project:${projectId}`;
-    socket.to(room).emit('cursor:moved', {
+    socket.to(room).emit('collab:cursor-moved', {
       userId,
       socketId: socket.id,
       x,
       y,
       targetId,
+      timestamp: Date.now()
+    });
+  });
+
+  socket.on('collab:set-role', (data) => {
+    const { projectId, userId, role } = data;
+    if (!projectId || !userId || !role) return;
+
+    const room = `project:${projectId}`;
+    io.to(room).emit('collab:role-changed', {
+      targetUserId: userId,
+      role,
+      setBy: connectedUsers.get(socket.id)?.userId,
+      timestamp: Date.now()
+    });
+  });
+
+  socket.on('collab:remove-user', (data) => {
+    const { projectId, userId } = data;
+    if (!projectId || !userId) return;
+
+    const room = `project:${projectId}`;
+    io.to(room).emit('collab:user-removed', {
+      targetUserId: userId,
+      removedBy: connectedUsers.get(socket.id)?.userId,
+      timestamp: Date.now()
+    });
+  });
+
+  socket.on('collab:state-update', (data) => {
+    const { projectId, field, value, version } = data;
+    if (!projectId || !field) return;
+
+    const room = `project:${projectId}`;
+    io.to(room).emit('collab:state-updated', {
+      field,
+      value,
+      version: (version || 0) + 1,
+      updatedBy: connectedUsers.get(socket.id)?.userId,
+      timestamp: Date.now()
+    });
+  });
+
+  // ── Switcher Events ────────────────────────────────────
+
+  socket.on('switcher:switch', (data) => {
+    const { inputId, transition } = data;
+    if (!inputId) return socket.emit('switcher:error', { message: 'inputId required' });
+
+    try {
+      io.emit('switcher:state', { type: 'switch', inputId, transition: transition || 'cut', timestamp: Date.now() });
+      io.emit('switcher:tally', { program: inputId, timestamp: Date.now() });
+    } catch (err) {
+      socket.emit('switcher:error', { message: err.message });
+    }
+  });
+
+  socket.on('switcher:preview', (data) => {
+    const { inputId } = data;
+    if (!inputId) return socket.emit('switcher:error', { message: 'inputId required' });
+
+    io.emit('switcher:state', { type: 'preview', inputId, timestamp: Date.now() });
+    io.emit('switcher:tally', { preview: inputId, timestamp: Date.now() });
+  });
+
+  socket.on('switcher:transition', (data) => {
+    const { type, duration } = data;
+    io.emit('switcher:state', { type: 'transition', transitionType: type, duration, timestamp: Date.now() });
+  });
+
+  socket.on('switcher:macro-record', (data) => {
+    const { recording } = data;
+    io.emit('switcher:state', { type: 'macro-record', recording, timestamp: Date.now() });
+  });
+
+  socket.on('switcher:macro-play', (data) => {
+    const { macroId } = data;
+    io.emit('switcher:macro-play', { macroId, timestamp: Date.now() });
+  });
+
+  // ── Streaming Events ──────────────────────────────────────
+
+  socket.on('stream:start', async (data) => {
+    const { outputId } = data;
+    if (!outputId) return socket.emit('stream:error', { message: 'outputId required' });
+
+    try {
+      await streamManager.startOutput(outputId);
+      socket.emit('stream:status', { outputId, state: 'active' });
+      io.emit('stream:status', { outputId, state: 'active' });
+    } catch (err) {
+      socket.emit('stream:error', { message: err.message });
+    }
+  });
+
+  socket.on('stream:stop', (data) => {
+    const { outputId } = data;
+    if (!outputId) return socket.emit('stream:error', { message: 'outputId required' });
+
+    try {
+      streamManager.stopOutput(outputId);
+      socket.emit('stream:status', { outputId, state: 'stopped' });
+      io.emit('stream:status', { outputId, state: 'stopped' });
+    } catch (err) {
+      socket.emit('stream:error', { message: err.message });
+    }
+  });
+
+  socket.on('stream:scene-switch', (data) => {
+    const { sceneId } = data;
+    if (!sceneId) return socket.emit('stream:error', { message: 'sceneId required' });
+
+    streamManager.switchScene(sceneId);
+    io.emit('stream:scene-switch', { sceneId });
+  });
+
+  // Handle WebRTC signaling
+  socket.on('webrtc:viewer-join', (data) => {
+    const { outputId, viewerId } = data;
+    const output = streamManager.getOutput(outputId);
+    if (!output || output.type !== 'webrtc') {
+      return socket.emit('stream:error', { message: 'Invalid WebRTC output' });
+    }
+
+    const added = streamManager.addViewer(outputId, viewerId, socket.id);
+    if (added) {
+      io.emit('stream:viewers', { outputId, count: streamManager.getOutput(outputId)?.viewers || 0 });
+    }
+  });
+
+  socket.on('webrtc:viewer-leave', (data) => {
+    const { outputId, viewerId } = data;
+    streamManager.removeViewer(outputId, viewerId);
+    io.emit('stream:viewers', { outputId, count: streamManager.getOutput(outputId)?.viewers || 0 });
+  });
+
+  // ── Data Integration Events ──────────────────────────────
+
+  // Subscribe to live feed data updates
+  socket.on('data:subscribe', (feedId) => {
+    if (feedId) {
+      socket.join(`feed:${feedId}`);
+    } else {
+      socket.join('feed:all');
+    }
+  });
+
+  socket.on('data:unsubscribe', (feedId) => {
+    if (feedId) {
+      socket.leave(`feed:${feedId}`);
+    } else {
+      socket.leave('feed:all');
+    }
+  });
+
+  // Request current scores
+  socket.on('data:get-scores', (data) => {
+    try {
+      const { sport } = data || {};
+      const scoreFeeds = feedManager.getFeeds().filter(f => f.type === 'score');
+      const scores = scoreFeeds
+        .flatMap(f => f.data || [])
+        .filter(s => !sport || s.sport === sport);
+      socket.emit('data:scores-update', scores);
+    } catch (err) {
+      socket.emit('data:feed-error', { error: err.message });
+    }
+  });
+
+  // ── Recording Events ─────────────────────────────────────
+
+  socket.on('recording:start', (data) => {
+    io.emit('recording:start', {
+      ...data,
+      timestamp: new Date().toISOString()
+    });
+  });
+
+  socket.on('recording:stop', (data) => {
+    io.emit('recording:stop', {
+      ...data,
+      timestamp: new Date().toISOString()
+    });
+  });
+
+  socket.on('recording:pause', (data) => {
+    io.emit('recording:pause', {
+      ...data,
+      timestamp: new Date().toISOString()
+    });
+  });
+
+  socket.on('recording:status', (data) => {
+    io.emit('recording:status', {
+      ...data,
+      timestamp: new Date().toISOString()
+    });
+  });
+
+  // ── Audio Events ──────────────────────────────────────────
+
+  socket.on('audio:mute', (data) => {
+    io.emit('audio:mute', {
+      ...data,
+      timestamp: new Date().toISOString()
+    });
+  });
+
+  socket.on('audio:solo', (data) => {
+    io.emit('audio:solo', {
+      ...data,
       timestamp: new Date().toISOString()
     });
   });
 
   // ── Cleanup on disconnect ─────────────────────────────────
 
-  const origDisconnect = socket.listeners('disconnect')[0];
   socket.on('disconnect', (reason) => {
     const userInfo = connectedUsers.get(socket.id);
     if (userInfo) {
       for (const projectId of userInfo.projectIds) {
-        io.to(`project:${projectId}`).emit('user:left', {
+        io.to(`project:${projectId}`).emit('collab:user-left', {
           userId: userInfo.userId,
           socketId: socket.id,
-          timestamp: new Date().toISOString()
+          timestamp: Date.now()
         });
       }
       connectedUsers.delete(socket.id);

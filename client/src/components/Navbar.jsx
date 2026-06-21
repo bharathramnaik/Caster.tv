@@ -13,6 +13,7 @@ export default function Navbar() {
     { path: '/live', label: 'Live' },
     { path: '/teams', label: 'Teams' },
     { path: '/points', label: 'Points' },
+    { path: '/integrations', label: 'Integrations' },
   ];
 
   return (

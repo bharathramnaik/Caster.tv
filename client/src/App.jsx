@@ -18,6 +18,9 @@ import TemplateEditor from './components/TemplateEditor';
 import SceneManager from './components/SceneManager';
 import LiveControlPanel from './components/LiveControlPanel';
 import TemplateLibrary from './pages/TemplateLibrary';
+import DataIntegrations from './pages/DataIntegrations';
+import ProductionSwitcher from './pages/ProductionSwitcher';
+import StreamingDashboard from './pages/StreamingDashboard';
 
 export default function App() {
   return (
@@ -43,6 +46,9 @@ export default function App() {
                 <Route path="/scenes/:sceneId" element={<SceneManager />} />
                 <Route path="/live" element={<LiveControlPanel />} />
                 <Route path="/library" element={<TemplateLibrary />} />
+                <Route path="/switcher" element={<ProductionSwitcher />} />
+                <Route path="/streaming" element={<StreamingDashboard />} />
+                <Route path="/integrations" element={<DataIntegrations />} />
                 <Route path="*" element={<NotFound />} />
               </Routes>
             </div>

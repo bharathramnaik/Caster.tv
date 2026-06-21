@@ -19,6 +19,15 @@ import liveRouter from './routes/live.js';
 import projectsRouter from './routes/projects.js';
 import previewsRouter from './routes/previews.js';
 import exportsRouter from './routes/exports.js';
+import integrationsRouter from './routes/integrations.js';
+import webhooksRouter from './routes/webhooks.js';
+import { feedManager } from './integrations/index.js';
+import recordingRouter from './routes/recording.js';
+import audioRouter from './routes/audio.js';
+import streamingRouter from './routes/streaming.js';
+import switcherRouter from './routes/switcher.js';
+import collaborationRouter from './routes/collaboration.js';
+import { CollaborationManager } from './collaboration/index.js';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 
@@ -208,6 +217,16 @@ app.use('/api/live', liveRouter);
 app.use('/api/projects', projectsRouter);
 app.use('/api/preview', previewsRouter);
 app.use('/api/exports', exportsRouter);
+app.use('/api/recording', recordingRouter);
+app.use('/api/audio', audioRouter);
+app.use('/api/streaming', streamingRouter);
+app.use('/api/switcher', switcherRouter);
+app.use('/api/integrations', integrationsRouter);
+app.use('/api/webhooks', webhooksRouter);
+app.use('/api/collaboration', collaborationRouter);
+
+const collabManager = new CollaborationManager(io);
+app.set('collabManager', collabManager);
 
 // ── Socket.IO ───────────────────────────────────────────────────
 
@@ -218,6 +237,27 @@ io.on('connection', (socket) => {
   socket.on('disconnect', (reason) => {
     console.log(`⚡ Client disconnected: ${socket.id} (${reason})`);
   });
+});
+
+// ── Feed Manager Event Broadcasting ──────────────────────────
+feedManager.on('feed:data', ({ id, type, data }) => {
+  io.to('feed:all').emit('data:feed-update', { feedId: id, type, data, timestamp: Date.now() });
+  io.to(`feed:${id}`).emit('data:feed-update', { feedId: id, type, data, timestamp: Date.now() });
+  if (type === 'score') {
+    io.to('feed:all').emit('data:scores-update', data);
+  }
+});
+
+feedManager.on('feed:error', ({ id, type, error }) => {
+  io.to('feed:all').emit('data:feed-error', { feedId: id, type, error, timestamp: Date.now() });
+});
+
+feedManager.on('feed:started', ({ id, type }) => {
+  io.to('feed:all').emit('data:new-feed', { feedId: id, type, action: 'started', timestamp: Date.now() });
+});
+
+feedManager.on('feed:stopped', ({ id, type }) => {
+  io.to('feed:all').emit('data:new-feed', { feedId: id, type, action: 'stopped', timestamp: Date.now() });
 });
 
 // ── Start ───────────────────────────────────────────────────────

@@ -151,6 +151,87 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [3.0.0] - 2026-06-21
+
+### Added
+
+#### Multi-Output Streaming Engine
+- RTMP streaming output (YouTube, Twitch, custom)
+- WebRTC browser viewing with SFU-like relay (up to 100 viewers)
+- NDI simulation for future native integration
+- Multi-output support (simultaneous RTMP + WebRTC + NDI)
+- Stream health monitoring (bitrate, fps, dropped frames)
+- Automatic reconnection with exponential backoff
+- Stream health history (5-minute rolling window)
+- Alert system for stream issues
+
+#### Production Switcher
+- Professional PGM/PST (Program/Preview) workflow
+- Multi-view grid with tally lights (red=PGM, green=PST)
+- 12+ transition types (cut, crossfade, slide, wipe, zoom, blur, flip, rotate)
+- T-bar manual transition control
+- Macro recording and playback
+- Configurable layouts (2x1, 2x2, 3x1, 3x2, 4x2)
+- Audio level meters per input
+- Up to 12 inputs (scenes, cameras, media, NDI)
+
+#### Data Integrations
+- RSS/Atom feed parser with polling
+- Webhook receiver with HMAC validation
+- Social media feed display (Twitter, Instagram, YouTube mock)
+- Live score ticker (cricket, football, basketball)
+- Data transformation pipeline for overlay format
+- Real-time data feed dashboard
+
+#### Multi-User Collaboration
+- Real-time cursor presence with colored avatars
+- Role-based access control (admin, editor, viewer)
+- Activity log with 500-entry FIFO buffer
+- Conflict detection and resolution (last-write-wins)
+- User presence tracking with 12-color palette
+- 30-second heartbeat for disconnect detection
+- Element locking for collaborative editing
+
+#### Audio & Recording
+- 8-channel audio mixer with volume, mute, solo, pan
+- Audio visualizer (spectrum bars, waveform)
+- Audio effects (compressor, limiter, equalizer, noise gate)
+- Recording manager (MP4, WebM, MKV)
+- Recording scheduler with recurring support
+- Quality presets (Ultra 4K, High 1080p, Medium 720p, Low 480p, Mobile 360p)
+- Custom quality presets
+- Recording history with download/delete
+
+#### New Frontend Pages
+- `/streaming` - Streaming dashboard with health monitoring
+- `/switcher` - Production switcher UI
+- `/integrations` - Data integrations hub
+
+#### New Frontend Components
+- StreamingHealth, MultiViewer, TBar, MacroPanel
+- CollaborationPanel, CursorOverlay, ActivityFeed, PermissionBadge
+- RecordingControls, AudioMixer, AudioVisualizer, QualitySettings, RecordingHistory
+- DataFeedCard, LiveScoreTicker, SocialFeedDisplay
+
+#### New API Endpoints
+- `/api/streaming` - Stream management (CRUD, start, stop, health)
+- `/api/switcher` - Switcher controls (switch, preview, transitions, macros)
+- `/api/integrations` - Data feeds, scores, social, webhooks
+- `/api/recording` - Recording start/stop/pause, scheduling, quality
+- `/api/audio` - Audio mixer, levels, effects
+- `/api/collaboration` - Users, roles, activity, conflicts
+- `/api/webhooks` - Dynamic webhook endpoints
+
+#### New Socket Events
+- `stream:*` - Stream status, health, viewers
+- `switcher:*` - Switch, preview, transitions, macros
+- `data:*` - Feed updates, scores, social
+- `recording:*` - Recording status, timer
+- `audio:*` - Levels, mute, solo
+- `collab:*` - Presence, cursors, edits, conflicts
+
+---
+
 ## [Unreleased]
 
 ### Planned
@@ -175,6 +256,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 | Version | Date | Highlights |
 |---------|------|------------|
+| 3.0.0 | 2026-06-21 | Streaming engine, production switcher, data integrations, collaboration, audio/recording |
 | 2.0.0 | 2026-06-21 | Visual template editor, export system, template management |
 | 1.0.0 | 2026-01-15 | Initial release with full feature set |
 

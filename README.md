@@ -46,6 +46,43 @@ SportsCaster aims to democratize professional broadcast graphics by providing a 
 - Export queue with progress tracking
 - Batch export support
 
+### Multi-Output Streaming
+- RTMP streaming (YouTube, Twitch, custom servers)
+- WebRTC browser viewing (up to 100 viewers)
+- NDI simulation for future integration
+- Simultaneous multi-output support
+- Stream health monitoring with alerts
+- Automatic reconnection
+
+### Production Switcher
+- Professional PGM/PST workflow (like ATEM switchers)
+- Multi-view grid with tally lights
+- 12+ transition types (cut, dissolve, slide, wipe, zoom)
+- T-bar manual transition control
+- Macro recording and playback
+- Up to 12 inputs
+
+### Data Integrations
+- RSS/Atom feed parsing
+- Webhook receiver with HMAC validation
+- Social media display (Twitter, Instagram, YouTube)
+- Live score ticker (cricket, football, basketball)
+- Data transformation pipeline
+
+### Multi-User Collaboration
+- Real-time cursor presence
+- Role-based access (admin, editor, viewer)
+- Activity logging
+- Conflict detection and resolution
+- Element locking
+
+### Audio & Recording
+- 8-channel audio mixer
+- Audio visualizer (spectrum, waveform)
+- Recording (MP4, WebM, MKV)
+- Recording scheduler
+- Quality presets (4K to 360p)
+
 ### Scene Management
 - Multi-layer scene compositions
 - Layer visibility, locking, and opacity control
@@ -80,40 +117,40 @@ SportsCaster aims to democratize professional broadcast graphics by providing a 
 ## Architecture
 
 ```
-┌─────────────────────────────────────────────────────────────┐
-│                        Client (React)                       │
-│  ┌──────────┐ ┌──────────┐ ┌──────────┐ ┌──────────────┐  │
-│  │  Home     │ │ Control  │ │ Overlay  │ │   Template   │  │
-│  │  Page     │ │  Panel   │ │  View    │ │    Editor    │  │
-│  └──────────┘ └──────────┘ └──────────┘ └──────────────┘  │
-│  ┌──────────┐ ┌──────────┐ ┌──────────┐ ┌──────────────┐  │
-│  │  Teams   │ │  Points  │ │  Scenes  │ │     Live     │  │
-│  │  Page    │ │  Table   │ │  Manager │ │ Control Panel│  │
-│  └──────────┘ └──────────┘ └──────────┘ └──────────────┘  │
-│  ┌──────────┐ ┌──────────┐ ┌──────────┐ ┌──────────────┐  │
-│  │  Export  │ │ Template │ │  Layer   │ │  Animation   │  │
-│  │ Manager  │ │ Library  │ │  Panel   │ │   Timeline   │  │
-│  └──────────┘ └──────────┘ └──────────┘ └──────────────┘  │
-└────────────────────────┬────────────────────────────────────┘
-                         │ HTTP + WebSocket
-┌────────────────────────┴────────────────────────────────────┐
-│                     Server (Express + Socket.IO)            │
-│  ┌──────────┐ ┌──────────┐ ┌──────────┐ ┌──────────────┐  │
-│  │  Match   │ │Template  │ │  Scene   │ │    Live      │  │
-│  │  Store   │ │  Engine  │ │ Manager  │ │   Control    │  │
-│  └──────────┘ └──────────┘ └──────────┘ └──────────────┘  │
-│  ┌──────────┐ ┌──────────┐ ┌──────────┐ ┌──────────────┐  │
-│  │ Cricket  │ │Animation │ │  Auth    │ │  Template    │  │
-│  │  Engine  │ │  System  │ │  Store   │ │  Validator   │  │
-│  └──────────┘ └──────────┘ └──────────┘ └──────────────┘  │
-│  ┌──────────┐ ┌──────────┐ ┌──────────┐ ┌──────────────┐  │
-│  │  Export  │ │ Template │ │  Data    │ │  Versioning  │  │
-│  │  Worker  │ │  Sharing │ │ Binding  │ │   System     │  │
-│  └──────────┘ └──────────┘ └──────────┘ └──────────────┘  │
-│  ┌──────────────────────────────────────────────────────┐  │
-│  │              JSON File Store / PostgreSQL             │  │
-│  └──────────────────────────────────────────────────────┘  │
-└─────────────────────────────────────────────────────────────┘
+┌─────────────────────────────────────────────────────────────────────┐
+│                         Client (React)                              │
+│  ┌──────────┐ ┌──────────┐ ┌──────────┐ ┌──────────────────────┐  │
+│  │  Home    │ │ Control  │ │ Overlay  │ │    Template Editor   │  │
+│  │  Page    │ │  Panel   │ │  View    │ │  (Canvas/Properties) │  │
+│  └──────────┘ └──────────┘ └──────────┘ └──────────────────────┘  │
+│  ┌──────────┐ ┌──────────┐ ┌──────────┐ ┌──────────────────────┐  │
+│  │ Streaming│ │Production│ │   Data   │ │      Audio &         │  │
+│  │Dashboard │ │ Switcher │ │Integratn │ │     Recording        │  │
+│  └──────────┘ └──────────┘ └──────────┘ └──────────────────────┘  │
+│  ┌──────────┐ ┌──────────┐ ┌──────────┐ ┌──────────────────────┐  │
+│  │ Collab   │ │  Scenes  │ │ Template │ │     Export           │  │
+│  │  Panel   │ │  Manager │ │ Library  │ │     Manager          │  │
+│  └──────────┘ └──────────┘ └──────────┘ └──────────────────────┘  │
+└───────────────────────────┬─────────────────────────────────────────┘
+                            │ HTTP + WebSocket
+┌───────────────────────────┴─────────────────────────────────────────┐
+│                   Server (Express + Socket.IO)                      │
+│  ┌──────────┐ ┌──────────┐ ┌──────────┐ ┌──────────────────────┐  │
+│  │  Match   │ │Template  │ │  Scene   │ │      Streaming       │  │
+│  │  Store   │ │  Engine  │ │ Manager  │ │   (RTMP/WebRTC/NDI)  │  │
+│  └──────────┘ └──────────┘ └──────────┘ └──────────────────────┘  │
+│  ┌──────────┐ ┌──────────┐ ┌──────────┐ ┌──────────────────────┐  │
+│  │ Cricket  │ │Animation │ │ Switcher │ │    Data Integratns   │  │
+│  │  Engine  │ │  System  │ │  Engine  │ │ (RSS/Webhook/Social) │  │
+│  └──────────┘ └──────────┘ └──────────┘ └──────────────────────┘  │
+│  ┌──────────┐ ┌──────────┐ ┌──────────┐ ┌──────────────────────┐  │
+│  │ Collab   │ │  Audio   │ │Recording │ │       Export         │  │
+│  │ Manager  │ │  Mixer   │ │ Manager  │ │       Worker         │  │
+│  └──────────┘ └──────────┘ └──────────┘ └──────────────────────┘  │
+│  ┌──────────────────────────────────────────────────────────────┐  │
+│  │              JSON File Store / PostgreSQL                     │  │
+│  └──────────────────────────────────────────────────────────────┘  │
+└─────────────────────────────────────────────────────────────────────┘
 ```
 
 ## Quick Start
@@ -205,6 +242,24 @@ Create `server/.env`:
 | `POST` | `/api/exports/batch` | Batch export |
 | `GET` | `/api/exports/status/:jobId` | Check export status |
 | `GET` | `/api/exports/download/:jobId` | Download export |
+| `GET` | `/api/streaming` | List streaming outputs |
+| `POST` | `/api/streaming` | Add streaming output |
+| `POST` | `/api/streaming/:id/start` | Start streaming |
+| `POST` | `/api/streaming/:id/stop` | Stop streaming |
+| `GET` | `/api/streaming/health` | Get stream health |
+| `GET` | `/api/switcher` | Get switcher state |
+| `POST` | `/api/switcher/switch` | Switch input |
+| `POST` | `/api/switcher/transition` | Execute transition |
+| `GET` | `/api/integrations` | List data feeds |
+| `POST` | `/api/integrations` | Add data feed |
+| `GET` | `/api/integrations/scores` | Get live scores |
+| `GET` | `/api/recording/status` | Get recording status |
+| `POST` | `/api/recording/start` | Start recording |
+| `POST` | `/api/recording/stop` | Stop recording |
+| `GET` | `/api/audio/channels` | List audio channels |
+| `PUT` | `/api/audio/channels/:id/volume` | Set channel volume |
+| `GET` | `/api/collaboration/:projectId/users` | List project users |
+| `POST` | `/api/collaboration/:projectId/join` | Join project |
 
 For detailed API documentation, see [docs/API.md](docs/API.md).
 
@@ -221,6 +276,15 @@ For detailed API documentation, see [docs/API.md](docs/API.md).
 | `overlay:command` | Both | Control overlay templates |
 | `scene:create` | Client → Server | Create a scene |
 | `live:scene-switch` | Client → Server | Switch live scene |
+| `stream:start` | Client → Server | Start streaming |
+| `stream:status` | Server → Client | Stream status update |
+| `switcher:switch` | Client → Server | Switch input |
+| `switcher:transition` | Client → Server | Execute transition |
+| `data:scores-update` | Server → Client | Live scores update |
+| `recording:start` | Server → Client | Recording started |
+| `audio:levels` | Server → Client | Audio levels update |
+| `collab:cursor-moved` | Server → Room | Cursor position broadcast |
+| `collab:user-joined` | Server → Room | User joined project |
 
 ## Documentation
 
