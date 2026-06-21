@@ -182,26 +182,28 @@ export default function TemplatePreview({ template, onClose, onEdit, onDuplicate
                   ▶ Replay
                 </button>
               </div>
-              <div className="tpl-preview-canvas" style={bgStyles[background]} ref={previewRef}>
+              <div className="tpl-preview-canvas" style={{ ...bgStyles[background], aspectRatio: `${template.canvas?.width || 1920} / ${template.canvas?.height || 1080}` }} ref={previewRef}>
                 {template.elements?.length > 0 ? (
                   template.elements.map((el) => {
                     const s = el.style || {};
+                    const cw = template.canvas?.width || 1920;
+                    const ch = template.canvas?.height || 1080;
                     return (
                       <div
                         key={el.id}
                         className={playing ? 'tpl-element-animate' : ''}
                         style={{
                           position: 'absolute',
-                          left: `${(el.position?.x || 0) / (template.canvas?.width || 1920) * 100}%`,
-                          top: `${(el.position?.y || 0) / (template.canvas?.height || 1080) * 100}%`,
-                          width: `${(el.position?.width || 200) / (template.canvas?.width || 1920) * 100}%`,
-                          height: `${(el.position?.height || 60) / (template.canvas?.height || 1080) * 100}%`,
+                          left: `${(el.position?.x || 0) / cw * 100}%`,
+                          top: `${(el.position?.y || 0) / ch * 100}%`,
+                          width: `${(el.position?.width || 200) / cw * 100}%`,
+                          height: `${(el.position?.height || 60) / ch * 100}%`,
                           backgroundColor: s.backgroundColor || 'transparent',
                           color: s.color || '#fff',
                           fontFamily: s.fontFamily || 'Outfit',
-                          fontSize: `calc(${(s.fontSize || 24) / (template.canvas?.width || 1920) * 100} * 1vw)`,
+                          fontSize: `${(s.fontSize || 24) / ch * 100}%`,
                           fontWeight: s.fontWeight || '400',
-                          borderRadius: `${(s.borderRadius || 0) / (template.canvas?.width || 1920) * 100}%`,
+                          borderRadius: `${(s.borderRadius || 0) / cw * 100}%`,
                           display: 'flex',
                           alignItems: 'center',
                           justifyContent: 'center',

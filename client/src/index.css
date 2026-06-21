@@ -303,8 +303,21 @@ h4 { font-size: 1.15rem; }
 .anim-float { animation: float 6s ease-in-out infinite; }
 
 /* ── Overlay Root (transparent for OBS, full 1920x1080 canvas) ─── */
-.ov-root {
+.sb-viewport {
   position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  background: transparent;
+  z-index: 9999;
+}
+.overlay-mode {
+  padding-top: 0 !important;
+}
+.ov-root {
+  position: absolute;
   top: 0;
   left: 0;
   width: 1920px;
@@ -318,6 +331,7 @@ h4 { font-size: 1.15rem; }
   font-family: 'Teko', 'Rajdhani', 'Outfit', sans-serif;
   z-index: 9999;
   overflow: hidden;
+  transform-origin: top left;
 }
 
 /* ═══ Main Scoreboard Container ═══ */

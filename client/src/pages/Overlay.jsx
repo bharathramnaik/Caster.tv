@@ -48,12 +48,26 @@ export default function Overlay() {
   useEffect(() => {
     document.documentElement.style.background = 'transparent';
     document.body.style.background = 'transparent';
+    document.body.style.margin = '0';
+    document.body.style.padding = '0';
+    document.body.style.overflow = 'hidden';
     const root = document.getElementById('root');
-    if (root) root.style.background = 'transparent';
+    if (root) {
+      root.style.background = 'transparent';
+      root.style.padding = '0';
+      root.style.margin = '0';
+    }
     return () => {
       document.documentElement.style.background = '';
       document.body.style.background = '';
-      if (root) root.style.background = '';
+      document.body.style.margin = '';
+      document.body.style.padding = '';
+      document.body.style.overflow = '';
+      if (root) {
+        root.style.background = '';
+        root.style.padding = '';
+        root.style.margin = '';
+      }
     };
   }, []);
 
@@ -120,8 +134,8 @@ export default function Overlay() {
 
   if (match.status === 'NOT_STARTED' || !inn) {
     return (
-      <div className="sb-viewport" style={{ transform: `translate(-50%, -50%) scale(${scale})` }}>
-        <div className="ov-root">
+      <div className="sb-viewport">
+        <div className="ov-root" style={{ transform: `scale(${scale})` }}>
           <PreMatchCard match={match} />
         </div>
       </div>
@@ -134,8 +148,8 @@ export default function Overlay() {
   const bowlColor = bowlingTeam.colors || { primary: '#1a3c5e', secondary: '#E3B23C' };
 
   return (
-    <div className="sb-viewport" style={{ transform: `translate(-50%, -50%) scale(${scale})` }}>
-      <div className="ov-root">
+    <div className="sb-viewport">
+      <div className="ov-root" style={{ transform: `scale(${scale})` }}>
         {/* Chase info */}
         {(template === 'scoreboard' || template === 'centerScorecard') && inn.target != null && inn.runsNeeded > 0 && (
           <div className="sb-chase">
