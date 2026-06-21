@@ -14,6 +14,7 @@ export default function Navbar() {
     { path: '/teams', label: 'Teams' },
     { path: '/points', label: 'Points' },
     { path: '/integrations', label: 'Integrations' },
+    { path: '/analytics', label: 'Analytics' },
   ];
 
   return (

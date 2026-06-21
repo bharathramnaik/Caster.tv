@@ -1,0 +1,140 @@
+/* ═══════════════════════════════════════════════════════════════
+   3D Components & Particle Effects
+   ═══════════════════════════════════════════════════════════════ */
+
+/* ── 3D Canvas Containers ─── */
+.three-canvas {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+}
+
+.three-canvas.interactive {
+  pointer-events: auto;
+}
+
+/* ── Particle Overlay ─── */
+.particle-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -1;
+  opacity: 0.6;
+}
+
+/* ── 3D Card Hover Effect ─── */
+.card-3d {
+  perspective: 1000px;
+}
+
+.card-3d-inner {
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+}
+
+.card-3d:hover .card-3d-inner {
+  transform: rotateY(10deg) rotateX(5deg);
+}
+
+/* ── Celebration Particles ─── */
+.celebration-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 9998;
+}
+
+/* ── Spark Logo ─── */
+.spark-logo {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.spark-logo canvas {
+  border-radius: 50%;
+}
+
+/* ── Data Visualization Container ─── */
+.data-viz-container {
+  border-radius: var(--radius-lg, 16px);
+  overflow: hidden;
+  background: rgba(10, 14, 26, 0.5);
+  border: 1px solid var(--glass-border, rgba(255,255,255,0.08));
+}
+
+/* ── Scene Preview 3D ─── */
+.scene-preview-3d {
+  border-radius: var(--radius-lg, 16px);
+  overflow: hidden;
+  background: rgba(10, 14, 26, 0.3);
+  border: 1px solid var(--glass-border, rgba(255,255,255,0.08));
+}
+
+/* ── 3D Tilt Effect on Cards ─── */
+.tilt-card {
+  transition: transform 0.3s ease;
+  transform-style: preserve-3d;
+}
+
+.tilt-card:hover {
+  transform: perspective(1000px) rotateY(5deg) rotateX(3deg);
+}
+
+/* ── Particle Canvas (non-overlay) ─── */
+.particle-canvas {
+  position: relative;
+  border-radius: var(--radius-lg, 16px);
+  overflow: hidden;
+}
+
+/* ── Glow Effects ─── */
+.glow-gold {
+  box-shadow: 0 0 20px rgba(247, 201, 72, 0.3),
+              0 0 40px rgba(247, 201, 72, 0.15);
+}
+
+.glow-blue {
+  box-shadow: 0 0 20px rgba(59, 130, 246, 0.3),
+              0 0 40px rgba(59, 130, 246, 0.15);
+}
+
+.glow-red {
+  box-shadow: 0 0 20px rgba(239, 68, 68, 0.3),
+              0 0 40px rgba(239, 68, 68, 0.15);
+}
+
+/* ── Responsive 3D ─── */
+@media (max-width: 768px) {
+  .particle-overlay {
+    opacity: 0.4;
+  }
+
+  .data-viz-container,
+  .scene-preview-3d {
+    min-height: 250px !important;
+  }
+}
+
+/* ── Reduced Motion ─── */
+@media (prefers-reduced-motion: reduce) {
+  .particle-overlay {
+    display: none;
+  }
+
+  .celebration-container {
+    display: none;
+  }
+
+  .card-3d:hover .card-3d-inner {
+    transform: none;
+  }
+}

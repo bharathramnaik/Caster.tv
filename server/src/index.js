@@ -27,7 +27,10 @@ import audioRouter from './routes/audio.js';
 import streamingRouter from './routes/streaming.js';
 import switcherRouter from './routes/switcher.js';
 import collaborationRouter from './routes/collaboration.js';
+import analyticsRouter from './routes/analytics.js';
+import botRouter from './routes/bot.js';
 import { CollaborationManager } from './collaboration/index.js';
+import { SparkBot } from './bot/index.js';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 
@@ -224,6 +227,8 @@ app.use('/api/switcher', switcherRouter);
 app.use('/api/integrations', integrationsRouter);
 app.use('/api/webhooks', webhooksRouter);
 app.use('/api/collaboration', collaborationRouter);
+app.use('/api/analytics', analyticsRouter);
+app.use('/api/bot', botRouter);
 
 const collabManager = new CollaborationManager(io);
 app.set('collabManager', collabManager);

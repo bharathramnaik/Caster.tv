@@ -9,6 +9,7 @@ import { nanoid } from 'nanoid';
 import { feedManager } from './integrations/index.js';
 import { streamManager } from './routes/streaming.js';
 import { CollaborationManager } from './collaboration/index.js';
+import { SparkBot } from './bot/index.js';
 
 // Track connected users and their project rooms
 const connectedUsers = new Map(); // socketId -> { userId, projectIds: Set }
@@ -492,6 +493,51 @@ export function registerHandlers(io, socket) {
       ...data,
       timestamp: new Date().toISOString()
     });
+  });
+
+  // ── Bot Events ────────────────────────────────────────────
+
+  const sparkBot = new SparkBot();
+
+  socket.on('bot:message', async (data) => {
+    const { message, context } = data;
+    if (!message) return;
+
+    const userId = data.userId || socket.id;
+    socket.emit('bot:typing', { typing: true });
+
+    try {
+      const response = await sparkBot.processMessage(userId, message, context || {});
+      socket.emit('bot:message', { response, userId });
+    } catch (err) {
+      socket.emit('bot:message', {
+        response: { type: 'error', content: 'Something went wrong processing your message.' },
+        userId
+      });
+    }
+
+    socket.emit('bot:typing', { typing: false });
+  });
+
+  socket.on('bot:suggestion', (data) => {
+    const userId = data.userId || socket.id;
+    const context = sparkBot.getUserContext(userId);
+    const suggestions = sparkBot.getSuggestion(context);
+    socket.emit('bot:suggestion', { suggestions, userId });
+  });
+
+  socket.on('bot:action', async (data) => {
+    const { actionId, params } = data;
+    if (!actionId) return;
+
+    const userId = data.userId || socket.id;
+    try {
+      const result = await sparkBot.handleAction(userId, actionId, params || {});
+      socket.emit('bot:action', { actionId, result, userId });
+      io.emit('bot:action', { actionId, result, userId, timestamp: Date.now() });
+    } catch (err) {
+      socket.emit('bot:action', { actionId, error: err.message, userId });
+    }
   });
 
   // ── Cleanup on disconnect ─────────────────────────────────

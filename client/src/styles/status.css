@@ -1,0 +1,235 @@
+/* ========================================
+   STATUS INDICATORS
+   ======================================== */
+
+/* === Live Indicator with Pulse === */
+.live-indicator {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 12px;
+  background: rgba(239, 68, 68, 0.2);
+  border: 1px solid rgba(239, 68, 68, 0.5);
+  border-radius: var(--radius-full);
+  color: #ef4444;
+  font-size: var(--text-xs);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+.live-indicator::before {
+  content: '';
+  width: 8px;
+  height: 8px;
+  background: #ef4444;
+  border-radius: 50%;
+  animation: livePulse 1.5s infinite;
+  flex-shrink: 0;
+}
+@keyframes livePulse {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.4);
+  }
+  50% {
+    opacity: 0.6;
+    transform: scale(1.1);
+    box-shadow: 0 0 0 6px rgba(239, 68, 68, 0);
+  }
+}
+
+/* === Status Badges === */
+.status-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 2px 10px;
+  border-radius: var(--radius-full);
+  font-size: var(--text-xs);
+  font-weight: 600;
+}
+.status-badge::before {
+  content: '';
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.status-online {
+  background: rgba(16, 185, 129, 0.15);
+  color: #34d399;
+}
+.status-online::before {
+  background: #10b981;
+  animation: statusPulse 2s infinite;
+}
+
+.status-offline {
+  background: rgba(107, 114, 128, 0.2);
+  color: #9ca3af;
+}
+.status-offline::before {
+  background: #6b7280;
+}
+
+.status-busy {
+  background: rgba(245, 158, 11, 0.15);
+  color: #fbbf24;
+}
+.status-busy::before {
+  background: #f59e0b;
+  animation: statusPulse 1.5s infinite;
+}
+
+.status-error {
+  background: rgba(239, 68, 68, 0.15);
+  color: #f87171;
+}
+.status-error::before {
+  background: #ef4444;
+}
+
+.status-idle {
+  background: rgba(99, 102, 241, 0.15);
+  color: #818cf8;
+}
+.status-idle::before {
+  background: #6366f1;
+}
+
+@keyframes statusPulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
+}
+
+/* === Connection Strength === */
+.signal-bars {
+  display: inline-flex;
+  align-items: flex-end;
+  gap: 2px;
+  height: 16px;
+}
+.signal-bar {
+  width: 3px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 1px;
+}
+.signal-bar.active {
+  background: #10b981;
+}
+.signal-bar:nth-child(1) { height: 4px; }
+.signal-bar:nth-child(2) { height: 7px; }
+.signal-bar:nth-child(3) { height: 10px; }
+.signal-bar:nth-child(4) { height: 13px; }
+.signal-bar:nth-child(5) { height: 16px; }
+
+/* Weak signal */
+.signal-weak .signal-bar:nth-child(1) { background: #f59e0b; }
+.signal-weak .signal-bar:nth-child(2) { background: rgba(255, 255, 255, 0.2); }
+
+/* No signal */
+.signal-none .signal-bar {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+/* === Recording Indicator === */
+.recording-indicator {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 12px;
+  background: rgba(239, 68, 68, 0.2);
+  border: 1px solid rgba(239, 68, 68, 0.4);
+  border-radius: var(--radius-full);
+  color: #ef4444;
+  font-size: var(--text-xs);
+  font-weight: 700;
+  text-transform: uppercase;
+}
+.recording-indicator::before {
+  content: '';
+  width: 8px;
+  height: 8px;
+  background: #ef4444;
+  border-radius: 50%;
+  animation: recordBlink 1s infinite;
+}
+@keyframes recordBlink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.3; }
+}
+
+/* === Audio Level === */
+.audio-level {
+  display: flex;
+  align-items: flex-end;
+  gap: 2px;
+  height: 20px;
+}
+.audio-bar {
+  width: 3px;
+  background: var(--brand-success);
+  border-radius: 1px;
+  transition: height 0.1s ease;
+}
+.audio-bar.warning {
+  background: var(--brand-warning);
+}
+.audio-bar.clip {
+  background: var(--brand-danger);
+}
+
+/* === Score Highlight === */
+.score-highlight {
+  font-weight: 700;
+  color: var(--accent);
+  text-shadow: 0 0 8px rgba(247, 201, 72, 0.3);
+}
+
+.score-update {
+  animation: scoreFlash 0.6s ease;
+}
+@keyframes scoreFlash {
+  0% { color: white; transform: scale(1); }
+  50% { color: var(--accent); transform: scale(1.15); text-shadow: 0 0 12px rgba(247, 201, 72, 0.5); }
+  100% { color: var(--accent); transform: scale(1); }
+}
+
+/* === Notification Dot === */
+.notification-dot {
+  position: relative;
+}
+.notification-dot::after {
+  content: '';
+  position: absolute;
+  top: 2px;
+  right: 2px;
+  width: 8px;
+  height: 8px;
+  background: #ef4444;
+  border-radius: 50%;
+  border: 2px solid var(--bg-800);
+  animation: statusPulse 2s infinite;
+}
+
+/* === Progress Bar === */
+.progress-bar {
+  height: 4px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: var(--radius-full);
+  overflow: hidden;
+}
+.progress-bar-fill {
+  height: 100%;
+  background: var(--gradient-brand);
+  border-radius: var(--radius-full);
+  transition: width 0.5s ease;
+}
+.progress-bar-fill.success {
+  background: linear-gradient(90deg, #10b981, #34d399);
+}
+.progress-bar-fill.danger {
+  background: linear-gradient(90deg, #ef4444, #f87171);
+}

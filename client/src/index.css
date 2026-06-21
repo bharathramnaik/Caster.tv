@@ -3,6 +3,13 @@
    Premium dark luxe theme with cricket-specific tokens.
    ═══════════════════════════════════════════════════════════════ */
 
+/* Phase 5: Enhanced Design System */
+@import './styles/design-system.css';
+@import './styles/micro-interactions.css';
+@import './styles/backgrounds.css';
+@import './styles/status.css';
+@import './styles/navigation.css';
+
 /* ── Tokens ────────────────────────────────────────────────── */
 :root,
 [data-theme="dark"] {
@@ -5519,4 +5526,1533 @@ select.input {
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.05em;
+}
+
+/* ========================================
+   PHASE 5: SPARK AI BOT
+   ======================================== */
+
+/* ── Spark Floating Button ─── */
+.spark-button {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  border: none;
+  background: linear-gradient(135deg, #6366f1, #4f46e5);
+  color: #fff;
+  cursor: pointer;
+  z-index: 9990;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.2s ease, box-shadow 0.3s ease;
+  box-shadow: 0 4px 20px rgba(99, 102, 241, 0.4);
+}
+
+.spark-button:hover {
+  transform: scale(1.1);
+  box-shadow: 0 6px 28px rgba(99, 102, 241, 0.6);
+}
+
+.spark-button-pulse {
+  animation: sparkPulseGlow 2.5s ease-in-out infinite;
+}
+
+.spark-button-bounce {
+  animation: sparkBounceSuggest 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+@keyframes sparkPulseGlow {
+  0%, 100% {
+    box-shadow: 0 4px 20px rgba(99, 102, 241, 0.4), 0 0 0 0 rgba(99, 102, 241, 0.3);
+  }
+  50% {
+    box-shadow: 0 4px 20px rgba(99, 102, 241, 0.4), 0 0 0 12px rgba(99, 102, 241, 0);
+  }
+}
+
+@keyframes sparkBounceSuggest {
+  0% { transform: scale(1); }
+  30% { transform: scale(1.15); }
+  50% { transform: scale(0.95); }
+  70% { transform: scale(1.08); }
+  100% { transform: scale(1); }
+}
+
+/* ── Chat Window ─── */
+.spark-chat {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  width: 380px;
+  height: 500px;
+  max-height: calc(100vh - 48px);
+  border-radius: var(--radius-xl);
+  background: rgba(15, 23, 42, 0.85);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+  display: flex;
+  flex-direction: column;
+  z-index: 9991;
+  overflow: hidden;
+  animation: sparkSlideInChat 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+@keyframes sparkSlideInChat {
+  from {
+    opacity: 0;
+    transform: translateY(20px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* ── Header ─── */
+.spark-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 16px;
+  background: rgba(255, 255, 255, 0.03);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  flex-shrink: 0;
+}
+
+.spark-header-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.spark-header-info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.spark-header-name {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #fff;
+}
+
+.spark-header-status {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 0.7rem;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.spark-status-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #22c55e;
+  box-shadow: 0 0 6px #22c55e;
+}
+
+.spark-header-actions {
+  display: flex;
+  gap: 4px;
+}
+
+.spark-header-btn {
+  width: 28px;
+  height: 28px;
+  border: none;
+  border-radius: var(--radius-sm);
+  background: transparent;
+  color: rgba(255, 255, 255, 0.5);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.15s ease;
+}
+
+.spark-header-btn:hover {
+  background: rgba(255, 255, 255, 0.08);
+  color: #fff;
+}
+
+.spark-header-btn-close:hover {
+  background: rgba(239, 68, 68, 0.2);
+  color: #f87171;
+}
+
+/* ── Messages Area ─── */
+.spark-messages {
+  flex: 1;
+  overflow-y: auto;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  scroll-behavior: smooth;
+}
+
+.spark-messages::-webkit-scrollbar {
+  width: 4px;
+}
+
+.spark-messages::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.spark-messages::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 2px;
+}
+
+/* ── Message Bubbles ─── */
+.spark-message {
+  display: flex;
+  gap: 10px;
+  max-width: 90%;
+  animation: sparkFadeInMessage 0.3s ease-out forwards;
+  opacity: 0;
+}
+
+.spark-message-user {
+  align-self: flex-end;
+  flex-direction: row-reverse;
+}
+
+.spark-message-bot {
+  align-self: flex-start;
+}
+
+.spark-message-body {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.spark-message-user .spark-message-body {
+  align-items: flex-end;
+}
+
+.spark-message-text {
+  padding: 10px 14px;
+  border-radius: 14px;
+  font-size: 0.88rem;
+  line-height: 1.5;
+  color: var(--text-200);
+}
+
+.spark-message-user .spark-message-text {
+  background: #6366f1;
+  color: #fff;
+  border-bottom-right-radius: 4px;
+}
+
+.spark-message-bot .spark-message-text {
+  background: rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-bottom-left-radius: 4px;
+}
+
+.spark-message-title {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.6);
+  margin-bottom: 2px;
+}
+
+.spark-message-time {
+  font-size: 0.65rem;
+  color: rgba(255, 255, 255, 0.3);
+  padding: 0 4px;
+}
+
+@keyframes sparkFadeInMessage {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ── Avatars ─── */
+.spark-avatar {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  background: linear-gradient(135deg, #6366f1, #4f46e5);
+  color: #fff;
+}
+
+.spark-avatar-user {
+  background: rgba(255, 255, 255, 0.1);
+  font-size: 0.65rem;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.spark-avatar-header {
+  width: 32px;
+  height: 32px;
+}
+
+/* ── Typing Indicator ─── */
+.spark-typing {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 4px 0;
+}
+
+.spark-typing-dots {
+  display: flex;
+  gap: 4px;
+  padding: 12px 16px;
+  background: rgba(255, 255, 255, 0.06);
+  border-radius: 14px;
+  border-bottom-left-radius: 4px;
+}
+
+.spark-typing-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.4);
+  animation: sparkTypingBounce 1.4s ease-in-out infinite;
+}
+
+.spark-typing-dot:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.spark-typing-dot:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+@keyframes sparkTypingBounce {
+  0%, 60%, 100% { transform: translateY(0); }
+  30% { transform: translateY(-6px); }
+}
+
+/* ── Rich Card ─── */
+.spark-card {
+  background: rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  overflow: hidden;
+  max-width: 100%;
+}
+
+.spark-card-image {
+  width: 100%;
+  height: 120px;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.spark-card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.spark-card-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 14px 0;
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: #fff;
+}
+
+.spark-card-icon {
+  color: #6366f1;
+}
+
+.spark-card-content {
+  padding: 8px 14px;
+  font-size: 0.82rem;
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.65);
+}
+
+.spark-card-actions {
+  display: flex;
+  gap: 6px;
+  padding: 8px 14px 12px;
+}
+
+.spark-card-btn {
+  padding: 6px 12px;
+  border: 1px solid rgba(99, 102, 241, 0.3);
+  border-radius: var(--radius-sm);
+  background: rgba(99, 102, 241, 0.1);
+  color: #818cf8;
+  font-size: 0.78rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  font-family: var(--font-body);
+}
+
+.spark-card-btn:hover {
+  background: rgba(99, 102, 241, 0.2);
+  border-color: rgba(99, 102, 241, 0.5);
+}
+
+/* ── Step Guide ─── */
+.spark-steps {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.spark-progress {
+  height: 3px;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 2px;
+  overflow: hidden;
+  margin-bottom: 4px;
+}
+
+.spark-progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #6366f1, #818cf8);
+  border-radius: 2px;
+  transition: width 0.3s ease;
+}
+
+.spark-steps-list {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.spark-step {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 8px;
+  border-radius: var(--radius-sm);
+  transition: background 0.2s ease;
+}
+
+.spark-step.active {
+  background: rgba(99, 102, 241, 0.1);
+  animation: sparkStepPulse 2s ease-in-out infinite;
+}
+
+.spark-step.completed {
+  opacity: 0.6;
+}
+
+@keyframes sparkStepPulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(99, 102, 241, 0.2); }
+  50% { box-shadow: 0 0 0 4px rgba(99, 102, 241, 0); }
+}
+
+.spark-step-number {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  font-size: 0.72rem;
+  font-weight: 700;
+  background: rgba(255, 255, 255, 0.08);
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.spark-step.active .spark-step-number {
+  background: #6366f1;
+  color: #fff;
+}
+
+.spark-step.completed .spark-step-number {
+  background: rgba(34, 197, 94, 0.2);
+  color: #22c55e;
+}
+
+.spark-step-body {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex: 1;
+}
+
+.spark-step-icon {
+  font-size: 1rem;
+}
+
+.spark-step-text {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+}
+
+.spark-step-title {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--text-200);
+}
+
+.spark-step-desc {
+  font-size: 0.72rem;
+  color: rgba(255, 255, 255, 0.4);
+}
+
+.spark-steps-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 6px;
+}
+
+.spark-steps-btn {
+  padding: 5px 12px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: var(--radius-sm);
+  background: transparent;
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 0.75rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  font-family: var(--font-body);
+}
+
+.spark-steps-btn:hover:not(:disabled) {
+  background: rgba(255, 255, 255, 0.06);
+  color: #fff;
+}
+
+.spark-steps-btn:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+.spark-steps-btn-primary {
+  background: #6366f1;
+  border-color: #6366f1;
+  color: #fff;
+}
+
+.spark-steps-btn-primary:hover:not(:disabled) {
+  background: #4f46e5;
+}
+
+.spark-steps-counter {
+  font-size: 0.72rem;
+  color: rgba(255, 255, 255, 0.4);
+}
+
+/* ── Quick Actions ─── */
+.spark-quick-actions {
+  display: flex;
+  gap: 6px;
+  padding: 8px 16px;
+  overflow-x: auto;
+  flex-shrink: 0;
+  -webkit-overflow-scrolling: touch;
+}
+
+.spark-quick-actions::-webkit-scrollbar {
+  height: 0;
+}
+
+.spark-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 6px 12px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: var(--radius-full);
+  background: rgba(255, 255, 255, 0.04);
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 0.75rem;
+  font-weight: 600;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all 0.15s ease;
+  flex-shrink: 0;
+  font-family: var(--font-body);
+}
+
+.spark-chip:hover {
+  background: rgba(99, 102, 241, 0.15);
+  border-color: rgba(99, 102, 241, 0.3);
+  color: #818cf8;
+}
+
+.spark-chip-icon {
+  font-size: 0.85rem;
+}
+
+/* ── Input Area ─── */
+.spark-input {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 16px;
+  background: rgba(255, 255, 255, 0.03);
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  flex-shrink: 0;
+}
+
+.spark-input-mic {
+  width: 32px;
+  height: 32px;
+  border: none;
+  border-radius: 50%;
+  background: transparent;
+  color: rgba(255, 255, 255, 0.4);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.15s ease;
+  flex-shrink: 0;
+}
+
+.spark-input-mic:hover {
+  color: #818cf8;
+  background: rgba(99, 102, 241, 0.1);
+}
+
+.spark-input-field {
+  flex: 1;
+  padding: 8px 12px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: var(--radius-md);
+  color: var(--text-200);
+  font-size: 0.88rem;
+  outline: none;
+  transition: border-color 0.2s ease;
+  font-family: var(--font-body);
+}
+
+.spark-input-field:focus {
+  border-color: rgba(99, 102, 241, 0.5);
+}
+
+.spark-input-field::placeholder {
+  color: rgba(255, 255, 255, 0.3);
+}
+
+.spark-input-send {
+  width: 32px;
+  height: 32px;
+  border: none;
+  border-radius: 50%;
+  background: #6366f1;
+  color: #fff;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.15s ease;
+  flex-shrink: 0;
+}
+
+.spark-input-send:hover:not(:disabled) {
+  background: #4f46e5;
+  transform: scale(1.05);
+}
+
+.spark-input-send:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+/* ── Proactive Suggestion ─── */
+.spark-suggestion {
+  position: fixed;
+  bottom: 100px;
+  right: 24px;
+  width: 250px;
+  background: rgba(15, 23, 42, 0.92);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: var(--radius-lg);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+  z-index: 9989;
+  animation: sparkSlideInSuggestion 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+  overflow: hidden;
+}
+
+@keyframes sparkSlideInSuggestion {
+  from {
+    opacity: 0;
+    transform: translateX(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.spark-suggestion-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 14px 0;
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: #818cf8;
+}
+
+.spark-suggestion-body {
+  padding: 6px 14px;
+}
+
+.spark-suggestion-body p {
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.6);
+  line-height: 1.4;
+  margin: 0;
+}
+
+.spark-suggestion-actions {
+  display: flex;
+  gap: 6px;
+  padding: 10px 14px 12px;
+}
+
+.spark-suggestion-btn {
+  flex: 1;
+  padding: 6px 0;
+  border-radius: var(--radius-sm);
+  font-size: 0.78rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  font-family: var(--font-body);
+}
+
+.spark-suggestion-yes {
+  background: #6366f1;
+  border: none;
+  color: #fff;
+}
+
+.spark-suggestion-yes:hover {
+  background: #4f46e5;
+}
+
+.spark-suggestion-no {
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.spark-suggestion-no:hover {
+  background: rgba(255, 255, 255, 0.06);
+  color: #fff;
+}
+
+/* ── Walkthrough Overlay ─── */
+.spark-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 9992;
+  animation: fadeIn 0.3s ease;
+}
+
+.spark-spotlight {
+  position: absolute;
+  border: 2px solid #6366f1;
+  border-radius: 8px;
+  box-shadow: 0 0 0 9999px rgba(0, 0, 0, 0.6), 0 0 20px rgba(99, 102, 241, 0.3);
+  animation: sparkSpotlightPulse 2s ease-in-out infinite;
+  pointer-events: none;
+}
+
+@keyframes sparkSpotlightPulse {
+  0%, 100% { box-shadow: 0 0 0 9999px rgba(0, 0, 0, 0.6), 0 0 20px rgba(99, 102, 241, 0.3); }
+  50% { box-shadow: 0 0 0 9999px rgba(0, 0, 0, 0.6), 0 0 30px rgba(99, 102, 241, 0.5); }
+}
+
+.spark-tooltip {
+  position: absolute;
+  width: 260px;
+  background: rgba(15, 23, 42, 0.95);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: var(--radius-lg);
+  padding: 16px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.6);
+  z-index: 9993;
+  animation: sparkFadeInMessage 0.3s ease;
+}
+
+.spark-tooltip-title {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 6px;
+}
+
+.spark-tooltip-desc {
+  font-size: 0.82rem;
+  color: rgba(255, 255, 255, 0.6);
+  line-height: 1.5;
+  margin-bottom: 12px;
+}
+
+.spark-tooltip-actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.spark-tooltip-btn {
+  padding: 5px 12px;
+  border: none;
+  border-radius: var(--radius-sm);
+  font-size: 0.78rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  font-family: var(--font-body);
+}
+
+.spark-tooltip-btn:not(.spark-tooltip-btn-primary) {
+  background: transparent;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.spark-tooltip-btn:not(.spark-tooltip-btn-primary):hover {
+  color: #fff;
+}
+
+.spark-tooltip-btn-primary {
+  background: #6366f1;
+  color: #fff;
+}
+
+.spark-tooltip-btn-primary:hover {
+  background: #4f46e5;
+}
+
+.spark-tooltip-step {
+  font-size: 0.72rem;
+  color: rgba(255, 255, 255, 0.4);
+}
+
+/* ── Spark Responsive ─── */
+@media (max-width: 480px) {
+  .spark-chat {
+    width: calc(100vw - 16px);
+    right: 8px;
+    bottom: 8px;
+    height: calc(100vh - 80px);
+    border-radius: var(--radius-lg);
+  }
+
+  .spark-button {
+    bottom: 16px;
+    right: 16px;
+    width: 52px;
+    height: 52px;
+  }
+
+  .spark-suggestion {
+    right: 16px;
+    bottom: 80px;
+    width: 220px;
+  }
+}
+
+/* ========================================
+   PHASE 5: 3D GRAPHICS & PARTICLE EFFECTS
+   ======================================== */
+
+/* ── 3D Canvas Containers ─── */
+.three-canvas {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+}
+
+.three-canvas.interactive {
+  pointer-events: auto;
+}
+
+/* ── Particle Overlay ─── */
+.particle-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -1;
+  opacity: 0.6;
+}
+
+/* ── 3D Card Hover Effect ─── */
+.card-3d {
+  perspective: 1000px;
+}
+
+.card-3d-inner {
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+}
+
+.card-3d:hover .card-3d-inner {
+  transform: rotateY(10deg) rotateX(5deg);
+}
+
+/* ── Celebration Particles ─── */
+.celebration-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 9998;
+}
+
+/* ── Spark Logo ─── */
+.spark-logo {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.spark-logo canvas {
+  border-radius: 50%;
+}
+
+/* ── Data Visualization Container ─── */
+.data-viz-container {
+  border-radius: var(--radius-lg, 16px);
+  overflow: hidden;
+  background: rgba(10, 14, 26, 0.5);
+  border: 1px solid var(--glass-border, rgba(255,255,255,0.08));
+}
+
+/* ── Scene Preview 3D ─── */
+.scene-preview-3d {
+  border-radius: var(--radius-lg, 16px);
+  overflow: hidden;
+  background: rgba(10, 14, 26, 0.3);
+  border: 1px solid var(--glass-border, rgba(255,255,255,0.08));
+}
+
+/* ── 3D Tilt Effect on Cards ─── */
+.tilt-card {
+  transition: transform 0.3s ease;
+  transform-style: preserve-3d;
+}
+
+.tilt-card:hover {
+  transform: perspective(1000px) rotateY(5deg) rotateX(3deg);
+}
+
+/* ── Particle Canvas (non-overlay) ─── */
+.particle-canvas {
+  position: relative;
+  border-radius: var(--radius-lg, 16px);
+  overflow: hidden;
+}
+
+/* ── Glow Effects ─── */
+.glow-gold {
+  box-shadow: 0 0 20px rgba(247, 201, 72, 0.3),
+              0 0 40px rgba(247, 201, 72, 0.15);
+}
+
+.glow-blue {
+  box-shadow: 0 0 20px rgba(59, 130, 246, 0.3),
+              0 0 40px rgba(59, 130, 246, 0.15);
+}
+
+.glow-red {
+  box-shadow: 0 0 20px rgba(239, 68, 68, 0.3),
+              0 0 40px rgba(239, 68, 68, 0.15);
+}
+
+/* ── Responsive 3D ─── */
+@media (max-width: 768px) {
+  .particle-overlay {
+    opacity: 0.4;
+  }
+
+  .data-viz-container,
+  .scene-preview-3d {
+    min-height: 250px !important;
+  }
+}
+
+/* ── Reduced Motion ─── */
+@media (prefers-reduced-motion: reduce) {
+  .particle-overlay {
+    display: none;
+  }
+
+  .celebration-container {
+    display: none;
+  }
+
+  .card-3d:hover .card-3d-inner {
+    transform: none;
+  }
+}
+
+/* ========================================
+   PHASE 5: ANALYTICS & SOUND
+   ======================================== */
+
+/* ── Analytics Dashboard Layout ─── */
+.analytics-dashboard {
+  min-height: calc(100vh - 80px);
+  padding: 24px;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+.analytics-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+.analytics-header h2 {
+  margin: 0;
+  font-size: 1.8rem;
+}
+.analytics-subtitle {
+  font-size: 0.9rem;
+  color: var(--text-400);
+  margin: 4px 0 0;
+}
+.analytics-header-actions {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+.analytics-date-select {
+  width: auto;
+  min-width: 160px;
+}
+
+/* ── KPI Cards Row ─── */
+.kpi-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 16px;
+  margin-bottom: 24px;
+}
+.kpi-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  padding: 20px;
+  position: relative;
+  overflow: hidden;
+}
+.kpi-icon {
+  font-size: 2rem;
+  flex-shrink: 0;
+}
+.kpi-content {
+  flex: 1;
+  min-width: 0;
+}
+.kpi-label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--text-500);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 4px;
+}
+.kpi-value {
+  font-family: var(--font-display);
+  font-size: 1.8rem;
+  font-weight: 800;
+  color: var(--text-100);
+  line-height: 1.1;
+}
+.kpi-trend {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  margin-top: 4px;
+}
+.kpi-trend-arrow {
+  font-size: 1rem;
+}
+.sparkline {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 80px;
+  height: 40px;
+  opacity: 0.4;
+}
+
+/* ── Analytics Grid ─── */
+.analytics-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+  margin-bottom: 24px;
+}
+.analytics-card {
+  padding: 20px;
+}
+.analytics-card-title {
+  margin: 0 0 16px;
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--text-200);
+}
+
+/* ── Bar Chart ─── */
+.bar-chart {
+  display: flex;
+  gap: 12px;
+}
+.bar-chart-horizontal {
+  flex-direction: column;
+}
+.bar-chart-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.bar-chart-label {
+  font-size: 0.78rem;
+  color: var(--text-400);
+  min-width: 80px;
+  text-align: right;
+}
+.bar-chart-track {
+  flex: 1;
+  height: 24px;
+  background: var(--bg-700);
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+}
+.bar-chart-bar {
+  height: 100%;
+  border-radius: var(--radius-sm);
+}
+.bar-chart-value {
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--text-300);
+  min-width: 40px;
+}
+.bar-chart-vertical {
+  flex-direction: row;
+  align-items: flex-end;
+  height: 200px;
+}
+.bar-chart-col {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+.bar-chart-track-v {
+  width: 100%;
+  height: 160px;
+  background: var(--bg-700);
+  border-radius: var(--radius-sm);
+  position: relative;
+  overflow: hidden;
+}
+.bar-chart-bar-v {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  border-radius: var(--radius-sm);
+}
+
+/* ── Line Chart ─── */
+.line-chart {
+  width: 100%;
+  overflow: hidden;
+}
+
+/* ── Heat Map ─── */
+.heat-map {
+  position: relative;
+}
+.heat-map-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.heat-map-labels {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  margin-right: 4px;
+}
+.heat-map-day-label {
+  font-size: 0.6rem;
+  color: var(--text-500);
+  height: 14px;
+  display: flex;
+  align-items: center;
+}
+.heat-map-cells {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.heat-map-row {
+  display: flex;
+  gap: 2px;
+}
+.heat-map-cell {
+  width: 14px;
+  height: 14px;
+  border-radius: 2px;
+  cursor: pointer;
+  transition: transform 0.15s;
+}
+.heat-map-cell:hover {
+  transform: scale(1.3);
+  z-index: 1;
+}
+.heat-map-hour-labels {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 6px;
+  padding-left: 30px;
+}
+.heat-map-hour {
+  font-size: 0.6rem;
+  color: var(--text-500);
+}
+.heat-map-legend {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  margin-top: 10px;
+  justify-content: flex-end;
+}
+.heat-map-legend-label {
+  font-size: 0.6rem;
+  color: var(--text-500);
+}
+.heat-map-legend-cell {
+  width: 12px;
+  height: 12px;
+  border-radius: 2px;
+}
+.heat-map-tooltip {
+  position: absolute;
+  bottom: -30px;
+  right: 0;
+  padding: 4px 10px;
+  background: var(--bg-700);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-sm);
+  font-size: 0.72rem;
+  color: var(--text-200);
+  white-space: nowrap;
+  z-index: 10;
+}
+
+/* ── Activity Feed ─── */
+.activity-feed {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+.activity-feed-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.activity-feed-header h4 {
+  margin: 0;
+  font-size: 0.9rem;
+}
+.activity-feed-filters {
+  display: flex;
+  gap: 4px;
+  flex-wrap: wrap;
+}
+.activity-filter-btn {
+  padding: 4px 10px;
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-full);
+  background: transparent;
+  color: var(--text-400);
+  font-size: 0.68rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all var(--t-fast);
+}
+.activity-filter-btn:hover {
+  color: var(--text-200);
+}
+.activity-filter-btn.active {
+  background: var(--accent-dim);
+  color: var(--accent);
+  border-color: var(--accent);
+}
+.activity-feed-list {
+  flex: 1;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  max-height: 300px;
+}
+.activity-feed-empty {
+  text-align: center;
+  padding: 20px;
+  color: var(--text-500);
+  font-size: 0.85rem;
+}
+.activity-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 8px 10px;
+  border-radius: var(--radius-sm);
+  transition: background 0.15s;
+}
+.activity-item:hover {
+  background: rgba(255, 255, 255, 0.03);
+}
+.activity-icon {
+  font-size: 1.1rem;
+  flex-shrink: 0;
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--bg-700);
+  border-radius: var(--radius-sm);
+}
+.activity-content {
+  flex: 1;
+  min-width: 0;
+}
+.activity-description {
+  font-size: 0.82rem;
+  color: var(--text-200);
+  line-height: 1.3;
+}
+.activity-event-type {
+  font-weight: 600;
+  text-transform: capitalize;
+}
+.activity-page, .activity-action {
+  color: var(--text-400);
+}
+.activity-meta {
+  display: flex;
+  gap: 10px;
+  margin-top: 2px;
+  font-size: 0.68rem;
+  color: var(--text-500);
+}
+
+/* ── Bottom Row ─── */
+.analytics-bottom-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+.analytics-activity-card {
+  min-height: 350px;
+}
+.analytics-perf-card {
+  min-height: 350px;
+}
+
+/* ── Performance Panel ─── */
+.performance-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.perf-health {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  padding: 16px;
+  background: var(--bg-700);
+  border-radius: var(--radius-md);
+}
+.perf-health-score {
+  font-family: var(--font-display);
+  font-size: 2.5rem;
+  font-weight: 900;
+  line-height: 1;
+}
+.perf-health-score[data-status="healthy"] { color: var(--green); }
+.perf-health-score[data-status="degraded"] { color: var(--orange); }
+.perf-health-score[data-status="critical"] { color: var(--red); }
+.perf-health-label {
+  font-size: 0.72rem;
+  color: var(--text-500);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+.perf-health-status {
+  font-size: 0.78rem;
+  font-weight: 600;
+  text-transform: capitalize;
+}
+.perf-healthy { color: var(--green); }
+.perf-degraded { color: var(--orange); }
+.perf-critical { color: var(--red); }
+.perf-metrics {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+.perf-metric {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 10px;
+  background: var(--bg-700);
+  border-radius: var(--radius-sm);
+}
+.perf-metric-label {
+  font-size: 0.68rem;
+  color: var(--text-500);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+.perf-metric-value {
+  font-family: var(--font-mono);
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text-200);
+}
+
+/* ── Leaderboard ─── */
+.analytics-leaderboard {
+  margin-bottom: 24px;
+}
+.leaderboard-list {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.leaderboard-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 8px 12px;
+  border-radius: var(--radius-sm);
+  transition: background 0.15s;
+}
+.leaderboard-item:hover {
+  background: rgba(255, 255, 255, 0.03);
+}
+.leaderboard-rank {
+  font-family: var(--font-display);
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--accent);
+  min-width: 30px;
+}
+.leaderboard-user {
+  flex: 1;
+  font-size: 0.85rem;
+  color: var(--text-200);
+  font-weight: 500;
+}
+.leaderboard-count {
+  font-size: 0.78rem;
+  color: var(--text-500);
+}
+
+/* ── Sound Toggle Button ─── */
+.sound-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-full);
+  background: var(--surface);
+  color: var(--text-300);
+  font-size: 0.78rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all var(--t-fast);
+}
+.sound-toggle:hover {
+  background: var(--surface-hover);
+  color: var(--text-100);
+}
+.sound-toggle.muted {
+  color: var(--text-500);
+}
+
+/* ── Responsive Analytics ─── */
+@media (max-width: 1024px) {
+  .analytics-grid {
+    grid-template-columns: 1fr;
+  }
+  .analytics-bottom-row {
+    grid-template-columns: 1fr;
+  }
+}
+@media (max-width: 768px) {
+  .analytics-dashboard {
+    padding: 16px;
+  }
+  .analytics-header {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .kpi-row {
+    grid-template-columns: 1fr 1fr;
+  }
+  .perf-metrics {
+    grid-template-columns: 1fr;
+  }
 }

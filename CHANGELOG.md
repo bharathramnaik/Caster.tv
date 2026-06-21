@@ -151,6 +151,69 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [4.0.0] - 2026-06-21
+
+### Added
+
+#### Spark AI Bot
+- **Natural Language Understanding** - Pattern-based intent classifier with 30+ intents
+- **Action Execution** - Bot can perform actions on behalf of users
+- **Context Tracking** - Remembers where user is in the app
+- **Conversation Memory** - Stores last 50 messages per user
+- **Step-by-Step Guides** - Walkthrough complex workflows
+- **Proactive Suggestions** - Offers help when user seems stuck
+- **Quick Actions** - One-click common tasks
+- **Knowledge Base** - 12 page descriptions, 6 workflow guides, FAQ
+- **Response Types** - Text, cards, step-by-step, quick actions
+- **Rate Limiting** - 30 messages per minute per user
+
+#### Enhanced Design System
+- **Design Tokens** - CSS custom properties for colors, spacing, typography
+- **Glass Morphism 2.0** - Enhanced blur, borders, shadows
+- **Micro-Interactions** - Hover scale, glow, lift, ripple effects
+- **Animated Backgrounds** - Gradient shifts, noise texture, grid patterns
+- **Status Indicators** - Live pulse, recording dot, signal bars
+- **Navigation** - Animated underlines, glass sidebar, breadcrumbs
+- **Skeleton Loading** - Shimmer animation for loading states
+- **Stagger Animations** - Children animate in sequence
+
+#### 3D Graphics & Particles
+- **Three.js Integration** - 3D rendering with React Three Fiber
+- **Spark Logo** - 3D animated lightning bolt with metallic material
+- **Particle Background** - Floating particles with mouse interaction
+- **Score Celebrations** - Burst particles on 4/6/wicket events
+- **3D Data Visualization** - Bar charts and rotating globe
+- **Scene Preview 3D** - Tilt/perspective view of templates
+- **Particle System** - Reusable emitter with physics
+
+#### Analytics Dashboard
+- **Usage Tracking** - Page views, feature usage, user journeys
+- **Performance Monitor** - API response times, memory, CPU, health score
+- **KPI Cards** - Animated counters with sparklines
+- **Charts** - Line chart, bar chart, heatmap (CSS-based)
+- **Activity Feed** - Real-time event stream
+- **User Leaderboard** - Most active users
+
+#### Sound Design
+- **Sound Manager** - Web Audio API oscillator-based synthesis
+- **9 Sound Effects** - Click, success, error, notification, score, wicket, transition, start, stop
+- **Volume Control** - Adjustable with mute persistence
+- **Reduced Motion** - Auto-mute when user prefers
+
+#### New Pages
+- `/analytics` - Analytics dashboard
+
+#### New Components
+- SparkBot, ChatMessage, BotCard, StepGuide, QuickActions, ProactiveSuggestion, SparkOverlay
+- SparkLogo, ParticleBackground, ScoreParticles, DataVisualization, ScenePreview3D
+- KPICard, BarChart, LineChart, HeatMap, ActivityFeed
+
+#### New API Endpoints
+- `/api/bot/*` - Bot message, suggestions, actions, history
+- `/api/analytics/*` - Dashboard, metrics, usage, performance
+
+---
+
 ## [3.0.0] - 2026-06-21
 
 ### Added
@@ -256,6 +319,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 | Version | Date | Highlights |
 |---------|------|------------|
+| 4.0.0 | 2026-06-21 | Spark AI Bot, enhanced design system, 3D graphics, analytics, sound |
 | 3.0.0 | 2026-06-21 | Streaming engine, production switcher, data integrations, collaboration, audio/recording |
 | 2.0.0 | 2026-06-21 | Visual template editor, export system, template management |
 | 1.0.0 | 2026-01-15 | Initial release with full feature set |
