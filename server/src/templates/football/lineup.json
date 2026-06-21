@@ -1,0 +1,204 @@
+{
+  "id": "football-lineup",
+  "name": "Football Team Lineup",
+  "category": "lineup",
+  "sport": "football",
+  "canvas": { "width": 480, "height": 560 },
+  "animation": {
+    "in": { "type": "fade", "duration": 700 },
+    "out": { "type": "fade", "duration": 400 }
+  },
+  "elements": [
+    {
+      "id": "background",
+      "type": "rect",
+      "position": { "x": 0, "y": 0, "width": 480, "height": 560 },
+      "style": { "fill": "#064e3b", "rx": 12, "opacity": 0.97 }
+    },
+    {
+      "id": "header-bg",
+      "type": "rect",
+      "position": { "x": 0, "y": 0, "width": 480, "height": 50 },
+      "style": { "fill": "#022c22", "rx": 12 }
+    },
+    {
+      "id": "team-name",
+      "type": "text",
+      "position": { "x": 0, "y": 12, "width": 300, "height": 26 },
+      "style": { "fontSize": "18px", "fontWeight": "700", "color": "#fff", "fontFamily": "sans-serif", "textAlign": "left" },
+      "binding": "team.name"
+    },
+    {
+      "id": "formation",
+      "type": "text",
+      "position": { "x": 320, "y": 12, "width": 150, "height": 26 },
+      "style": { "fontSize": "16px", "fontWeight": "600", "color": "#34d399", "fontFamily": "monospace", "textAlign": "right" },
+      "binding": "team.formation"
+    },
+    {
+      "id": "field-outline",
+      "type": "rect",
+      "position": { "x": 20, "y": 60, "width": 440, "height": 340 },
+      "style": { "fill": "none", "stroke": "#065f46", "strokeWidth": 2, "rx": 8 }
+    },
+    {
+      "id": "field-center-circle",
+      "type": "circle",
+      "position": { "x": 240, "y": 230, "width": 70, "height": 70 },
+      "style": { "fill": "none", "stroke": "#065f46", "strokeWidth": 1.5 }
+    },
+    {
+      "id": "field-center-dot",
+      "type": "circle",
+      "position": { "x": 240, "y": 230, "width": 6, "height": 6 },
+      "style": { "fill": "#065f46" }
+    },
+    {
+      "id": "gk-1",
+      "type": "text",
+      "position": { "x": 190, "y": 355, "width": 100, "height": 28 },
+      "style": { "fontSize": "11px", "fontWeight": "600", "color": "#fff", "fontFamily": "sans-serif", "textAlign": "center", "backgroundColor": "#1e293b", "borderRadius": "4px", "padding": "4px 8px" },
+      "binding": "team.lineup[0]"
+    },
+    {
+      "id": "def-1",
+      "type": "text",
+      "position": { "x": 40, "y": 290, "width": 100, "height": 28 },
+      "style": { "fontSize": "11px", "fontWeight": "600", "color": "#fff", "fontFamily": "sans-serif", "textAlign": "center", "backgroundColor": "#1e293b", "borderRadius": "4px", "padding": "4px 8px" },
+      "binding": "team.lineup[1]"
+    },
+    {
+      "id": "def-2",
+      "type": "text",
+      "position": { "x": 150, "y": 290, "width": 100, "height": 28 },
+      "style": { "fontSize": "11px", "fontWeight": "600", "color": "#fff", "fontFamily": "sans-serif", "textAlign": "center", "backgroundColor": "#1e293b", "borderRadius": "4px", "padding": "4px 8px" },
+      "binding": "team.lineup[2]"
+    },
+    {
+      "id": "def-3",
+      "type": "text",
+      "position": { "x": 260, "y": 290, "width": 100, "height": 28 },
+      "style": { "fontSize": "11px", "fontWeight": "600", "color": "#fff", "fontFamily": "sans-serif", "textAlign": "center", "backgroundColor": "#1e293b", "borderRadius": "4px", "padding": "4px 8px" },
+      "binding": "team.lineup[3]"
+    },
+    {
+      "id": "def-4",
+      "type": "text",
+      "position": { "x": 370, "y": 290, "width": 100, "height": 28 },
+      "style": { "fontSize": "11px", "fontWeight": "600", "color": "#fff", "fontFamily": "sans-serif", "textAlign": "center", "backgroundColor": "#1e293b", "borderRadius": "4px", "padding": "4px 8px" },
+      "binding": "team.lineup[4]"
+    },
+    {
+      "id": "mid-1",
+      "type": "text",
+      "position": { "x": 40, "y": 215, "width": 100, "height": 28 },
+      "style": { "fontSize": "11px", "fontWeight": "600", "color": "#fff", "fontFamily": "sans-serif", "textAlign": "center", "backgroundColor": "#1e293b", "borderRadius": "4px", "padding": "4px 8px" },
+      "binding": "team.lineup[5]"
+    },
+    {
+      "id": "mid-2",
+      "type": "text",
+      "position": { "x": 150, "y": 215, "width": 100, "height": 28 },
+      "style": { "fontSize": "11px", "fontWeight": "600", "color": "#fff", "fontFamily": "sans-serif", "textAlign": "center", "backgroundColor": "#1e293b", "borderRadius": "4px", "padding": "4px 8px" },
+      "binding": "team.lineup[6]"
+    },
+    {
+      "id": "mid-3",
+      "type": "text",
+      "position": { "x": 260, "y": 215, "width": 100, "height": 28 },
+      "style": { "fontSize": "11px", "fontWeight": "600", "color": "#fff", "fontFamily": "sans-serif", "textAlign": "center", "backgroundColor": "#1e293b", "borderRadius": "4px", "padding": "4px 8px" },
+      "binding": "team.lineup[7]"
+    },
+    {
+      "id": "mid-4",
+      "type": "text",
+      "position": { "x": 370, "y": 215, "width": 100, "height": 28 },
+      "style": { "fontSize": "11px", "fontWeight": "600", "color": "#fff", "fontFamily": "sans-serif", "textAlign": "center", "backgroundColor": "#1e293b", "borderRadius": "4px", "padding": "4px 8px" },
+      "binding": "team.lineup[8]"
+    },
+    {
+      "id": "fwd-1",
+      "type": "text",
+      "position": { "x": 100, "y": 130, "width": 100, "height": 28 },
+      "style": { "fontSize": "11px", "fontWeight": "600", "color": "#fff", "fontFamily": "sans-serif", "textAlign": "center", "backgroundColor": "#1e293b", "borderRadius": "4px", "padding": "4px 8px" },
+      "binding": "team.lineup[9]"
+    },
+    {
+      "id": "fwd-2",
+      "type": "text",
+      "position": { "x": 280, "y": 130, "width": 100, "height": 28 },
+      "style": { "fontSize": "11px", "fontWeight": "600", "color": "#fff", "fontFamily": "sans-serif", "textAlign": "center", "backgroundColor": "#1e293b", "borderRadius": "4px", "padding": "4px 8px" },
+      "binding": "team.lineup[10]"
+    },
+    {
+      "id": "substitutes-label",
+      "type": "text",
+      "position": { "x": 20, "y": 410, "width": 120, "height": 22 },
+      "style": { "fontSize": "12px", "fontWeight": "700", "color": "#34d399", "fontFamily": "sans-serif", "textTransform": "uppercase" },
+      "text": "Substitutes"
+    },
+    {
+      "id": "sub-1",
+      "type": "text",
+      "position": { "x": 20, "y": 438, "width": 100, "height": 24 },
+      "style": { "fontSize": "10px", "fontWeight": "500", "color": "#d1d5db", "fontFamily": "sans-serif" },
+      "binding": "team.substitutes[0]"
+    },
+    {
+      "id": "sub-2",
+      "type": "text",
+      "position": { "x": 130, "y": 438, "width": 100, "height": 24 },
+      "style": { "fontSize": "10px", "fontWeight": "500", "color": "#d1d5db", "fontFamily": "sans-serif" },
+      "binding": "team.substitutes[1]"
+    },
+    {
+      "id": "sub-3",
+      "type": "text",
+      "position": { "x": 240, "y": 438, "width": 100, "height": 24 },
+      "style": { "fontSize": "10px", "fontWeight": "500", "color": "#d1d5db", "fontFamily": "sans-serif" },
+      "binding": "team.substitutes[2]"
+    },
+    {
+      "id": "sub-4",
+      "type": "text",
+      "position": { "x": 350, "y": 438, "width": 100, "height": 24 },
+      "style": { "fontSize": "10px", "fontWeight": "500", "color": "#d1d5db", "fontFamily": "sans-serif" },
+      "binding": "team.substitutes[3]"
+    },
+    {
+      "id": "sub-5",
+      "type": "text",
+      "position": { "x": 20, "y": 466, "width": 100, "height": 24 },
+      "style": { "fontSize": "10px", "fontWeight": "500", "color": "#d1d5db", "fontFamily": "sans-serif" },
+      "binding": "team.substitutes[4]"
+    },
+    {
+      "id": "sub-6",
+      "type": "text",
+      "position": { "x": 130, "y": 466, "width": 100, "height": 24 },
+      "style": { "fontSize": "10px", "fontWeight": "500", "color": "#d1d5db", "fontFamily": "sans-serif" },
+      "binding": "team.substitutes[5]"
+    },
+    {
+      "id": "sub-7",
+      "type": "text",
+      "position": { "x": 240, "y": 466, "width": 100, "height": 24 },
+      "style": { "fontSize": "10px", "fontWeight": "500", "color": "#d1d5db", "fontFamily": "sans-serif" },
+      "binding": "team.substitutes[6]"
+    },
+    {
+      "id": "coach-label",
+      "type": "text",
+      "position": { "x": 20, "y": 500, "width": 100, "height": 22 },
+      "style": { "fontSize": "11px", "fontWeight": "600", "color": "#6b7280", "fontFamily": "sans-serif" },
+      "text": "Manager"
+    },
+    {
+      "id": "coach-name",
+      "type": "text",
+      "position": { "x": 120, "y": 500, "width": 200, "height": 22 },
+      "style": { "fontSize": "11px", "fontWeight": "500", "color": "#d1d5db", "fontFamily": "sans-serif" },
+      "binding": "team.manager"
+    }
+  ]
+}

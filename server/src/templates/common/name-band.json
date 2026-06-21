@@ -1,0 +1,39 @@
+{
+  "id": "common-name-band",
+  "name": "Name Band",
+  "category": "lower-third",
+  "sport": "generic",
+  "canvas": { "width": 500, "height": 100 },
+  "elements": [
+    {
+      "id": "name-bg",
+      "type": "rect",
+      "position": { "x": 0, "y": 0, "width": 500, "height": 100 },
+      "style": { "fill": "#000000", "rx": 4, "opacity": 0.85, "stroke": "#f7c948", "strokeWidth": 0 }
+    },
+    {
+      "id": "accent-bar",
+      "type": "rect",
+      "position": { "x": 0, "y": 0, "width": 4, "height": 100 },
+      "style": { "fill": "#f7c948" }
+    },
+    {
+      "id": "name-text",
+      "type": "text",
+      "position": { "x": 20, "y": 15, "width": 460, "height": 40 },
+      "style": { "fontSize": "28px", "fontWeight": "700", "color": "#ffffff", "fontFamily": "Outfit" },
+      "binding": "person.name"
+    },
+    {
+      "id": "title-text",
+      "type": "text",
+      "position": { "x": 20, "y": 55, "width": 460, "height": 30 },
+      "style": { "fontSize": "16px", "fontWeight": "500", "color": "rgba(255,255,255,0.7)", "fontFamily": "Inter" },
+      "binding": "person.title"
+    }
+  ],
+  "animation": {
+    "in": { "type": "slide", "direction": "left", "duration": 400 },
+    "out": { "type": "slide", "direction": "left", "duration": 400 }
+  }
+}

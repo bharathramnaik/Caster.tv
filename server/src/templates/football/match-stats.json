@@ -1,0 +1,228 @@
+{
+  "id": "football-match-stats",
+  "name": "Football Match Statistics",
+  "category": "statistics",
+  "sport": "football",
+  "canvas": { "width": 500, "height": 350 },
+  "animation": {
+    "in": { "type": "slide", "direction": "bottom", "duration": 600 },
+    "out": { "type": "slide", "direction": "bottom", "duration": 400 }
+  },
+  "elements": [
+    {
+      "id": "background",
+      "type": "rect",
+      "position": { "x": 0, "y": 0, "width": 500, "height": 350 },
+      "style": { "fill": "#0f172a", "rx": 12, "opacity": 0.97 }
+    },
+    {
+      "id": "header-bg",
+      "type": "rect",
+      "position": { "x": 0, "y": 0, "width": 500, "height": 50 },
+      "style": { "fill": "#1e293b", "rx": 12 }
+    },
+    {
+      "id": "header-title",
+      "type": "text",
+      "position": { "x": 0, "y": 10, "width": 500, "height": 30 },
+      "style": { "fontSize": "18px", "fontWeight": "700", "color": "#fff", "fontFamily": "sans-serif", "textAlign": "center", "textTransform": "uppercase" },
+      "text": "Match Statistics"
+    },
+    {
+      "id": "home-team-name",
+      "type": "text",
+      "position": { "x": 10, "y": 55, "width": 150, "height": 25 },
+      "style": { "fontSize": "14px", "fontWeight": "700", "color": "#3b82f6", "fontFamily": "sans-serif", "textAlign": "left" },
+      "binding": "homeTeam.name"
+    },
+    {
+      "id": "away-team-name",
+      "type": "text",
+      "position": { "x": 340, "y": 55, "width": 150, "height": 25 },
+      "style": { "fontSize": "14px", "fontWeight": "700", "color": "#ef4444", "fontFamily": "sans-serif", "textAlign": "right" },
+      "binding": "awayTeam.name"
+    },
+    {
+      "id": "stat-1-label",
+      "type": "text",
+      "position": { "x": 200, "y": 85, "width": 100, "height": 20 },
+      "style": { "fontSize": "11px", "fontWeight": "600", "color": "#94a3b8", "fontFamily": "sans-serif", "textAlign": "center", "textTransform": "uppercase" },
+      "text": "Possession"
+    },
+    {
+      "id": "stat-1-home",
+      "type": "text",
+      "position": { "x": 10, "y": 85, "width": 80, "height": 20 },
+      "style": { "fontSize": "14px", "fontWeight": "700", "color": "#fff", "fontFamily": "monospace", "textAlign": "left" },
+      "binding": "stats.possession.home"
+    },
+    {
+      "id": "stat-1-away",
+      "type": "text",
+      "position": { "x": 410, "y": 85, "width": 80, "height": 20 },
+      "style": { "fontSize": "14px", "fontWeight": "700", "color": "#fff", "fontFamily": "monospace", "textAlign": "right" },
+      "binding": "stats.possession.away"
+    },
+    {
+      "id": "stat-1-bar-home",
+      "type": "rect",
+      "position": { "x": 95, "y": 92, "width": 105, "height": 6 },
+      "style": { "fill": "#3b82f6", "rx": 3 },
+      "binding": "stats.possession.homeBar"
+    },
+    {
+      "id": "stat-1-bar-away",
+      "type": "rect",
+      "position": { "x": 300, "y": 92, "width": 105, "height": 6 },
+      "style": { "fill": "#ef4444", "rx": 3 },
+      "binding": "stats.possession.awayBar"
+    },
+    {
+      "id": "stat-2-label",
+      "type": "text",
+      "position": { "x": 200, "y": 120, "width": 100, "height": 20 },
+      "style": { "fontSize": "11px", "fontWeight": "600", "color": "#94a3b8", "fontFamily": "sans-serif", "textAlign": "center", "textTransform": "uppercase" },
+      "text": "Shots on Target"
+    },
+    {
+      "id": "stat-2-home",
+      "type": "text",
+      "position": { "x": 10, "y": 120, "width": 80, "height": 20 },
+      "style": { "fontSize": "14px", "fontWeight": "700", "color": "#fff", "fontFamily": "monospace", "textAlign": "left" },
+      "binding": "stats.shotsOnTarget.home"
+    },
+    {
+      "id": "stat-2-away",
+      "type": "text",
+      "position": { "x": 410, "y": 120, "width": 80, "height": 20 },
+      "style": { "fontSize": "14px", "fontWeight": "700", "color": "#fff", "fontFamily": "monospace", "textAlign": "right" },
+      "binding": "stats.shotsOnTarget.away"
+    },
+    {
+      "id": "stat-3-label",
+      "type": "text",
+      "position": { "x": 200, "y": 150, "width": 100, "height": 20 },
+      "style": { "fontSize": "11px", "fontWeight": "600", "color": "#94a3b8", "fontFamily": "sans-serif", "textAlign": "center", "textTransform": "uppercase" },
+      "text": "Shots off Target"
+    },
+    {
+      "id": "stat-3-home",
+      "type": "text",
+      "position": { "x": 10, "y": 150, "width": 80, "height": 20 },
+      "style": { "fontSize": "14px", "fontWeight": "700", "color": "#fff", "fontFamily": "monospace", "textAlign": "left" },
+      "binding": "stats.shotsOffTarget.home"
+    },
+    {
+      "id": "stat-3-away",
+      "type": "text",
+      "position": { "x": 410, "y": 150, "width": 80, "height": 20 },
+      "style": { "fontSize": "14px", "fontWeight": "700", "color": "#fff", "fontFamily": "monospace", "textAlign": "right" },
+      "binding": "stats.shotsOffTarget.away"
+    },
+    {
+      "id": "stat-4-label",
+      "type": "text",
+      "position": { "x": 200, "y": 180, "width": 100, "height": 20 },
+      "style": { "fontSize": "11px", "fontWeight": "600", "color": "#94a3b8", "fontFamily": "sans-serif", "textAlign": "center", "textTransform": "uppercase" },
+      "text": "Corners"
+    },
+    {
+      "id": "stat-4-home",
+      "type": "text",
+      "position": { "x": 10, "y": 180, "width": 80, "height": 20 },
+      "style": { "fontSize": "14px", "fontWeight": "700", "color": "#fff", "fontFamily": "monospace", "textAlign": "left" },
+      "binding": "stats.corners.home"
+    },
+    {
+      "id": "stat-4-away",
+      "type": "text",
+      "position": { "x": 410, "y": 180, "width": 80, "height": 20 },
+      "style": { "fontSize": "14px", "fontWeight": "700", "color": "#fff", "fontFamily": "monospace", "textAlign": "right" },
+      "binding": "stats.corners.away"
+    },
+    {
+      "id": "stat-5-label",
+      "type": "text",
+      "position": { "x": 200, "y": 210, "width": 100, "height": 20 },
+      "style": { "fontSize": "11px", "fontWeight": "600", "color": "#94a3b8", "fontFamily": "sans-serif", "textAlign": "center", "textTransform": "uppercase" },
+      "text": "Fouls"
+    },
+    {
+      "id": "stat-5-home",
+      "type": "text",
+      "position": { "x": 10, "y": 210, "width": 80, "height": 20 },
+      "style": { "fontSize": "14px", "fontWeight": "700", "color": "#fff", "fontFamily": "monospace", "textAlign": "left" },
+      "binding": "stats.fouls.home"
+    },
+    {
+      "id": "stat-5-away",
+      "type": "text",
+      "position": { "x": 410, "y": 210, "width": 80, "height": 20 },
+      "style": { "fontSize": "14px", "fontWeight": "700", "color": "#fff", "fontFamily": "monospace", "textAlign": "right" },
+      "binding": "stats.fouls.away"
+    },
+    {
+      "id": "stat-6-label",
+      "type": "text",
+      "position": { "x": 200, "y": 240, "width": 100, "height": 20 },
+      "style": { "fontSize": "11px", "fontWeight": "600", "color": "#94a3b8", "fontFamily": "sans-serif", "textAlign": "center", "textTransform": "uppercase" },
+      "text": "Yellow Cards"
+    },
+    {
+      "id": "stat-6-home",
+      "type": "text",
+      "position": { "x": 10, "y": 240, "width": 80, "height": 20 },
+      "style": { "fontSize": "14px", "fontWeight": "700", "color": "#facc15", "fontFamily": "monospace", "textAlign": "left" },
+      "binding": "stats.yellowCards.home"
+    },
+    {
+      "id": "stat-6-away",
+      "type": "text",
+      "position": { "x": 410, "y": 240, "width": 80, "height": 20 },
+      "style": { "fontSize": "14px", "fontWeight": "700", "color": "#facc15", "fontFamily": "monospace", "textAlign": "right" },
+      "binding": "stats.yellowCards.away"
+    },
+    {
+      "id": "stat-7-label",
+      "type": "text",
+      "position": { "x": 200, "y": 270, "width": 100, "height": 20 },
+      "style": { "fontSize": "11px", "fontWeight": "600", "color": "#94a3b8", "fontFamily": "sans-serif", "textAlign": "center", "textTransform": "uppercase" },
+      "text": "Red Cards"
+    },
+    {
+      "id": "stat-7-home",
+      "type": "text",
+      "position": { "x": 10, "y": 270, "width": 80, "height": 20 },
+      "style": { "fontSize": "14px", "fontWeight": "700", "color": "#ef4444", "fontFamily": "monospace", "textAlign": "left" },
+      "binding": "stats.redCards.home"
+    },
+    {
+      "id": "stat-7-away",
+      "type": "text",
+      "position": { "x": 410, "y": 270, "width": 80, "height": 20 },
+      "style": { "fontSize": "14px", "fontWeight": "700", "color": "#ef4444", "fontFamily": "monospace", "textAlign": "right" },
+      "binding": "stats.redCards.away"
+    },
+    {
+      "id": "stat-8-label",
+      "type": "text",
+      "position": { "x": 200, "y": 300, "width": 100, "height": 20 },
+      "style": { "fontSize": "11px", "fontWeight": "600", "color": "#94a3b8", "fontFamily": "sans-serif", "textAlign": "center", "textTransform": "uppercase" },
+      "text": "Offsides"
+    },
+    {
+      "id": "stat-8-home",
+      "type": "text",
+      "position": { "x": 10, "y": 300, "width": 80, "height": 20 },
+      "style": { "fontSize": "14px", "fontWeight": "700", "color": "#fff", "fontFamily": "monospace", "textAlign": "left" },
+      "binding": "stats.offsides.home"
+    },
+    {
+      "id": "stat-8-away",
+      "type": "text",
+      "position": { "x": 410, "y": 300, "width": 80, "height": 20 },
+      "style": { "fontSize": "14px", "fontWeight": "700", "color": "#fff", "fontFamily": "monospace", "textAlign": "right" },
+      "binding": "stats.offsides.away"
+    }
+  ]
+}

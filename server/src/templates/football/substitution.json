@@ -1,0 +1,109 @@
+{
+  "id": "football-substitution",
+  "name": "Football Substitution Graphic",
+  "category": "event",
+  "sport": "football",
+  "canvas": { "width": 400, "height": 120 },
+  "animation": {
+    "in": { "type": "slide", "direction": "right", "duration": 500 },
+    "out": { "type": "slide", "direction": "right", "duration": 300 }
+  },
+  "elements": [
+    {
+      "id": "background",
+      "type": "rect",
+      "position": { "x": 0, "y": 0, "width": 400, "height": 120 },
+      "style": { "fill": "#1e293b", "rx": 10, "opacity": 0.97 }
+    },
+    {
+      "id": "sub-icon-bg",
+      "type": "rect",
+      "position": { "x": 10, "y": 10, "width": 100, "height": 100 },
+      "style": { "fill": "#22c55e", "rx": 8 }
+    },
+    {
+      "id": "sub-arrow",
+      "type": "text",
+      "position": { "x": 10, "y": 30, "width": 100, "height": 60 },
+      "style": { "fontSize": "36px", "fontWeight": "900", "color": "#fff", "fontFamily": "sans-serif", "textAlign": "center" },
+      "text": "SUB"
+    },
+    {
+      "id": "sub-number",
+      "type": "text",
+      "position": { "x": 10, "y": 75, "width": 100, "height": 25 },
+      "style": { "fontSize": "11px", "fontWeight": "600", "color": "#fff", "fontFamily": "monospace", "textAlign": "center" },
+      "binding": "event.subNumber"
+    },
+    {
+      "id": "player-off-label",
+      "type": "text",
+      "position": { "x": 125, "y": 12, "width": 60, "height": 18 },
+      "style": { "fontSize": "9px", "fontWeight": "600", "color": "#ef4444", "fontFamily": "sans-serif", "textTransform": "uppercase" },
+      "text": "OFF"
+    },
+    {
+      "id": "player-off-name",
+      "type": "text",
+      "position": { "x": 125, "y": 30, "width": 160, "height": 22 },
+      "style": { "fontSize": "15px", "fontWeight": "700", "color": "#fff", "fontFamily": "sans-serif" },
+      "binding": "event.playerOff.name"
+    },
+    {
+      "id": "player-off-number",
+      "type": "text",
+      "position": { "x": 290, "y": 30, "width": 40, "height": 22 },
+      "style": { "fontSize": "14px", "fontWeight": "700", "color": "#94a3b8", "fontFamily": "monospace" },
+      "binding": "event.playerOff.jerseyNumber"
+    },
+    {
+      "id": "player-off-position",
+      "type": "text",
+      "position": { "x": 125, "y": 52, "width": 160, "height": 16 },
+      "style": { "fontSize": "10px", "fontWeight": "500", "color": "#64748b", "fontFamily": "sans-serif" },
+      "binding": "event.playerOff.position"
+    },
+    {
+      "id": "player-on-label",
+      "type": "text",
+      "position": { "x": 125, "y": 76, "width": 60, "height": 18 },
+      "style": { "fontSize": "9px", "fontWeight": "600", "color": "#22c55e", "fontFamily": "sans-serif", "textTransform": "uppercase" },
+      "text": "ON"
+    },
+    {
+      "id": "player-on-name",
+      "type": "text",
+      "position": { "x": 125, "y": 94, "width": 160, "height": 22 },
+      "style": { "fontSize": "15px", "fontWeight": "700", "color": "#fff", "fontFamily": "sans-serif" },
+      "binding": "event.playerOn.name"
+    },
+    {
+      "id": "player-on-number",
+      "type": "text",
+      "position": { "x": 290, "y": 94, "width": 40, "height": 22 },
+      "style": { "fontSize": "14px", "fontWeight": "700", "color": "#94a3b8", "fontFamily": "monospace" },
+      "binding": "event.playerOn.jerseyNumber"
+    },
+    {
+      "id": "player-on-position",
+      "type": "text",
+      "position": { "x": 125, "y": 116, "width": 160, "height": 16 },
+      "style": { "fontSize": "10px", "fontWeight": "500", "color": "#64748b", "fontFamily": "sans-serif" },
+      "binding": "event.playerOn.position"
+    },
+    {
+      "id": "sub-time",
+      "type": "text",
+      "position": { "x": 350, "y": 45, "width": 40, "height": 30 },
+      "style": { "fontSize": "16px", "fontWeight": "700", "color": "#4ade80", "fontFamily": "monospace", "textAlign": "right" },
+      "binding": "event.time"
+    },
+    {
+      "id": "sub-team",
+      "type": "text",
+      "position": { "x": 340, "y": 80, "width": 50, "height": 16 },
+      "style": { "fontSize": "9px", "fontWeight": "600", "color": "#64748b", "fontFamily": "sans-serif", "textAlign": "right" },
+      "binding": "event.team"
+    }
+  ]
+}

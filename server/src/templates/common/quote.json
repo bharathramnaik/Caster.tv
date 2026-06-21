@@ -1,0 +1,53 @@
+{
+  "id": "common-quote",
+  "name": "Quote Overlay",
+  "category": "lower-third",
+  "sport": "generic",
+  "canvas": { "width": 600, "height": 180 },
+  "elements": [
+    {
+      "id": "bg-blur",
+      "type": "rect",
+      "position": { "x": 0, "y": 0, "width": 600, "height": 180 },
+      "style": { "fill": "#000000", "rx": 12, "opacity": 0.85, "backdropFilter": "blur(10px)" }
+    },
+    {
+      "id": "accent-line",
+      "type": "rect",
+      "position": { "x": 20, "y": 20, "width": 4, "height": 140 },
+      "style": { "fill": "#f59e0b", "rx": 2 }
+    },
+    {
+      "id": "open-quote",
+      "type": "text",
+      "position": { "x": 35, "y": 10, "width": 30, "height": 30 },
+      "style": { "fontSize": "28px", "fontWeight": "700", "color": "rgba(245,158,11,0.5)", "fontFamily": "Georgia" },
+      "static": "\u201C"
+    },
+    {
+      "id": "quote-text",
+      "type": "text",
+      "position": { "x": 35, "y": 35, "width": 545, "height": 80 },
+      "style": { "fontSize": "18px", "fontWeight": "500", "color": "#ffffff", "fontFamily": "Inter", "lineHeight": "1.5" },
+      "binding": "quote.text"
+    },
+    {
+      "id": "attribution-text",
+      "type": "text",
+      "position": { "x": 35, "y": 125, "width": 545, "height": 22 },
+      "style": { "fontSize": "15px", "fontWeight": "700", "color": "#f59e0b", "fontFamily": "Outfit" },
+      "binding": "quote.attribution"
+    },
+    {
+      "id": "source-text",
+      "type": "text",
+      "position": { "x": 35, "y": 148, "width": 545, "height": 20 },
+      "style": { "fontSize": "12px", "fontWeight": "500", "color": "rgba(255,255,255,0.5)", "fontFamily": "Inter" },
+      "binding": "quote.source"
+    }
+  ],
+  "animation": {
+    "in": { "type": "fade", "from": 0, "to": 1, "duration": 500 },
+    "out": { "type": "fade", "from": 1, "to": 0, "duration": 400 }
+  }
+}

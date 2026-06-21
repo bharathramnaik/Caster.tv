@@ -1,0 +1,144 @@
+{
+  "id": "football-player-profile",
+  "name": "Football Player Profile",
+  "category": "player",
+  "sport": "football",
+  "canvas": { "width": 320, "height": 400 },
+  "animation": {
+    "in": { "type": "fade", "duration": 500 },
+    "out": { "type": "fade", "duration": 300 }
+  },
+  "elements": [
+    {
+      "id": "background",
+      "type": "rect",
+      "position": { "x": 0, "y": 0, "width": 320, "height": 400 },
+      "style": { "fill": "#1e293b", "rx": 12, "opacity": 0.98 }
+    },
+    {
+      "id": "team-accent-bar",
+      "type": "rect",
+      "position": { "x": 0, "y": 0, "width": 320, "height": 6 },
+      "style": { "fill": "#3b82f6" },
+      "binding": "team.color"
+    },
+    {
+      "id": "player-photo",
+      "type": "image",
+      "position": { "x": 80, "y": 20, "width": 160, "height": 160 },
+      "style": { "borderRadius": "50%", "border": "4px solid #3b82f6" },
+      "binding": "player.photo"
+    },
+    {
+      "id": "jersey-number",
+      "type": "text",
+      "position": { "x": 10, "y": 20, "width": 60, "height": 40 },
+      "style": { "fontSize": "28px", "fontWeight": "800", "color": "#3b82f6", "fontFamily": "sans-serif" },
+      "binding": "player.jerseyNumber"
+    },
+    {
+      "id": "player-name",
+      "type": "text",
+      "position": { "x": 20, "y": 190, "width": 280, "height": 35 },
+      "style": { "fontSize": "22px", "fontWeight": "700", "color": "#fff", "fontFamily": "sans-serif", "textAlign": "center" },
+      "binding": "player.name"
+    },
+    {
+      "id": "player-position",
+      "type": "text",
+      "position": { "x": 20, "y": 225, "width": 280, "height": 25 },
+      "style": { "fontSize": "14px", "fontWeight": "500", "color": "#94a3b8", "fontFamily": "sans-serif", "textAlign": "center", "textTransform": "uppercase" },
+      "binding": "player.position"
+    },
+    {
+      "id": "divider",
+      "type": "rect",
+      "position": { "x": 60, "y": 260, "width": 200, "height": 1 },
+      "style": { "fill": "#334155" }
+    },
+    {
+      "id": "stat-goals-label",
+      "type": "text",
+      "position": { "x": 20, "y": 275, "width": 80, "height": 20 },
+      "style": { "fontSize": "10px", "fontWeight": "600", "color": "#64748b", "fontFamily": "sans-serif", "textAlign": "center", "textTransform": "uppercase" },
+      "text": "Goals"
+    },
+    {
+      "id": "stat-goals-value",
+      "type": "text",
+      "position": { "x": 20, "y": 295, "width": 80, "height": 30 },
+      "style": { "fontSize": "24px", "fontWeight": "800", "color": "#fff", "fontFamily": "monospace", "textAlign": "center" },
+      "binding": "player.stats.goals"
+    },
+    {
+      "id": "stat-assists-label",
+      "type": "text",
+      "position": { "x": 120, "y": 275, "width": 80, "height": 20 },
+      "style": { "fontSize": "10px", "fontWeight": "600", "color": "#64748b", "fontFamily": "sans-serif", "textAlign": "center", "textTransform": "uppercase" },
+      "text": "Assists"
+    },
+    {
+      "id": "stat-assists-value",
+      "type": "text",
+      "position": { "x": 120, "y": 295, "width": 80, "height": 30 },
+      "style": { "fontSize": "24px", "fontWeight": "800", "color": "#fff", "fontFamily": "monospace", "textAlign": "center" },
+      "binding": "player.stats.assists"
+    },
+    {
+      "id": "stat-appearances-label",
+      "type": "text",
+      "position": { "x": 220, "y": 275, "width": 80, "height": 20 },
+      "style": { "fontSize": "10px", "fontWeight": "600", "color": "#64748b", "fontFamily": "sans-serif", "textAlign": "center", "textTransform": "uppercase" },
+      "text": "Apps"
+    },
+    {
+      "id": "stat-appearances-value",
+      "type": "text",
+      "position": { "x": 220, "y": 295, "width": 80, "height": 30 },
+      "style": { "fontSize": "24px", "fontWeight": "800", "color": "#fff", "fontFamily": "monospace", "textAlign": "center" },
+      "binding": "player.stats.appearances"
+    },
+    {
+      "id": "stat-rating-label",
+      "type": "text",
+      "position": { "x": 20, "y": 335, "width": 80, "height": 20 },
+      "style": { "fontSize": "10px", "fontWeight": "600", "color": "#64748b", "fontFamily": "sans-serif", "textAlign": "center", "textTransform": "uppercase" },
+      "text": "Rating"
+    },
+    {
+      "id": "stat-rating-value",
+      "type": "text",
+      "position": { "x": 20, "y": 355, "width": 80, "height": 30 },
+      "style": { "fontSize": "24px", "fontWeight": "800", "color": "#facc15", "fontFamily": "monospace", "textAlign": "center" },
+      "binding": "player.stats.rating"
+    },
+    {
+      "id": "stat-yellow-label",
+      "type": "text",
+      "position": { "x": 120, "y": 335, "width": 80, "height": 20 },
+      "style": { "fontSize": "10px", "fontWeight": "600", "color": "#64748b", "fontFamily": "sans-serif", "textAlign": "center", "textTransform": "uppercase" },
+      "text": "Yellow"
+    },
+    {
+      "id": "stat-yellow-value",
+      "type": "text",
+      "position": { "x": 120, "y": 355, "width": 80, "height": 30 },
+      "style": { "fontSize": "24px", "fontWeight": "800", "color": "#facc15", "fontFamily": "monospace", "textAlign": "center" },
+      "binding": "player.stats.yellowCards"
+    },
+    {
+      "id": "stat-red-label",
+      "type": "text",
+      "position": { "x": 220, "y": 335, "width": 80, "height": 20 },
+      "style": { "fontSize": "10px", "fontWeight": "600", "color": "#64748b", "fontFamily": "sans-serif", "textAlign": "center", "textTransform": "uppercase" },
+      "text": "Red"
+    },
+    {
+      "id": "stat-red-value",
+      "type": "text",
+      "position": { "x": 220, "y": 355, "width": 80, "height": 30 },
+      "style": { "fontSize": "24px", "fontWeight": "800", "color": "#ef4444", "fontFamily": "monospace", "textAlign": "center" },
+      "binding": "player.stats.redCards"
+    }
+  ]
+}

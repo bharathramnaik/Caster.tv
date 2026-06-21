@@ -1,0 +1,55 @@
+{
+  "id": "common-ticker",
+  "name": "Scrolling Ticker",
+  "category": "lower-third",
+  "sport": "generic",
+  "canvas": { "width": 1280, "height": 40 },
+  "elements": [
+    {
+      "id": "bg",
+      "type": "rect",
+      "position": { "x": 0, "y": 0, "width": 1280, "height": 40 },
+      "style": { "fill": "#1a1a2e", "rx": 0, "opacity": 0.92 }
+    },
+    {
+      "id": "top-border",
+      "type": "rect",
+      "position": { "x": 0, "y": 0, "width": 1280, "height": 2 },
+      "style": { "fill": "#f59e0b" }
+    },
+    {
+      "id": "category-label",
+      "type": "rect",
+      "position": { "x": 0, "y": 0, "width": 160, "height": 40 },
+      "style": { "fill": "#dc2626" }
+    },
+    {
+      "id": "category-text",
+      "type": "text",
+      "position": { "x": 10, "y": 8, "width": 140, "height": 24 },
+      "style": { "fontSize": "13px", "fontWeight": "700", "color": "#ffffff", "fontFamily": "Outfit", "textTransform": "uppercase", "letterSpacing": "1px" },
+      "binding": "category"
+    },
+    {
+      "id": "scroll-text",
+      "type": "text",
+      "position": { "x": 170, "y": 8, "width": 1100, "height": 24 },
+      "style": { "fontSize": "15px", "fontWeight": "500", "color": "#ffffff", "fontFamily": "Inter", "animation": "scroll-left 20s linear infinite" },
+      "binding": "tickerText"
+    },
+    {
+      "id": "divider",
+      "type": "rect",
+      "position": { "x": 160, "y": 8, "width": 1, "height": 24 },
+      "style": { "fill": "rgba(255,255,255,0.2)" }
+    }
+  ],
+  "animation": {
+    "in": { "type": "slide", "direction": "bottom", "duration": 400 },
+    "out": { "type": "slide", "direction": "bottom", "duration": 300 }
+  },
+  "config": {
+    "scrollSpeed": 2,
+    "pauseOnHover": true
+  }
+}

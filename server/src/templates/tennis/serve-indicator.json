@@ -1,0 +1,33 @@
+{
+  "id": "tennis-serve-indicator",
+  "name": "Serve Indicator",
+  "category": "indicator",
+  "sport": "tennis",
+  "canvas": { "width": 60, "height": 24 },
+  "elements": [
+    {
+      "id": "bg",
+      "type": "rect",
+      "position": { "x": 0, "y": 0, "width": 60, "height": 24 },
+      "style": { "fill": "#f59e0b", "rx": 12, "opacity": 0.95 }
+    },
+    {
+      "id": "serve-icon",
+      "type": "text",
+      "position": { "x": 8, "y": 3, "width": 20, "height": 18 },
+      "style": { "fontSize": "14px", "color": "#000000", "fontFamily": "sans-serif", "textAlign": "center" },
+      "static": "\u25CF"
+    },
+    {
+      "id": "serve-text",
+      "type": "text",
+      "position": { "x": 28, "y": 4, "width": 28, "height": 16 },
+      "style": { "fontSize": "11px", "fontWeight": "700", "color": "#000000", "fontFamily": "Outfit", "textTransform": "uppercase" },
+      "static": "SERVE"
+    }
+  ],
+  "animation": {
+    "in": { "type": "scale", "from": 0, "to": 1, "duration": 300 },
+    "out": { "type": "scale", "from": 1, "to": 0, "duration": 200 }
+  }
+}

@@ -1,0 +1,94 @@
+{
+  "id": "football-goal-event",
+  "name": "Football Goal Overlay",
+  "category": "event",
+  "sport": "football",
+  "canvas": { "width": 450, "height": 180 },
+  "animation": {
+    "in": { "type": "scale", "from": 0.8, "to": 1, "duration": 500 },
+    "out": { "type": "fade", "duration": 300 }
+  },
+  "elements": [
+    {
+      "id": "background",
+      "type": "rect",
+      "position": { "x": 0, "y": 0, "width": 450, "height": 180 },
+      "style": { "fill": "#1a1a2e", "rx": 12, "opacity": 0.97 }
+    },
+    {
+      "id": "goal-badge-bg",
+      "type": "rect",
+      "position": { "x": 15, "y": 15, "width": 80, "height": 80 },
+      "style": { "fill": "#eab308", "rx": 8 }
+    },
+    {
+      "id": "goal-text",
+      "type": "text",
+      "position": { "x": 15, "y": 30, "width": 80, "height": 50 },
+      "style": { "fontSize": "28px", "fontWeight": "900", "color": "#1a1a2e", "fontFamily": "sans-serif", "textAlign": "center", "textTransform": "uppercase" },
+      "text": "GOAL"
+    },
+    {
+      "id": "scorer-name",
+      "type": "text",
+      "position": { "x": 110, "y": 18, "width": 230, "height": 35 },
+      "style": { "fontSize": "22px", "fontWeight": "800", "color": "#fff", "fontFamily": "sans-serif" },
+      "binding": "event.scorer.name"
+    },
+    {
+      "id": "scorer-team",
+      "type": "text",
+      "position": { "x": 110, "y": 52, "width": 200, "height": 22 },
+      "style": { "fontSize": "13px", "fontWeight": "600", "color": "#94a3b8", "fontFamily": "sans-serif" },
+      "binding": "event.scorer.team"
+    },
+    {
+      "id": "goal-time",
+      "type": "text",
+      "position": { "x": 350, "y": 18, "width": 85, "height": 30 },
+      "style": { "fontSize": "18px", "fontWeight": "700", "color": "#4ade80", "fontFamily": "monospace", "textAlign": "right" },
+      "binding": "event.time"
+    },
+    {
+      "id": "goal-count-label",
+      "type": "text",
+      "position": { "x": 350, "y": 48, "width": 85, "height": 22 },
+      "style": { "fontSize": "12px", "fontWeight": "600", "color": "#94a3b8", "fontFamily": "sans-serif", "textAlign": "right" },
+      "binding": "event.goalNumber"
+    },
+    {
+      "id": "divider",
+      "type": "rect",
+      "position": { "x": 110, "y": 85, "width": 320, "height": 1 },
+      "style": { "fill": "#334155" }
+    },
+    {
+      "id": "assist-label",
+      "type": "text",
+      "position": { "x": 110, "y": 100, "width": 70, "height": 20 },
+      "style": { "fontSize": "10px", "fontWeight": "600", "color": "#64748b", "fontFamily": "sans-serif", "textTransform": "uppercase" },
+      "text": "Assist"
+    },
+    {
+      "id": "assist-name",
+      "type": "text",
+      "position": { "x": 190, "y": 100, "width": 200, "height": 20 },
+      "style": { "fontSize": "13px", "fontWeight": "600", "color": "#d1d5db", "fontFamily": "sans-serif" },
+      "binding": "event.assist.name"
+    },
+    {
+      "id": "score-label",
+      "type": "text",
+      "position": { "x": 110, "y": 130, "width": 70, "height": 20 },
+      "style": { "fontSize": "10px", "fontWeight": "600", "color": "#64748b", "fontFamily": "sans-serif", "textTransform": "uppercase" },
+      "text": "Score"
+    },
+    {
+      "id": "score-display",
+      "type": "text",
+      "position": { "x": 190, "y": 125, "width": 200, "height": 30 },
+      "style": { "fontSize": "22px", "fontWeight": "800", "color": "#fff", "fontFamily": "monospace" },
+      "binding": "matchScore"
+    }
+  ]
+}

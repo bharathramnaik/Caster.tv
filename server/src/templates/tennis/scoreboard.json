@@ -1,0 +1,103 @@
+{
+  "id": "tennis-scoreboard",
+  "name": "Tennis Scoreboard",
+  "category": "scoreboard",
+  "sport": "tennis",
+  "canvas": { "width": 420, "height": 100 },
+  "elements": [
+    {
+      "id": "bg",
+      "type": "rect",
+      "position": { "x": 0, "y": 0, "width": 420, "height": 100 },
+      "style": { "fill": "#1a1a2e", "rx": 8, "opacity": 0.95 }
+    },
+    {
+      "id": "player1-name",
+      "type": "text",
+      "position": { "x": 10, "y": 10, "width": 180, "height": 24 },
+      "style": { "fontSize": "16px", "fontWeight": "700", "color": "#ffffff", "fontFamily": "Outfit" },
+      "binding": "player1.name"
+    },
+    {
+      "id": "player1-sets",
+      "type": "text",
+      "position": { "x": 10, "y": 38, "width": 100, "height": 28 },
+      "style": { "fontSize": "24px", "fontWeight": "800", "color": "#ffffff", "fontFamily": "monospace" },
+      "binding": "player1.sets"
+    },
+    {
+      "id": "player1-games",
+      "type": "text",
+      "position": { "x": 120, "y": 38, "width": 40, "height": 28 },
+      "style": { "fontSize": "22px", "fontWeight": "700", "color": "#4ade80", "fontFamily": "monospace", "textAlign": "center" },
+      "binding": "player1.games"
+    },
+    {
+      "id": "player1-points",
+      "type": "text",
+      "position": { "x": 170, "y": 34, "width": 40, "height": 32 },
+      "style": { "fontSize": "26px", "fontWeight": "800", "color": "#f59e0b", "fontFamily": "monospace", "textAlign": "center" },
+      "binding": "player1.points"
+    },
+    {
+      "id": "serve-indicator-1",
+      "type": "circle",
+      "position": { "x": 196, "y": 12, "width": 10, "height": 10 },
+      "style": { "fill": "#f59e0b" },
+      "binding": "player1.serving"
+    },
+    {
+      "id": "center-divider",
+      "type": "text",
+      "position": { "x": 195, "y": 68, "width": 30, "height": 20 },
+      "style": { "fontSize": "12px", "fontWeight": "500", "color": "rgba(255,255,255,0.3)", "fontFamily": "monospace", "textAlign": "center" },
+      "static": "-"
+    },
+    {
+      "id": "player2-name",
+      "type": "text",
+      "position": { "x": 230, "y": 10, "width": 180, "height": 24 },
+      "style": { "fontSize": "16px", "fontWeight": "700", "color": "#ffffff", "fontFamily": "Outfit", "textAlign": "right" },
+      "binding": "player2.name"
+    },
+    {
+      "id": "player2-sets",
+      "type": "text",
+      "position": { "x": 310, "y": 38, "width": 100, "height": 28 },
+      "style": { "fontSize": "24px", "fontWeight": "800", "color": "#ffffff", "fontFamily": "monospace", "textAlign": "right" },
+      "binding": "player2.sets"
+    },
+    {
+      "id": "player2-games",
+      "type": "text",
+      "position": { "x": 260, "y": 38, "width": 40, "height": 28 },
+      "style": { "fontSize": "22px", "fontWeight": "700", "color": "#4ade80", "fontFamily": "monospace", "textAlign": "center" },
+      "binding": "player2.games"
+    },
+    {
+      "id": "player2-points",
+      "type": "text",
+      "position": { "x": 210, "y": 34, "width": 40, "height": 32 },
+      "style": { "fontSize": "26px", "fontWeight": "800", "color": "#f59e0b", "fontFamily": "monospace", "textAlign": "center" },
+      "binding": "player2.points"
+    },
+    {
+      "id": "serve-indicator-2",
+      "type": "circle",
+      "position": { "x": 215, "y": 12, "width": 10, "height": 10 },
+      "style": { "fill": "#f59e0b" },
+      "binding": "player2.serving"
+    },
+    {
+      "id": "match-info",
+      "type": "text",
+      "position": { "x": 10, "y": 75, "width": 400, "height": 18 },
+      "style": { "fontSize": "12px", "fontWeight": "500", "color": "rgba(255,255,255,0.5)", "fontFamily": "Inter" },
+      "binding": "matchInfo"
+    }
+  ],
+  "animation": {
+    "in": { "type": "slide", "direction": "top", "duration": 400 },
+    "out": { "type": "slide", "direction": "top", "duration": 300 }
+  }
+}

@@ -1,0 +1,44 @@
+{
+  "id": "basketball-shot-clock",
+  "name": "Shot Clock",
+  "category": "clock",
+  "sport": "basketball",
+  "canvas": { "width": 80, "height": 80 },
+  "elements": [
+    {
+      "id": "ring-bg",
+      "type": "circle",
+      "position": { "x": 0, "y": 0, "width": 80, "height": 80 },
+      "style": { "fill": "#1a1a2e", "stroke": "#dc2626", "strokeWidth": 4 }
+    },
+    {
+      "id": "ring-progress",
+      "type": "circle",
+      "position": { "x": 0, "y": 0, "width": 80, "height": 80 },
+      "style": { "fill": "none", "stroke": "#f59e0b", "strokeWidth": 4, "strokeDasharray": "226", "strokeLinecap": "round", "transform-origin": "center" },
+      "binding": "shotClockProgress"
+    },
+    {
+      "id": "clock-text",
+      "type": "text",
+      "position": { "x": 0, "y": 18, "width": 80, "height": 44 },
+      "style": { "fontSize": "32px", "fontWeight": "800", "color": "#ffffff", "fontFamily": "monospace", "textAlign": "center" },
+      "binding": "shotClock"
+    },
+    {
+      "id": "warning-overlay",
+      "type": "circle",
+      "position": { "x": 0, "y": 0, "width": 80, "height": 80 },
+      "style": { "fill": "#dc2626", "opacity": 0, "animation": "blink 0.5s ease-in-out infinite" },
+      "binding": "warning"
+    }
+  ],
+  "animation": {
+    "in": { "type": "scale", "from": 0.5, "to": 1, "duration": 300 },
+    "out": { "type": "scale", "from": 1, "to": 0.5, "duration": 250 }
+  },
+  "config": {
+    "warningThreshold": 5,
+    "criticalThreshold": 2
+  }
+}

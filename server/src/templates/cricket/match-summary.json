@@ -1,0 +1,283 @@
+{
+  "id": "cricket-match-summary",
+  "name": "Cricket Match Summary",
+  "category": "summary",
+  "sport": "cricket",
+  "canvas": { "width": 1920, "height": 1080 },
+  "elements": [
+    {
+      "id": "background",
+      "type": "shape",
+      "position": { "x": 0, "y": 0, "width": 1920, "height": 1080 },
+      "style": { "background": "linear-gradient(180deg, #0a0a0a 0%, #1a1a2e 50%, #0a0a0a 100%)" }
+    },
+    {
+      "id": "header-bar",
+      "type": "shape",
+      "position": { "x": 0, "y": 0, "width": 1920, "height": 60 },
+      "style": { "background": "linear-gradient(90deg, {{team1.primaryColor}} 0%, {{team1.primaryColor}} 50%, {{team2.primaryColor}} 50%, {{team2.primaryColor}} 100%)" }
+    },
+    {
+      "id": "header-text",
+      "type": "text",
+      "position": { "x": 0, "y": 12, "width": 1920, "height": 36 },
+      "style": { "fontSize": "24px", "fontWeight": "700", "color": "#fff", "textAlign": "center", "textTransform": "uppercase", "letterSpacing": "4px" },
+      "literal": "Match Summary"
+    },
+    {
+      "id": "team1-logo",
+      "type": "shape",
+      "position": { "x": 200, "y": 120, "width": 160, "height": 160 },
+      "style": { "background": "{{team1.primaryColor}}", "borderRadius": "50%", "boxShadow": "0 4px 20px rgba(0,0,0,0.3)" }
+    },
+    {
+      "id": "team1-name",
+      "type": "text",
+      "position": { "x": 100, "y": 300, "width": 360, "height": 40 },
+      "style": { "fontSize": "28px", "fontWeight": "700", "color": "#fff", "textAlign": "center" },
+      "binding": "team1.name"
+    },
+    {
+      "id": "team1-score",
+      "type": "text",
+      "position": { "x": 100, "y": 350, "width": 360, "height": 70 },
+      "style": { "fontSize": "56px", "fontWeight": "800", "color": "#fff", "fontFamily": "Teko", "textAlign": "center" },
+      "binding": "team1.score"
+    },
+    {
+      "id": "team1-overs",
+      "type": "text",
+      "position": { "x": 100, "y": 420, "width": 360, "height": 30 },
+      "style": { "fontSize": "18px", "fontWeight": "500", "color": "rgba(255,255,255,0.6)", "textAlign": "center" },
+      "binding": "team1.overs"
+    },
+    {
+      "id": "vs-text",
+      "type": "text",
+      "position": { "x": 860, "y": 300, "width": 200, "height": 60 },
+      "style": { "fontSize": "36px", "fontWeight": "800", "color": "rgba(255,255,255,0.3)", "textAlign": "center", "fontFamily": "Teko" },
+      "literal": "VS"
+    },
+    {
+      "id": "team2-logo",
+      "type": "shape",
+      "position": { "x": 1560, "y": 120, "width": 160, "height": 160 },
+      "style": { "background": "{{team2.primaryColor}}", "borderRadius": "50%", "boxShadow": "0 4px 20px rgba(0,0,0,0.3)" }
+    },
+    {
+      "id": "team2-name",
+      "type": "text",
+      "position": { "x": 1460, "y": 300, "width": 360, "height": 40 },
+      "style": { "fontSize": "28px", "fontWeight": "700", "color": "#fff", "textAlign": "center" },
+      "binding": "team2.name"
+    },
+    {
+      "id": "team2-score",
+      "type": "text",
+      "position": { "x": 1460, "y": 350, "width": 360, "height": 70 },
+      "style": { "fontSize": "56px", "fontWeight": "800", "color": "#fff", "fontFamily": "Teko", "textAlign": "center" },
+      "binding": "team2.score"
+    },
+    {
+      "id": "team2-overs",
+      "type": "text",
+      "position": { "x": 1460, "y": 420, "width": 360, "height": 30 },
+      "style": { "fontSize": "18px", "fontWeight": "500", "color": "rgba(255,255,255,0.6)", "textAlign": "center" },
+      "binding": "team2.overs"
+    },
+    {
+      "id": "result-divider",
+      "type": "shape",
+      "position": { "x": 400, "y": 480, "width": 1120, "height": 2 },
+      "style": { "background": "linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent)" }
+    },
+    {
+      "id": "result-text",
+      "type": "text",
+      "position": { "x": 200, "y": 500, "width": 1520, "height": 50 },
+      "style": { "fontSize": "26px", "fontWeight": "700", "color": "#E3B23C", "textAlign": "center" },
+      "binding": "match.result"
+    },
+    {
+      "id": "performers-section-divider",
+      "type": "shape",
+      "position": { "x": 400, "y": 570, "width": 1120, "height": 2 },
+      "style": { "background": "rgba(255,255,255,0.1)" }
+    },
+    {
+      "id": "performers-header",
+      "type": "text",
+      "position": { "x": 200, "y": 590, "width": 1520, "height": 35 },
+      "style": { "fontSize": "16px", "fontWeight": "600", "color": "rgba(255,255,255,0.4)", "textTransform": "uppercase", "letterSpacing": "3px", "textAlign": "center" },
+      "literal": "Top Performers"
+    },
+    {
+      "id": "top-batter-card",
+      "type": "shape",
+      "position": { "x": 150, "y": 640, "width": 320, "height": 140 },
+      "style": { "background": "rgba(255,255,255,0.05)", "borderRadius": "8px", "border": "1px solid rgba(255,255,255,0.1)" }
+    },
+    {
+      "id": "top-batter-label",
+      "type": "text",
+      "position": { "x": 170, "y": 650, "width": 120, "height": 20 },
+      "style": { "fontSize": "11px", "fontWeight": "600", "color": "rgba(255,255,255,0.4)", "textTransform": "uppercase" },
+      "literal": "Top Batter"
+    },
+    {
+      "id": "top-batter-name",
+      "type": "text",
+      "position": { "x": 170, "y": 675, "width": 280, "height": 30 },
+      "style": { "fontSize": "22px", "fontWeight": "700", "color": "#fff" },
+      "binding": "performers.topBatter.name"
+    },
+    {
+      "id": "top-batter-score",
+      "type": "text",
+      "position": { "x": 170, "y": 710, "width": 280, "height": 50 },
+      "style": { "fontSize": "36px", "fontWeight": "800", "color": "#E3B23C", "fontFamily": "Teko" },
+      "binding": "performers.topBatter.score"
+    },
+    {
+      "id": "top-bowler-card",
+      "type": "shape",
+      "position": { "x": 530, "y": 640, "width": 320, "height": 140 },
+      "style": { "background": "rgba(255,255,255,0.05)", "borderRadius": "8px", "border": "1px solid rgba(255,255,255,0.1)" }
+    },
+    {
+      "id": "top-bowler-label",
+      "type": "text",
+      "position": { "x": 550, "y": 650, "width": 120, "height": 20 },
+      "style": { "fontSize": "11px", "fontWeight": "600", "color": "rgba(255,255,255,0.4)", "textTransform": "uppercase" },
+      "literal": "Top Bowler"
+    },
+    {
+      "id": "top-bowler-name",
+      "type": "text",
+      "position": { "x": 550, "y": 675, "width": 280, "height": 30 },
+      "style": { "fontSize": "22px", "fontWeight": "700", "color": "#fff" },
+      "binding": "performers.topBowler.name"
+    },
+    {
+      "id": "top-bowler-figures",
+      "type": "text",
+      "position": { "x": 550, "y": 710, "width": 280, "height": 50 },
+      "style": { "fontSize": "36px", "fontWeight": "800", "color": "#E3B23C", "fontFamily": "Teko" },
+      "binding": "performers.topBowler.figures"
+    },
+    {
+      "id": "mom-card",
+      "type": "shape",
+      "position": { "x": 910, "y": 640, "width": 320, "height": 140 },
+      "style": { "background": "linear-gradient(135deg, rgba(227,178,60,0.15) 0%, rgba(227,178,60,0.05) 100%)", "borderRadius": "8px", "border": "1px solid rgba(227,178,60,0.3)" }
+    },
+    {
+      "id": "mom-label",
+      "type": "text",
+      "position": { "x": 930, "y": 650, "width": 150, "height": 20 },
+      "style": { "fontSize": "11px", "fontWeight": "600", "color": "#E3B23C", "textTransform": "uppercase" },
+      "literal": "Man of the Match"
+    },
+    {
+      "id": "mom-name",
+      "type": "text",
+      "position": { "x": 930, "y": 675, "width": 280, "height": 30 },
+      "style": { "fontSize": "22px", "fontWeight": "700", "color": "#fff" },
+      "binding": "performers.manOfTheMatch.name"
+    },
+    {
+      "id": "mom-performance",
+      "type": "text",
+      "position": { "x": 930, "y": 710, "width": 280, "height": 50 },
+      "style": { "fontSize": "28px", "fontWeight": "700", "color": "#E3B23C", "fontFamily": "Teko" },
+      "binding": "performers.manOfTheMatch.performance"
+    },
+    {
+      "id": "best-batting-card",
+      "type": "shape",
+      "position": { "x": 1290, "y": 640, "width": 320, "height": 140 },
+      "style": { "background": "rgba(255,255,255,0.05)", "borderRadius": "8px", "border": "1px solid rgba(255,255,255,0.1)" }
+    },
+    {
+      "id": "best-batting-label",
+      "type": "text",
+      "position": { "x": 1310, "y": 650, "width": 150, "height": 20 },
+      "style": { "fontSize": "11px", "fontWeight": "600", "color": "rgba(255,255,255,0.4)", "textTransform": "uppercase" },
+      "literal": "Best Batting SR"
+    },
+    {
+      "id": "best-batting-name",
+      "type": "text",
+      "position": { "x": 1310, "y": 675, "width": 280, "height": 30 },
+      "style": { "fontSize": "22px", "fontWeight": "700", "color": "#fff" },
+      "binding": "performers.bestBattingStrikeRate.name"
+    },
+    {
+      "id": "best-batting-sr",
+      "type": "text",
+      "position": { "x": 1310, "y": 710, "width": 280, "height": 50 },
+      "style": { "fontSize": "36px", "fontWeight": "800", "color": "#E3B23C", "fontFamily": "Teko" },
+      "binding": "performers.bestBattingStrikeRate.strikeRate"
+    },
+    {
+      "id": "fow-divider",
+      "type": "shape",
+      "position": { "x": 400, "y": 810, "width": 1120, "height": 2 },
+      "style": { "background": "rgba(255,255,255,0.1)" }
+    },
+    {
+      "id": "fow-header",
+      "type": "text",
+      "position": { "x": 200, "y": 830, "width": 1520, "height": 30 },
+      "style": { "fontSize": "14px", "fontWeight": "600", "color": "rgba(255,255,255,0.4)", "textTransform": "uppercase", "letterSpacing": "2px", "textAlign": "center" },
+      "literal": "Fall of Wickets"
+    },
+    {
+      "id": "fow-team1-label",
+      "type": "text",
+      "position": { "x": 200, "y": 870, "width": 200, "height": 25 },
+      "style": { "fontSize": "16px", "fontWeight": "600", "color": "{{team1.primaryColor}}" },
+      "binding": "team1.short"
+    },
+    {
+      "id": "fow-team1-wickets",
+      "type": "text",
+      "position": { "x": 200, "y": 900, "width": 700, "height": 40 },
+      "style": { "fontSize": "15px", "fontWeight": "400", "color": "rgba(255,255,255,0.6)", "lineHeight": "1.4" },
+      "binding": "team1.fallOfWickets"
+    },
+    {
+      "id": "fow-team2-label",
+      "type": "text",
+      "position": { "x": 1020, "y": 870, "width": 200, "height": 25 },
+      "style": { "fontSize": "16px", "fontWeight": "600", "color": "{{team2.primaryColor}}" },
+      "binding": "team2.short"
+    },
+    {
+      "id": "fow-team2-wickets",
+      "type": "text",
+      "position": { "x": 1020, "y": 900, "width": 700, "height": 40 },
+      "style": { "fontSize": "15px", "fontWeight": "400", "color": "rgba(255,255,255,0.6)", "lineHeight": "1.4" },
+      "binding": "team2.fallOfWickets"
+    },
+    {
+      "id": "footer-bar",
+      "type": "shape",
+      "position": { "x": 0, "y": 1040, "width": 1920, "height": 40 },
+      "style": { "background": "rgba(0,0,0,0.5)" }
+    },
+    {
+      "id": "match-info",
+      "type": "text",
+      "position": { "x": 0, "y": 1045, "width": 1920, "height": 30 },
+      "style": { "fontSize": "13px", "fontWeight": "500", "color": "rgba(255,255,255,0.4)", "textAlign": "center" },
+      "binding": "match.info"
+    }
+  ],
+  "animation": {
+    "enter": "scale-in-fade",
+    "exit": "scale-out-fade",
+    "duration": 1.0,
+    "stagger": 0.04
+  }
+}

@@ -1,0 +1,130 @@
+{
+  "id": "basketball-player-stats",
+  "name": "Player Stats",
+  "category": "lower-third",
+  "sport": "basketball",
+  "canvas": { "width": 380, "height": 160 },
+  "elements": [
+    {
+      "id": "bg",
+      "type": "rect",
+      "position": { "x": 0, "y": 0, "width": 380, "height": 160 },
+      "style": { "fill": "#1a1a2e", "rx": 8, "opacity": 0.95 }
+    },
+    {
+      "id": "player-photo",
+      "type": "image",
+      "position": { "x": 10, "y": 10, "width": 70, "height": 70 },
+      "style": { "rx": 35 },
+      "binding": "player.photo"
+    },
+    {
+      "id": "player-number",
+      "type": "text",
+      "position": { "x": 10, "y": 85, "width": 70, "height": 20 },
+      "style": { "fontSize": "14px", "fontWeight": "700", "color": "#f59e0b", "fontFamily": "monospace", "textAlign": "center" },
+      "binding": "player.number"
+    },
+    {
+      "id": "player-name",
+      "type": "text",
+      "position": { "x": 90, "y": 10, "width": 280, "height": 28 },
+      "style": { "fontSize": "22px", "fontWeight": "700", "color": "#ffffff", "fontFamily": "Outfit" },
+      "binding": "player.name"
+    },
+    {
+      "id": "player-position",
+      "type": "text",
+      "position": { "x": 90, "y": 38, "width": 140, "height": 20 },
+      "style": { "fontSize": "13px", "fontWeight": "600", "color": "rgba(255,255,255,0.6)", "fontFamily": "Inter" },
+      "binding": "player.position"
+    },
+    {
+      "id": "team-name",
+      "type": "text",
+      "position": { "x": 240, "y": 38, "width": 130, "height": 20 },
+      "style": { "fontSize": "13px", "fontWeight": "600", "color": "#f59e0b", "fontFamily": "Inter", "textAlign": "right" },
+      "binding": "player.team"
+    },
+    {
+      "id": "divider-line",
+      "type": "rect",
+      "position": { "x": 10, "y": 110, "width": 360, "height": 1 },
+      "style": { "fill": "rgba(255,255,255,0.1)" }
+    },
+    {
+      "id": "stat-pts-label",
+      "type": "text",
+      "position": { "x": 10, "y": 118, "width": 60, "height": 16 },
+      "style": { "fontSize": "10px", "fontWeight": "600", "color": "rgba(255,255,255,0.5)", "fontFamily": "Inter", "textTransform": "uppercase", "textAlign": "center" },
+      "static": "PTS"
+    },
+    {
+      "id": "stat-pts-value",
+      "type": "text",
+      "position": { "x": 10, "y": 134, "width": 60, "height": 20 },
+      "style": { "fontSize": "18px", "fontWeight": "800", "color": "#ffffff", "fontFamily": "monospace", "textAlign": "center" },
+      "binding": "stats.points"
+    },
+    {
+      "id": "stat-reb-label",
+      "type": "text",
+      "position": { "x": 80, "y": 118, "width": 60, "height": 16 },
+      "style": { "fontSize": "10px", "fontWeight": "600", "color": "rgba(255,255,255,0.5)", "fontFamily": "Inter", "textTransform": "uppercase", "textAlign": "center" },
+      "static": "REB"
+    },
+    {
+      "id": "stat-reb-value",
+      "type": "text",
+      "position": { "x": 80, "y": 134, "width": 60, "height": 20 },
+      "style": { "fontSize": "18px", "fontWeight": "800", "color": "#ffffff", "fontFamily": "monospace", "textAlign": "center" },
+      "binding": "stats.rebounds"
+    },
+    {
+      "id": "stat-ast-label",
+      "type": "text",
+      "position": { "x": 150, "y": 118, "width": 60, "height": 16 },
+      "style": { "fontSize": "10px", "fontWeight": "600", "color": "rgba(255,255,255,0.5)", "fontFamily": "Inter", "textTransform": "uppercase", "textAlign": "center" },
+      "static": "AST"
+    },
+    {
+      "id": "stat-ast-value",
+      "type": "text",
+      "position": { "x": 150, "y": 134, "width": 60, "height": 20 },
+      "style": { "fontSize": "18px", "fontWeight": "800", "color": "#ffffff", "fontFamily": "monospace", "textAlign": "center" },
+      "binding": "stats.assists"
+    },
+    {
+      "id": "stat-stl-label",
+      "type": "text",
+      "position": { "x": 220, "y": 118, "width": 60, "height": 16 },
+      "style": { "fontSize": "10px", "fontWeight": "600", "color": "rgba(255,255,255,0.5)", "fontFamily": "Inter", "textTransform": "uppercase", "textAlign": "center" },
+      "static": "STL"
+    },
+    {
+      "id": "stat-stl-value",
+      "type": "text",
+      "position": { "x": 220, "y": 134, "width": 60, "height": 20 },
+      "style": { "fontSize": "18px", "fontWeight": "800", "color": "#ffffff", "fontFamily": "monospace", "textAlign": "center" },
+      "binding": "stats.steals"
+    },
+    {
+      "id": "stat-min-label",
+      "type": "text",
+      "position": { "x": 310, "y": 118, "width": 60, "height": 16 },
+      "style": { "fontSize": "10px", "fontWeight": "600", "color": "rgba(255,255,255,0.5)", "fontFamily": "Inter", "textTransform": "uppercase", "textAlign": "center" },
+      "static": "MIN"
+    },
+    {
+      "id": "stat-min-value",
+      "type": "text",
+      "position": { "x": 310, "y": 134, "width": 60, "height": 20 },
+      "style": { "fontSize": "18px", "fontWeight": "800", "color": "#ffffff", "fontFamily": "monospace", "textAlign": "center" },
+      "binding": "stats.minutes"
+    }
+  ],
+  "animation": {
+    "in": { "type": "slide", "direction": "bottom", "duration": 400 },
+    "out": { "type": "slide", "direction": "bottom", "duration": 300 }
+  }
+}

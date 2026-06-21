@@ -1,0 +1,182 @@
+{
+  "id": "cricket-ball-by-ball",
+  "name": "Cricket Ball by Ball Overlay",
+  "category": "overlay",
+  "sport": "cricket",
+  "canvas": { "width": 400, "height": 200 },
+  "elements": [
+    {
+      "id": "overlay-background",
+      "type": "shape",
+      "position": { "x": 0, "y": 0, "width": 400, "height": 200 },
+      "style": { "background": "linear-gradient(180deg, rgba(10,10,10,0.95) 0%, rgba(20,20,40,0.95) 100%)", "borderRadius": "12px", "boxShadow": "0 4px 24px rgba(0,0,0,0.5)" }
+    },
+    {
+      "id": "current-ball-circle",
+      "type": "shape",
+      "position": { "x": 20, "y": 20, "width": 80, "height": 80 },
+      "style": { "borderRadius": "50%", "background": "{{currentBall.color}}", "display": "flex", "alignItems": "center", "justifyContent": "center", "boxShadow": "0 0 16px {{currentBall.colorGlow}}" }
+    },
+    {
+      "id": "current-ball-text",
+      "type": "text",
+      "position": { "x": 20, "y": 35, "width": 80, "height": 50 },
+      "style": { "fontSize": "36px", "fontWeight": "800", "color": "#fff", "textAlign": "center", "fontFamily": "Teko" },
+      "binding": "currentBall.display"
+    },
+    {
+      "id": "current-ball-label",
+      "type": "text",
+      "position": { "x": 20, "y": 105, "width": 80, "height": 20 },
+      "style": { "fontSize": "11px", "fontWeight": "500", "color": "rgba(255,255,255,0.5)", "textAlign": "center", "textTransform": "uppercase" },
+      "literal": "Last Ball"
+    },
+    {
+      "id": "this-over-divider",
+      "type": "shape",
+      "position": { "x": 120, "y": 20, "width": 1, "height": 160 },
+      "style": { "background": "rgba(255,255,255,0.1)" }
+    },
+    {
+      "id": "this-over-label",
+      "type": "text",
+      "position": { "x": 140, "y": 25, "width": 240, "height": 20 },
+      "style": { "fontSize": "12px", "fontWeight": "600", "color": "rgba(255,255,255,0.4)", "textTransform": "uppercase", "letterSpacing": "2px" },
+      "literal": "This Over"
+    },
+    {
+      "id": "over-ball-1",
+      "type": "shape",
+      "position": { "x": 140, "y": 55, "width": 36, "height": 36 },
+      "style": { "borderRadius": "50%", "background": "{{thisOver[0].color}}" }
+    },
+    {
+      "id": "over-ball-1-text",
+      "type": "text",
+      "position": { "x": 140, "y": 60, "width": 36, "height": 26 },
+      "style": { "fontSize": "16px", "fontWeight": "700", "color": "#fff", "textAlign": "center" },
+      "binding": "thisOver[0].display"
+    },
+    {
+      "id": "over-ball-2",
+      "type": "shape",
+      "position": { "x": 186, "y": 55, "width": 36, "height": 36 },
+      "style": { "borderRadius": "50%", "background": "{{thisOver[1].color}}" }
+    },
+    {
+      "id": "over-ball-2-text",
+      "type": "text",
+      "position": { "x": 186, "y": 60, "width": 36, "height": 26 },
+      "style": { "fontSize": "16px", "fontWeight": "700", "color": "#fff", "textAlign": "center" },
+      "binding": "thisOver[1].display"
+    },
+    {
+      "id": "over-ball-3",
+      "type": "shape",
+      "position": { "x": 232, "y": 55, "width": 36, "height": 36 },
+      "style": { "borderRadius": "50%", "background": "{{thisOver[2].color}}" }
+    },
+    {
+      "id": "over-ball-3-text",
+      "type": "text",
+      "position": { "x": 232, "y": 60, "width": 36, "height": 26 },
+      "style": { "fontSize": "16px", "fontWeight": "700", "color": "#fff", "textAlign": "center" },
+      "binding": "thisOver[2].display"
+    },
+    {
+      "id": "over-ball-4",
+      "type": "shape",
+      "position": { "x": 278, "y": 55, "width": 36, "height": 36 },
+      "style": { "borderRadius": "50%", "background": "{{thisOver[3].color}}" }
+    },
+    {
+      "id": "over-ball-4-text",
+      "type": "text",
+      "position": { "x": 278, "y": 60, "width": 36, "height": 26 },
+      "style": { "fontSize": "16px", "fontWeight": "700", "color": "#fff", "textAlign": "center" },
+      "binding": "thisOver[3].display"
+    },
+    {
+      "id": "over-ball-5",
+      "type": "shape",
+      "position": { "x": 324, "y": 55, "width": 36, "height": 36 },
+      "style": { "borderRadius": "50%", "background": "{{thisOver[4].color}}" }
+    },
+    {
+      "id": "over-ball-5-text",
+      "type": "text",
+      "position": { "x": 324, "y": 60, "width": 36, "height": 26 },
+      "style": { "fontSize": "16px", "fontWeight": "700", "color": "#fff", "textAlign": "center" },
+      "binding": "thisOver[4].display"
+    },
+    {
+      "id": "over-ball-6",
+      "type": "shape",
+      "position": { "x": 370, "y": 55, "width": 36, "height": 36 },
+      "style": { "borderRadius": "50%", "background": "{{thisOver[5].color}}" }
+    },
+    {
+      "id": "over-ball-6-text",
+      "type": "text",
+      "position": { "x": 370, "y": 60, "width": 36, "height": 26 },
+      "style": { "fontSize": "16px", "fontWeight": "700", "color": "#fff", "textAlign": "center" },
+      "binding": "thisOver[5].display"
+    },
+    {
+      "id": "this-over-total",
+      "type": "text",
+      "position": { "x": 140, "y": 100, "width": 260, "height": 22 },
+      "style": { "fontSize": "14px", "fontWeight": "600", "color": "rgba(255,255,255,0.5)" },
+      "binding": "thisOverTotal runs from {{thisOverBalls}} balls"
+    },
+    {
+      "id": "rates-divider",
+      "type": "shape",
+      "position": { "x": 20, "y": 135, "width": 360, "height": 1 },
+      "style": { "background": "rgba(255,255,255,0.1)" }
+    },
+    {
+      "id": "run-rate-label",
+      "type": "text",
+      "position": { "x": 20, "y": 150, "width": 100, "height": 18 },
+      "style": { "fontSize": "11px", "fontWeight": "500", "color": "rgba(255,255,255,0.4)", "textTransform": "uppercase" },
+      "literal": "Run Rate"
+    },
+    {
+      "id": "run-rate-value",
+      "type": "text",
+      "position": { "x": 130, "y": 145, "width": 60, "height": 25 },
+      "style": { "fontSize": "18px", "fontWeight": "700", "color": "#fff" },
+      "binding": "innings.runRate"
+    },
+    {
+      "id": "required-rr-label",
+      "type": "text",
+      "position": { "x": 200, "y": 150, "width": 120, "height": 18 },
+      "style": { "fontSize": "11px", "fontWeight": "500", "color": "rgba(255,255,255,0.4)", "textTransform": "uppercase" },
+      "literal": "Req. Rate",
+      "condition": "isChasing"
+    },
+    {
+      "id": "required-rr-value",
+      "type": "text",
+      "position": { "x": 330, "y": 145, "width": 50, "height": 25 },
+      "style": { "fontSize": "18px", "fontWeight": "700", "color": "{{requiredRateColor}}" },
+      "binding": "innings.requiredRunRate",
+      "condition": "isChasing"
+    },
+    {
+      "id": "boundary-text",
+      "type": "text",
+      "position": { "x": 20, "y": 170, "width": 360, "height": 20 },
+      "style": { "fontSize": "13px", "fontWeight": "600", "color": "{{currentBall.highlightColor}}", "textAlign": "center" },
+      "binding": "currentBall.description"
+    }
+  ],
+  "animation": {
+    "enter": "pop-in",
+    "exit": "pop-out",
+    "duration": 0.3,
+    "stagger": 0.02
+  }
+}

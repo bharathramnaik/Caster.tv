@@ -1,0 +1,54 @@
+{
+  "id": "common-social-media",
+  "name": "Social Media Handle",
+  "category": "lower-third",
+  "sport": "generic",
+  "canvas": { "width": 360, "height": 70 },
+  "elements": [
+    {
+      "id": "bg",
+      "type": "rect",
+      "position": { "x": 0, "y": 0, "width": 360, "height": 70 },
+      "style": { "fill": "#111827", "rx": 10, "opacity": 0.95 }
+    },
+    {
+      "id": "platform-icon-bg",
+      "type": "circle",
+      "position": { "x": 12, "y": 12, "width": 46, "height": 46 },
+      "style": { "fill": "#1da1f2" },
+      "binding": "platform.color"
+    },
+    {
+      "id": "platform-icon",
+      "type": "text",
+      "position": { "x": 12, "y": 14, "width": 46, "height": 46 },
+      "style": { "fontSize": "20px", "fontWeight": "700", "color": "#ffffff", "fontFamily": "sans-serif", "textAlign": "center" },
+      "binding": "platform.icon"
+    },
+    {
+      "id": "username-text",
+      "type": "text",
+      "position": { "x": 70, "y": 10, "width": 280, "height": 28 },
+      "style": { "fontSize": "18px", "fontWeight": "700", "color": "#ffffff", "fontFamily": "Inter" },
+      "binding": "username"
+    },
+    {
+      "id": "follower-text",
+      "type": "text",
+      "position": { "x": 70, "y": 38, "width": 230, "height": 22 },
+      "style": { "fontSize": "13px", "fontWeight": "500", "color": "rgba(255,255,255,0.6)", "fontFamily": "Inter" },
+      "binding": "followerCount"
+    },
+    {
+      "id": "verified-badge",
+      "type": "text",
+      "position": { "x": 310, "y": 18, "width": 30, "height": 30 },
+      "style": { "fontSize": "18px", "color": "#1da1f2", "fontFamily": "sans-serif" },
+      "binding": "verified"
+    }
+  ],
+  "animation": {
+    "in": { "type": "slide", "direction": "bottom", "duration": 350 },
+    "out": { "type": "slide", "direction": "bottom", "duration": 300 }
+  }
+}

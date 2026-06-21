@@ -1,0 +1,143 @@
+{
+  "id": "cricket-partnership",
+  "name": "Cricket Partnership Tracker",
+  "category": "overlay",
+  "sport": "cricket",
+  "canvas": { "width": 600, "height": 180 },
+  "elements": [
+    {
+      "id": "partnership-bg",
+      "type": "shape",
+      "position": { "x": 0, "y": 0, "width": 600, "height": 180 },
+      "style": { "background": "linear-gradient(135deg, rgba(10,10,30,0.95) 0%, rgba(20,20,50,0.95) 100%)", "borderRadius": "12px", "boxShadow": "0 4px 20px rgba(0,0,0,0.4)" }
+    },
+    {
+      "id": "partnership-header-bar",
+      "type": "shape",
+      "position": { "x": 0, "y": 0, "width": 600, "height": 4 },
+      "style": { "background": "linear-gradient(90deg, {{batter1.team.primaryColor}}, {{batter2.team.primaryColor}})" }
+    },
+    {
+      "id": "partnership-label",
+      "type": "text",
+      "position": { "x": 20, "y": 15, "width": 200, "height": 20 },
+      "style": { "fontSize": "11px", "fontWeight": "600", "color": "rgba(255,255,255,0.4)", "textTransform": "uppercase", "letterSpacing": "2px" },
+      "literal": "Current Partnership"
+    },
+    {
+      "id": "partnership-runs-value",
+      "type": "text",
+      "position": { "x": 20, "y": 35, "width": 160, "height": 60 },
+      "style": { "fontSize": "52px", "fontWeight": "800", "color": "#fff", "fontFamily": "Teko" },
+      "binding": "partnership.runs"
+    },
+    {
+      "id": "partnership-runs-label",
+      "type": "text",
+      "position": { "x": 185, "y": 55, "width": 40, "height": 30 },
+      "style": { "fontSize": "16px", "fontWeight": "500", "color": "rgba(255,255,255,0.5)" },
+      "literal": "runs"
+    },
+    {
+      "id": "partnership-balls",
+      "type": "text",
+      "position": { "x": 20, "y": 100, "width": 200, "height": 20 },
+      "style": { "fontSize": "14px", "fontWeight": "500", "color": "rgba(255,255,255,0.6)" },
+      "binding": "{{partnership.balls}} balls | RR: {{partnership.runRate}}"
+    },
+    {
+      "id": "divider-vertical",
+      "type": "shape",
+      "position": { "x": 300, "y": 15, "width": 1, "height": 150 },
+      "style": { "background": "rgba(255,255,255,0.1)" }
+    },
+    {
+      "id": "batter1-label",
+      "type": "text",
+      "position": { "x": 320, "y": 15, "width": 120, "height": 18 },
+      "style": { "fontSize": "10px", "fontWeight": "600", "color": "{{batter1.team.primaryColor}}", "textTransform": "uppercase" },
+      "literal": "Striker"
+    },
+    {
+      "id": "batter1-name",
+      "type": "text",
+      "position": { "x": 320, "y": 33, "width": 260, "height": 24 },
+      "style": { "fontSize": "18px", "fontWeight": "700", "color": "#fff" },
+      "binding": "batter1.name"
+    },
+    {
+      "id": "batter1-score",
+      "type": "text",
+      "position": { "x": 320, "y": 58, "width": 120, "height": 35 },
+      "style": { "fontSize": "28px", "fontWeight": "800", "color": "#E3B23C", "fontFamily": "Teko" },
+      "binding": "batter1.runs"
+    },
+    {
+      "id": "batter1-balls",
+      "type": "text",
+      "position": { "x": 445, "y": 65, "width": 120, "height": 24 },
+      "style": { "fontSize": "16px", "fontWeight": "500", "color": "rgba(255,255,255,0.5)" },
+      "binding": "from {{batter1.balls}} balls"
+    },
+    {
+      "id": "batter1-contribution",
+      "type": "text",
+      "position": { "x": 320, "y": 88, "width": 260, "height": 18 },
+      "style": { "fontSize": "12px", "fontWeight": "500", "color": "rgba(255,255,255,0.4)" },
+      "binding": "{{batter1.contribution}}% of partnership"
+    },
+    {
+      "id": "batter2-label",
+      "type": "text",
+      "position": { "x": 320, "y": 115, "width": 120, "height": 18 },
+      "style": { "fontSize": "10px", "fontWeight": "600", "color": "{{batter2.team.primaryColor}}", "textTransform": "uppercase" },
+      "literal": "Non-Striker"
+    },
+    {
+      "id": "batter2-name",
+      "type": "text",
+      "position": { "x": 320, "y": 133, "width": 260, "height": 24 },
+      "style": { "fontSize": "18px", "fontWeight": "700", "color": "#fff" },
+      "binding": "batter2.name"
+    },
+    {
+      "id": "batter2-score",
+      "type": "text",
+      "position": { "x": 320, "y": 158, "width": 120, "height": 20 },
+      "style": { "fontSize": "22px", "fontWeight": "700", "color": "#E3B23C", "fontFamily": "Teko" },
+      "binding": "batter2.runs"
+    },
+    {
+      "id": "batter2-balls",
+      "type": "text",
+      "position": { "x": 445, "y": 160, "width": 120, "height": 18 },
+      "style": { "fontSize": "14px", "fontWeight": "500", "color": "rgba(255,255,255,0.5)" },
+      "binding": "from {{batter2.balls}} balls"
+    },
+    {
+      "id": "partnership-bar-bg",
+      "type": "shape",
+      "position": { "x": 20, "y": 130, "width": 260, "height": 8 },
+      "style": { "background": "rgba(255,255,255,0.1)", "borderRadius": "4px" }
+    },
+    {
+      "id": "partnership-bar-fill",
+      "type": "shape",
+      "position": { "x": 20, "y": 130, "width": "{{partnership.barWidth}}", "height": 8 },
+      "style": { "background": "linear-gradient(90deg, {{batter1.team.primaryColor}}, {{batter2.team.primaryColor}})", "borderRadius": "4px" }
+    },
+    {
+      "id": "milestone-text",
+      "type": "text",
+      "position": { "x": 20, "y": 150, "width": 260, "height": 20 },
+      "style": { "fontSize": "12px", "fontWeight": "600", "color": "#E3B23C", "textAlign": "center" },
+      "binding": "partnership.milestone"
+    }
+  ],
+  "animation": {
+    "enter": "slide-in-right",
+    "exit": "slide-out-right",
+    "duration": 0.5,
+    "stagger": 0.03
+  }
+}
