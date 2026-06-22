@@ -6,6 +6,7 @@ import { Router } from 'express';
 import { RecordingManager } from '../recording/recordingManager.js';
 import { RecordingScheduler } from '../recording/recordingScheduler.js';
 import { QualityManager } from '../recording/qualityManager.js';
+import { legacyAuth } from '../middleware/auth.js';
 
 const router = Router();
 
@@ -16,7 +17,7 @@ const qualityManager = new QualityManager();
 // ── Recording Routes ──────────────────────────────────────────
 
 // POST /api/recording/start
-router.post('/start', (req, res) => {
+router.post('/start', legacyAuth, (req, res) => {
   try {
     const { format, quality } = req.body;
     const recording = recordingManager.startRecording({ format, quality });
@@ -27,7 +28,7 @@ router.post('/start', (req, res) => {
 });
 
 // POST /api/recording/stop
-router.post('/stop', (req, res) => {
+router.post('/stop', legacyAuth, (req, res) => {
   try {
     const recording = recordingManager.stopRecording();
     if (!recording) return res.status(400).json({ error: 'No active recording' });
@@ -38,7 +39,7 @@ router.post('/stop', (req, res) => {
 });
 
 // POST /api/recording/pause
-router.post('/pause', (req, res) => {
+router.post('/pause', legacyAuth, (req, res) => {
   try {
     const recording = recordingManager.pauseRecording();
     if (!recording) return res.status(400).json({ error: 'No active recording' });
@@ -49,7 +50,7 @@ router.post('/pause', (req, res) => {
 });
 
 // POST /api/recording/resume
-router.post('/resume', (req, res) => {
+router.post('/resume', legacyAuth, (req, res) => {
   try {
     const recording = recordingManager.resumeRecording();
     if (!recording) return res.status(400).json({ error: 'No paused recording' });
@@ -70,7 +71,7 @@ router.get('/recordings', (req, res) => {
 });
 
 // DELETE /api/recording/recordings/:id
-router.delete('/recordings/:id', (req, res) => {
+router.delete('/recordings/:id', legacyAuth, (req, res) => {
   try {
     const deleted = recordingManager.deleteRecording(req.params.id);
     if (!deleted) return res.status(404).json({ error: 'Recording not found' });

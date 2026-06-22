@@ -85,10 +85,36 @@ if (existsSync(clientDist)) {
 // ── REST API ────────────────────────────────────────────────────
 
 app.post('/api/matches', protect, (req, res) => {
+  const body = req.body || {};
+
+  // Normalize team data — support both flat (teamA/teamB) and nested (teams.a/b) formats
+  const teamA = body.teamA || body.teams?.a?.name || body.teams?.a?.name;
+  const teamB = body.teamB || body.teams?.b?.name || body.teams?.b?.name;
+  if (!teamA || !teamB) {
+    return res.status(400).json({ error: 'teamA and teamB (or teams.a.name and teams.b.name) are required' });
+  }
+
+  const teamAColors = body.teamAColors || (body.teams?.a?.colors) || { primary: '#1a237e', secondary: '#ffd700' };
+  const teamBColors = body.teamBColors || (body.teams?.b?.colors) || { primary: '#b71c1c', secondary: '#ffffff' };
+
   const matchId = `m_${nanoid(8)}`;
-  const match = createMatchState({ matchId, ...req.body });
+  const match = createMatchState({
+    matchId,
+    teamA,
+    teamB,
+    teamAShort: body.teamAShort || body.teams?.a?.short,
+    teamBShort: body.teamBShort || body.teams?.b?.short,
+    teamAColors,
+    teamBColors,
+    maxOvers: body.maxOvers,
+    matchType: body.matchType,
+    venue: body.venue,
+    tournamentName: body.tournamentName,
+    tossWinner: body.tossWinner,
+    tossDecision: body.tossDecision,
+  });
   store.createMatch(match);
-  console.log(`Match created: ${matchId} — ${req.body.teamA} vs ${req.body.teamB}`);
+  console.log(`Match created: ${matchId} — ${teamA} vs ${teamB}`);
   res.json(match);
 });
 
@@ -270,7 +296,8 @@ feedManager.on('feed:stopped', ({ id, type }) => {
 // ── Start ───────────────────────────────────────────────────────
 
 // SPA catch-all — serve index.html for non-API, non-Socket.IO routes
-app.get('*', (req, res) => {
+app.use((req, res, next) => {
+  if (req.method !== 'GET') return next();
   if (req.path.startsWith('/api/') || req.path.startsWith('/socket.io')) {
     return res.status(404).json({ error: 'Not found' });
   }

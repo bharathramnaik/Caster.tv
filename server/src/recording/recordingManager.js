@@ -28,7 +28,7 @@ const DEFAULT_CONFIG = {
 
 const STATE_MACHINE = {
   idle: ['preparing'],
-  preparing: ['recording'],
+  preparing: ['recording', 'finalizing'],
   recording: ['paused', 'finalizing'],
   paused: ['recording', 'finalizing'],
   finalizing: ['completed'],
@@ -192,6 +192,14 @@ export class RecordingManager {
   stopRecording() {
     if (!this.activeRecording) return null;
     this._stopTimer();
+    if (this.activeRecording.state === 'preparing') {
+      const rec = this.activeRecording;
+      rec.state = 'completed';
+      rec.updatedAt = new Date().toISOString();
+      this.activeRecording = null;
+      this._save();
+      return rec;
+    }
     this._transition('finalizing');
     this.activeRecording.duration = Math.round(
       (Date.now() - new Date(this.activeRecording.startTime).getTime() - this.activeRecording.totalPausedTime) / 1000

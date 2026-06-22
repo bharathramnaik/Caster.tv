@@ -13,6 +13,7 @@
  */
 import { Router } from 'express';
 import { StreamManager } from '../streaming/index.js';
+import { legacyAuth } from '../middleware/auth.js';
 
 const router = Router();
 const streamManager = new StreamManager();
@@ -31,10 +32,16 @@ router.get('/', (_req, res) => {
 });
 
 // POST /api/streaming - Add new output
-router.post('/', (req, res) => {
+router.post('/', legacyAuth, (req, res) => {
   try {
     const { type, config } = req.body;
     if (!type) return res.status(400).json({ error: 'type is required' });
+    if (config?.url && !/^(https?|rtmp|rtmps?):\/\/.+/.test(config.url)) {
+      return res.status(400).json({ error: 'Invalid stream URL format' });
+    }
+    if (type === 'rtmp' && (!config?.url || !config?.streamKey)) {
+      return res.status(400).json({ error: 'RTMP requires url and streamKey' });
+    }
 
     const output = streamManager.addOutput(type, config || {});
     res.status(201).json(output);
@@ -74,7 +81,7 @@ router.get('/alerts', (_req, res) => {
 });
 
 // POST /api/streaming/scene/:sceneId - Switch scene for all outputs
-router.post('/scene/:sceneId', (req, res) => {
+router.post('/scene/:sceneId', legacyAuth, (req, res) => {
   try {
     streamManager.switchScene(req.params.sceneId);
     res.json({ ok: true, sceneId: req.params.sceneId });
@@ -83,8 +90,19 @@ router.post('/scene/:sceneId', (req, res) => {
   }
 });
 
+// GET /api/streaming/:id - Get specific output
+router.get('/:id', (req, res) => {
+  try {
+    const output = streamManager.getOutput(req.params.id);
+    if (!output) return res.status(404).json({ error: 'Output not found' });
+    res.json(output);
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+});
+
 // DELETE /api/streaming/:id - Remove output
-router.delete('/:id', (req, res) => {
+router.delete('/:id', legacyAuth, (req, res) => {
   try {
     streamManager.removeOutput(req.params.id);
     res.json({ ok: true });
@@ -94,7 +112,7 @@ router.delete('/:id', (req, res) => {
 });
 
 // POST /api/streaming/:id/start - Start specific output
-router.post('/:id/start', async (req, res) => {
+router.post('/:id/start', legacyAuth, async (req, res) => {
   try {
     await streamManager.startOutput(req.params.id);
     res.json({ ok: true, state: 'active' });
@@ -104,7 +122,7 @@ router.post('/:id/start', async (req, res) => {
 });
 
 // POST /api/streaming/:id/stop - Stop specific output
-router.post('/:id/stop', (req, res) => {
+router.post('/:id/stop', legacyAuth, (req, res) => {
   try {
     streamManager.stopOutput(req.params.id);
     res.json({ ok: true, state: 'stopped' });
@@ -114,7 +132,7 @@ router.post('/:id/stop', (req, res) => {
 });
 
 // PUT /api/streaming/:id/config - Update output config
-router.put('/:id/config', (req, res) => {
+router.put('/:id/config', legacyAuth, (req, res) => {
   try {
     streamManager.updateOutputConfig(req.params.id, req.body);
     const output = streamManager.getOutput(req.params.id);

@@ -189,10 +189,12 @@ class StreamManager extends EventEmitter {
 
   /**
    * Get metrics history from the monitor.
+   * @param {number} limit - Max entries to return (default 100)
    * @returns {Array}
    */
-  getHistory() {
-    return this.monitor.getHistory();
+  getHistory(limit = 100) {
+    const history = this.monitor.getHistory();
+    return Array.isArray(history) ? history.slice(-limit) : [];
   }
 
   /**
