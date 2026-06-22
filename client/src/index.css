@@ -3,6 +3,9 @@
    Premium dark luxe theme with cricket-specific tokens.
    ═══════════════════════════════════════════════════════════════ */
 
+/* Phase 6: Flowing Animations */
+@import './styles/flowing-animations.css';
+
 /* Phase 5: Enhanced Design System */
 @import './styles/design-system.css';
 @import './styles/micro-interactions.css';
@@ -7069,4 +7072,94 @@ select.input {
   .perf-metrics {
     grid-template-columns: 1fr;
   }
+}
+
+/* ── Bug Board ──────────────────────────────────────────────── */
+.bug-board { padding: 24px; }
+.bug-board-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px; flex-wrap: wrap; gap: 12px; }
+.bug-board-stats { display: flex; gap: 16px; flex-wrap: wrap; }
+.bug-stat-card { padding: 12px 20px; border-radius: 12px; background: var(--glass-bg, rgba(26,34,53,0.55)); border: 1px solid var(--glass-border); }
+.bug-stat-value { font-size: 24px; font-weight: 700; }
+.bug-stat-label { font-size: 12px; color: var(--text-500); }
+
+.bug-kanban { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; min-height: 500px; }
+.bug-column { background: rgba(15,23,42,0.5); border-radius: 12px; padding: 16px; }
+.bug-column-header { font-weight: 600; margin-bottom: 12px; padding-bottom: 8px; border-bottom: 2px solid; color: var(--text-200); }
+.bug-column-open .bug-column-header { border-color: #ef4444; color: #ef4444; }
+.bug-column-progress .bug-column-header { border-color: #f59e0b; color: #f59e0b; }
+.bug-column-resolved .bug-column-header { border-color: #10b981; color: #10b981; }
+.bug-column-closed .bug-column-header { border-color: #6b7280; color: #6b7280; }
+
+.bug-card { background: var(--glass-bg, rgba(26,34,53,0.55)); border: 1px solid var(--glass-border); border-radius: 8px; padding: 12px; margin-bottom: 8px; cursor: pointer; transition: all 0.2s; }
+.bug-card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(0,0,0,0.3); }
+.bug-card-id { font-size: 11px; color: var(--text-500); font-family: monospace; }
+.bug-card-title { font-weight: 600; margin: 4px 0; font-size: 14px; }
+.bug-card-meta { display: flex; gap: 8px; align-items: center; }
+
+.bug-severity { padding: 2px 6px; border-radius: 4px; font-size: 10px; font-weight: 700; }
+.bug-severity-p0 { background: rgba(239,68,68,0.2); color: #ef4444; }
+.bug-severity-p1 { background: rgba(249,115,22,0.2); color: #f97316; }
+.bug-severity-p2 { background: rgba(245,158,11,0.2); color: #f59e0b; }
+.bug-severity-p3 { background: rgba(59,130,246,0.2); color: #3b82f6; }
+.bug-severity-p4 { background: rgba(107,114,128,0.2); color: #6b7280; }
+
+.bug-detail-modal { position: fixed; inset: 0; background: rgba(0,0,0,0.7); display: flex; align-items: center; justify-content: center; z-index: 10000; }
+.bug-detail-content { background: var(--bg-900); border: 1px solid var(--glass-border); border-radius: 16px; width: 700px; max-height: 80vh; overflow-y: auto; padding: 24px; }
+
+.test-results-panel { margin-top: 24px; }
+.test-summary { display: flex; gap: 16px; margin-bottom: 16px; }
+.test-stat { padding: 12px 20px; border-radius: 8px; background: var(--glass-bg, rgba(26,34,53,0.55)); border: 1px solid var(--glass-border); }
+.test-stat-pass { border-left: 3px solid #10b981; }
+.test-stat-fail { border-left: 3px solid #ef4444; }
+.test-stat-blocked { border-left: 3px solid #f59e0b; }
+
+@media (max-width: 1024px) {
+  .bug-kanban { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 768px) {
+  .bug-kanban { grid-template-columns: 1fr; }
+  .bug-board-header { flex-direction: column; align-items: stretch; }
+}
+
+/* QR Code */
+.tpl-qr-code {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  padding: 16px;
+  background: rgba(255,255,255,0.05);
+  border-radius: 8px;
+}
+.tpl-qr-hint {
+  font-size: 0.75rem;
+  color: var(--text-500);
+}
+
+/* Image Import */
+.image-import-btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 12px;
+  background: rgba(99, 102, 241, 0.1);
+  border: 1px dashed rgba(99, 102, 241, 0.3);
+  border-radius: 8px;
+  color: #818cf8;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.image-import-btn:hover {
+  background: rgba(99, 102, 241, 0.2);
+  border-color: rgba(99, 102, 241, 0.5);
+}
+.image-element {
+  cursor: move;
+  user-select: none;
+}
+.image-element img {
+  pointer-events: none;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
 }

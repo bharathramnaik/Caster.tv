@@ -48,6 +48,7 @@ export default function TemplateEditor() {
   const [status, setStatus] = useState('');
   const [showPreview, setShowPreview] = useState(false);
   const [dragOver, setDragOver] = useState(false);
+  const imageInputRef = useRef(null);
 
   const [hasUnsavedChanges, setHasUnsavedChanges] = useState(false);
   const templateRef = useRef(template);
@@ -207,6 +208,27 @@ export default function TemplateEditor() {
     reader.readAsText(file);
   }, []);
 
+  const handleImageImport = useCallback(() => {
+    imageInputRef.current?.click();
+  }, []);
+
+  const handleImageFileChange = useCallback((e) => {
+    const file = e.target.files?.[0];
+    if (!file) return;
+    const reader = new FileReader();
+    reader.onload = (ev) => {
+      const dataUrl = ev.target.result;
+      addElement({
+        type: 'image',
+        content: dataUrl,
+        position: { x: 100, y: 100, width: 300, height: 200, zIndex: template.elements.length },
+        style: {}
+      });
+    };
+    reader.readAsDataURL(file);
+    e.target.value = '';
+  }, [addElement, template.elements.length]);
+
   const selectedElement = template.elements.find(e => selectedIds.includes(e.id));
 
   return (
@@ -250,7 +272,17 @@ export default function TemplateEditor() {
             {saving ? 'Saving...' : '💾 Save'}
           </button>
           {status && <span className="te-status">{status}</span>}
+          <button className="btn btn-sm btn-secondary" onClick={handleImageImport}>
+            🖼 Image
+          </button>
           <button className="btn btn-sm btn-secondary" onClick={() => setShowPreview(!showPreview)}>👁</button>
+          <input
+            ref={imageInputRef}
+            type="file"
+            accept="image/*"
+            onChange={handleImageFileChange}
+            style={{ display: 'none' }}
+          />
         </div>
       </div>
 
@@ -326,9 +358,19 @@ export default function TemplateEditor() {
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'center',
-                    textAlign: s.textAlign || 'center'
+                    textAlign: s.textAlign || 'center',
+                    overflow: 'hidden'
                   }}>
-                    {el.content || el.type}
+                    {el.type === 'image' ? (
+                      <img
+                        src={el.content}
+                        style={{ width: '100%', height: '100%', objectFit: 'contain' }}
+                        alt="Uploaded"
+                        draggable={false}
+                      />
+                    ) : (
+                      el.content || el.type
+                    )}
                   </div>
                 );
               })}

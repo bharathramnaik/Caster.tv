@@ -29,6 +29,7 @@ import switcherRouter from './routes/switcher.js';
 import collaborationRouter from './routes/collaboration.js';
 import analyticsRouter from './routes/analytics.js';
 import botRouter from './routes/bot.js';
+import testingRouter from './routes/testing.js';
 import { CollaborationManager } from './collaboration/index.js';
 import { SparkBot } from './bot/index.js';
 
@@ -229,6 +230,7 @@ app.use('/api/webhooks', webhooksRouter);
 app.use('/api/collaboration', collaborationRouter);
 app.use('/api/analytics', analyticsRouter);
 app.use('/api/bot', botRouter);
+app.use('/api/testing', testingRouter);
 
 const collabManager = new CollaborationManager(io);
 app.set('collabManager', collabManager);

@@ -29,8 +29,8 @@ function ElementRenderer({ element, isSelected, onSelect, onDragStart }) {
           {element.content || 'Text'}
         </span>
       ) : element.type === 'image' ? (
-        element.src ? (
-          <img src={element.src} alt="" style={{ width: '100%', height: '100%', objectFit: element.style?.objectFit || 'cover', borderRadius: 'inherit' }} />
+        (element.src || element.content) ? (
+          <img src={element.src || element.content} alt="" style={{ width: '100%', height: '100%', objectFit: element.style?.objectFit || 'cover', borderRadius: 'inherit', pointerEvents: 'none' }} draggable={false} />
         ) : (
           <div style={{ width: '100%', height: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center', background: 'var(--bg-600)', borderRadius: 'inherit', fontSize: 12, color: 'var(--text-500)' }}>No Image</div>
         )

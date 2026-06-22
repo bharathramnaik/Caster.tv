@@ -1,5 +1,6 @@
 import { useState, useCallback, useRef, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import { QRCodeSVG } from 'qrcode.react';
 
 const API = import.meta.env.VITE_API_URL || '';
 
@@ -340,10 +341,15 @@ export default function TemplatePreview({ template, onClose, onEdit, onDuplicate
                 </div>
                 <div className="tpl-share-item">
                   <label>QR Code</label>
-                  <div className="tpl-qr-placeholder">
-                    <div className="tpl-qr-box">
-                      <span>QR</span>
-                    </div>
+                  <div className="tpl-qr-code">
+                    <QRCodeSVG
+                      value={`${window.location.origin}/editor/${template.id}`}
+                      size={150}
+                      bgColor="transparent"
+                      fgColor="#ffffff"
+                      level="M"
+                      includeMargin={false}
+                    />
                     <span className="tpl-qr-hint">Scan to open template</span>
                   </div>
                 </div>

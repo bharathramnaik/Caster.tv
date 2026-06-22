@@ -82,7 +82,7 @@ export default function SparkBot() {
       {/* Floating bot button */}
       {!isOpen && (
         <button
-          className={`spark-button ${hasSuggestion ? 'spark-button-bounce' : 'spark-button-pulse'}`}
+          className={`spark-button glow-breathe ${hasSuggestion ? 'spark-button-bounce' : 'spark-button-pulse'}`}
           onClick={open}
           style={hasSuggestion ? bounceSuggest : pulseGlow}
           aria-label="Open Spark AI assistant"
@@ -95,7 +95,7 @@ export default function SparkBot() {
 
       {/* Chat window */}
       {isOpen && (
-        <div className="spark-chat" style={slideInChat}>
+        <div className="spark-chat pulse-ring" style={slideInChat}>
           {/* Header */}
           <div className="spark-header">
             <div className="spark-header-left">

@@ -15,12 +15,13 @@ export default function Navbar() {
     { path: '/points', label: 'Points' },
     { path: '/integrations', label: 'Integrations' },
     { path: '/analytics', label: 'Analytics' },
+    { path: '/bugs', label: 'Bugs' },
   ];
 
   return (
-    <nav className="navbar">
+    <nav className="navbar animated-gradient-header">
       <div className="nav-brand">
-        <Link to="/">⚡ BroadcastStudio</Link>
+        <Link to="/" className="shimmer">⚡ BroadcastStudio</Link>
       </div>
       <div className="nav-links">
         {navItems.map(item => (

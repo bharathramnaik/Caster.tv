@@ -301,7 +301,7 @@ export class SparkBot extends EventEmitter {
       go_to_page: `Navigated to ${result?.page || context?.page || 'page'}`
     };
 
-    const label = actionLabels[intent] || 'Action completed';
+    const label = actionLabels[intent] || 'Action';
 
     if (result?.health) {
       const h = result.health;

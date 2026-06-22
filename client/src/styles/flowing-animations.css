@@ -1,0 +1,277 @@
+/* ========================================
+   PHASE 6: FLOWING ANIMATIONS
+   ======================================== */
+
+/* === Animated Gradient Headers === */
+.animated-gradient-header {
+  background: linear-gradient(-45deg, #6366f1, #8b5cf6, #06b6d4, #10b981);
+  background-size: 400% 400%;
+  animation: gradientFlow 8s ease infinite;
+}
+
+@keyframes gradientFlow {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* === Shimmer Effect === */
+.shimmer {
+  position: relative;
+  overflow: hidden;
+}
+.shimmer::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.15), transparent);
+  animation: shimmerSlide 3s ease-in-out infinite;
+}
+@keyframes shimmerSlide {
+  0% { left: -100%; }
+  100% { left: 200%; }
+}
+
+/* === Color Flow Text === */
+.gradient-flow-text {
+  background: linear-gradient(90deg, #6366f1, #8b5cf6, #06b6d4, #10b981, #6366f1);
+  background-size: 300% 100%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: textGradientFlow 4s linear infinite;
+}
+@keyframes textGradientFlow {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 300% 50%; }
+}
+
+/* === Breathing Glow === */
+.glow-breathe {
+  box-shadow: 0 0 20px rgba(99, 102, 241, 0.3);
+  animation: glowBreathe 3s ease-in-out infinite;
+}
+@keyframes glowBreathe {
+  0%, 100% { box-shadow: 0 0 20px rgba(99, 102, 241, 0.3); }
+  50% { box-shadow: 0 0 40px rgba(99, 102, 241, 0.6), 0 0 80px rgba(99, 102, 241, 0.2); }
+}
+
+/* === Border Gradient Animation === */
+.border-gradient {
+  border: 2px solid transparent;
+  background-origin: border-box;
+  background-clip: padding-box, border-box;
+  animation: borderGradient 4s linear infinite;
+}
+@keyframes borderGradient {
+  0% { border-color: #6366f1; }
+  25% { border-color: #8b5cf6; }
+  50% { border-color: #06b6d4; }
+  75% { border-color: #10b981; }
+  100% { border-color: #6366f1; }
+}
+
+/* === Floating Particles (CSS only) === */
+.particles-bg {
+  position: relative;
+  overflow: hidden;
+}
+.particles-bg::before,
+.particles-bg::after {
+  content: '';
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  opacity: 0.1;
+  animation: floatParticle 20s ease-in-out infinite;
+}
+.particles-bg::before {
+  background: #6366f1;
+  top: -50px;
+  left: -50px;
+}
+.particles-bg::after {
+  background: #06b6d4;
+  bottom: -50px;
+  right: -50px;
+  animation-delay: -10s;
+}
+@keyframes floatParticle {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  25% { transform: translate(100px, 50px) scale(1.1); }
+  50% { transform: translate(50px, 100px) scale(0.9); }
+  75% { transform: translate(-50px, 50px) scale(1.05); }
+}
+
+/* === Score Number Animation === */
+.score-animate {
+  animation: scoreReveal 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+@keyframes scoreReveal {
+  0% { transform: scale(0.5) translateY(20px); opacity: 0; }
+  60% { transform: scale(1.1) translateY(-5px); }
+  100% { transform: scale(1) translateY(0); opacity: 1; }
+}
+
+/* === Card Hover Lift with Glow === */
+.card-hover-glow {
+  transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+.card-hover-glow:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.3), 0 0 30px rgba(99,102,241,0.2);
+}
+
+/* === Pulse Ring === */
+.pulse-ring {
+  position: relative;
+}
+.pulse-ring::before {
+  content: '';
+  position: absolute;
+  inset: -4px;
+  border-radius: inherit;
+  border: 2px solid currentColor;
+  animation: pulseRing 2s ease-out infinite;
+}
+@keyframes pulseRing {
+  0% { transform: scale(1); opacity: 1; }
+  100% { transform: scale(1.15); opacity: 0; }
+}
+
+/* === Typing Cursor === */
+.typing-cursor::after {
+  content: '|';
+  animation: blink 1s step-end infinite;
+}
+@keyframes blink {
+  50% { opacity: 0; }
+}
+
+/* === Live Indicator with Animated Ring === */
+.live-animated {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 4px 12px;
+  background: rgba(239, 68, 68, 0.2);
+  border-radius: 20px;
+  color: #ef4444;
+  font-weight: 600;
+  font-size: 12px;
+}
+.live-animated::before {
+  content: '';
+  width: 10px;
+  height: 10px;
+  background: #ef4444;
+  border-radius: 50%;
+  animation: livePulse 1.5s ease-in-out infinite;
+}
+.live-animated::after {
+  content: '';
+  position: absolute;
+  left: 12px;
+  width: 10px;
+  height: 10px;
+  border: 2px solid #ef4444;
+  border-radius: 50%;
+  animation: liveRing 1.5s ease-out infinite;
+}
+@keyframes livePulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.3); }
+}
+@keyframes liveRing {
+  0% { transform: scale(1); opacity: 1; }
+  100% { transform: scale(2.5); opacity: 0; }
+}
+
+/* === Wave Loading === */
+.wave-loader {
+  display: flex;
+  gap: 4px;
+  align-items: center;
+}
+.wave-loader span {
+  width: 4px;
+  height: 20px;
+  background: linear-gradient(to top, #6366f1, #06b6d4);
+  border-radius: 2px;
+  animation: wave 1.2s ease-in-out infinite;
+}
+.wave-loader span:nth-child(2) { animation-delay: 0.1s; }
+.wave-loader span:nth-child(3) { animation-delay: 0.2s; }
+.wave-loader span:nth-child(4) { animation-delay: 0.3s; }
+.wave-loader span:nth-child(5) { animation-delay: 0.4s; }
+@keyframes wave {
+  0%, 100% { height: 10px; }
+  50% { height: 30px; }
+}
+
+/* === Gradient Border Button === */
+.btn-gradient-flow {
+  background: linear-gradient(135deg, #6366f1, #8b5cf6);
+  border: none;
+  position: relative;
+  overflow: hidden;
+}
+.btn-gradient-flow::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 200%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+  transition: left 0.5s;
+}
+.btn-gradient-flow:hover::before {
+  left: 100%;
+}
+
+/* === Noise Texture Overlay === */
+.noise-texture::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.02;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.5'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 9998;
+}
+
+/* === Animated Underline === */
+.animated-underline {
+  position: relative;
+  display: inline-block;
+}
+.animated-underline::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg, #6366f1, #06b6d4);
+  transition: width 0.3s ease;
+}
+.animated-underline:hover::after {
+  width: 100%;
+}
+
+/* === Scale on Click === */
+.click-scale {
+  transition: transform 0.15s ease;
+}
+.click-scale:active {
+  transform: scale(0.95);
+}

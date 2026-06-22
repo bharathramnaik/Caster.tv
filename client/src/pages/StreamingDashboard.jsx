@@ -189,7 +189,7 @@ export default function StreamingDashboard() {
       ) : (
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(340px, 1fr))', gap: 16 }}>
           {outputs.map(output => (
-            <div key={output.id} className="stream-card" style={{
+            <div key={output.id} className="stream-card shimmer" style={{
               background: 'var(--surface)',
               border: '1px solid var(--glass-border)',
               borderRadius: 'var(--radius-lg)',

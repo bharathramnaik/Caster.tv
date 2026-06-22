@@ -34,7 +34,7 @@ export default function Home() {
   return (
     <div className="page">
       {/* ── Hero ──────────────────────── */}
-      <section className="hero">
+      <section className="hero particles-bg">
         <div className="container hero-content anim-fade">
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', position: 'absolute', top: 20, left: 24, right: 24, zIndex: 2 }}>
             <div className="hero-badge">🏏 Live Sports Overlay Platform</div>
@@ -43,7 +43,7 @@ export default function Home() {
             </button>
           </div>
           <h1>
-            <span className="gradient-text">Professional Scoreboards</span>
+            <span className="gradient-text gradient-flow-text">Professional Scoreboards</span>
             <br />for Local Sports Streams
           </h1>
           <p>
@@ -138,7 +138,7 @@ export default function Home() {
           {features.map((f, i) => (
             <div
               key={f.title}
-              className="feature-card anim-slide"
+              className="feature-card feature-card anim-slide card-hover-glow"
               style={{ animationDelay: `${i * 80}ms` }}
             >
               <div className="feature-icon">{f.icon}</div>

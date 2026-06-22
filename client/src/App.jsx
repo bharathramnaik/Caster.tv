@@ -26,6 +26,7 @@ import ProductionSwitcher from './pages/ProductionSwitcher';
 import StreamingDashboard from './pages/StreamingDashboard';
 import Analytics from './pages/Analytics';
 import SparkBot from './components/spark/SparkBot';
+import BugBoard from './pages/BugBoard';
 
 function AppContent() {
   const location = useLocation();
@@ -55,6 +56,7 @@ function AppContent() {
           <Route path="/streaming" element={<StreamingDashboard />} />
           <Route path="/analytics" element={<Analytics />} />
           <Route path="/integrations" element={<DataIntegrations />} />
+          <Route path="/bugs" element={<BugBoard />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </div>

@@ -103,7 +103,7 @@ export default function ControlPanel() {
               <span style={{ fontFamily: 'var(--font-display)', fontSize: '1.1rem', fontWeight: 700, color: 'var(--accent)' }}>
                 {inn ? match.teams[inn.battingTeam]?.short : match.teams.a.short}
               </span>
-              <span className="control-score-display">
+              <span className="control-score-display score-animate">
                 {inn ? `${inn.runs}/${inn.wickets}` : '0/0'}
               </span>
               <span style={{ color: 'var(--text-400)', fontSize: '1rem' }}>
@@ -114,7 +114,7 @@ export default function ControlPanel() {
               {match.teams.a.name} vs {match.teams.b.name} · {match.matchType} · {match.maxOvers} overs
             </div>
           </div>
-          {match.status === 'LIVE' && <span className="live-dot">LIVE</span>}
+          {match.status === 'LIVE' && <span className="live-animated">LIVE</span>}
           {match.status === 'COMPLETED' && <span className="chip chip-done">Completed</span>}
           {match.status === 'INNINGS_BREAK' && <span className="chip chip-break">Break</span>}
         </div>
@@ -148,11 +148,11 @@ export default function ControlPanel() {
 
       {/* ── Start Innings Button ────────── */}
       {needsInnings && (
-        <button
-          className="btn btn-primary btn-lg"
-          style={{ width: '100%', marginBottom: 20 }}
-          onClick={() => setShowInningsModal(true)}
-        >
+          <button
+            className="btn btn-primary btn-lg btn-gradient-flow"
+            style={{ width: '100%', marginBottom: 20 }}
+            onClick={() => setShowInningsModal(true)}
+          >
           {match.status === 'NOT_STARTED' ? '🏏 Start 1st Innings' : '🏏 Start 2nd Innings'}
         </button>
       )}
