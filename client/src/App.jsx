@@ -3,7 +3,9 @@ import { lazy, Suspense } from 'react';
 import { ThemeProvider } from './hooks/useTheme';
 import { AuthProvider } from './hooks/useAuth';
 import { ToastProvider } from './hooks/useToast';
+import { I18nProvider } from './i18n/index.jsx';
 import Navbar from './components/Navbar';
+import SkipToContent from './components/a11y/SkipToContent';
 
 const ParticleBackground = lazy(() => import('./components/three/ParticleBackground'));
 import ProtectedRoute from './components/ProtectedRoute';
@@ -25,8 +27,11 @@ import DataIntegrations from './pages/DataIntegrations';
 import ProductionSwitcher from './pages/ProductionSwitcher';
 import StreamingDashboard from './pages/StreamingDashboard';
 import Analytics from './pages/Analytics';
+import AnalyticsDashboard from './pages/AnalyticsDashboard';
 import SparkBot from './components/spark/SparkBot';
 import BugBoard from './pages/BugBoard';
+import AIGenerator from './pages/AIGenerator';
+import SceneBuilder from './pages/SceneBuilder';
 
 function AppContent() {
   const location = useLocation();
@@ -34,8 +39,9 @@ function AppContent() {
 
   return (
     <>
+      {!isOverlay && <SkipToContent />}
       {!isOverlay && <Navbar />}
-      <div className={isOverlay ? 'page-content overlay-mode' : 'page-content'}>
+      <div id="main-content" tabIndex="-1" className={isOverlay ? 'page-content overlay-mode' : 'page-content'} style={{ outline: 'none' }}>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/login" element={<Login />} />
@@ -55,8 +61,11 @@ function AppContent() {
           <Route path="/switcher" element={<ProductionSwitcher />} />
           <Route path="/streaming" element={<StreamingDashboard />} />
           <Route path="/analytics" element={<Analytics />} />
+          <Route path="/analytics/advanced" element={<AnalyticsDashboard />} />
           <Route path="/integrations" element={<DataIntegrations />} />
           <Route path="/bugs" element={<BugBoard />} />
+          <Route path="/ai-generator" element={<AIGenerator />} />
+          <Route path="/scene-builder" element={<SceneBuilder />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </div>
@@ -70,12 +79,14 @@ export default function App() {
     <ThemeProvider>
       <AuthProvider>
         <ToastProvider>
-          <Suspense fallback={null}>
-            <ParticleBackground />
-          </Suspense>
-          <BrowserRouter>
-            <AppContent />
-          </BrowserRouter>
+          <I18nProvider>
+            <Suspense fallback={null}>
+              <ParticleBackground />
+            </Suspense>
+            <BrowserRouter>
+              <AppContent />
+            </BrowserRouter>
+          </I18nProvider>
         </ToastProvider>
       </AuthProvider>
     </ThemeProvider>

@@ -10,6 +10,10 @@ import { store } from './matchStore.js';
 import { createMatchState, updateMatchMeta } from './cricketEngine.js';
 import { registerHandlers } from './socketHandlers.js';
 import { requireAuth, legacyAuth } from './middleware/auth.js';
+import { securityHeaders } from './middleware/securityHeaders.js';
+import { globalLimiter, authLimiter, apiLimiter } from './middleware/rateLimiter.js';
+import { auditLogger } from './middleware/auditLogger.js';
+import { sanitizeInput } from './middleware/sanitizer.js';
 
 import usersRouter from './routes/users.js';
 import templatesRouter from './routes/templates.js';
@@ -28,8 +32,12 @@ import streamingRouter from './routes/streaming.js';
 import switcherRouter from './routes/switcher.js';
 import collaborationRouter from './routes/collaboration.js';
 import analyticsRouter from './routes/analytics.js';
+import analyticsAdvancedRouter from './routes/analyticsAdvanced.js';
 import botRouter from './routes/bot.js';
 import testingRouter from './routes/testing.js';
+import aiRouter from './routes/ai.js';
+import scenes3dRouter from './routes/scenes3d.js';
+import i18nRouter from './routes/i18n.js';
 import { CollaborationManager } from './collaboration/index.js';
 import { SparkBot } from './bot/index.js';
 
@@ -70,6 +78,10 @@ const io = new Server(server, {
 
 app.use(cors());
 app.use(express.json());
+app.use(securityHeaders);
+app.use(globalLimiter);
+app.use(auditLogger);
+app.use(sanitizeInput);
 
 // Auth middleware for mutation endpoints (backward compatibility)
 const protect = legacyAuth;
@@ -239,24 +251,30 @@ app.get('/api/health', (_req, res) => {
 
 // ── New API Routes ─────────────────────────────────────────────
 
+app.use('/api/users/login', authLimiter);
+app.use('/api/users/register', authLimiter);
 app.use('/api/users', usersRouter);
-app.use('/api/templates', templatesRouter);
-app.use('/api/scenes', scenesRouter);
-app.use('/api/playlists', playlistsRouter);
-app.use('/api/live', liveRouter);
-app.use('/api/projects', projectsRouter);
-app.use('/api/preview', previewsRouter);
-app.use('/api/exports', exportsRouter);
-app.use('/api/recording', recordingRouter);
-app.use('/api/audio', audioRouter);
-app.use('/api/streaming', streamingRouter);
-app.use('/api/switcher', switcherRouter);
-app.use('/api/integrations', integrationsRouter);
-app.use('/api/webhooks', webhooksRouter);
-app.use('/api/collaboration', collaborationRouter);
-app.use('/api/analytics', analyticsRouter);
-app.use('/api/bot', botRouter);
-app.use('/api/testing', testingRouter);
+app.use('/api/templates', apiLimiter, templatesRouter);
+app.use('/api/scenes', apiLimiter, scenesRouter);
+app.use('/api/playlists', apiLimiter, playlistsRouter);
+app.use('/api/live', apiLimiter, liveRouter);
+app.use('/api/projects', apiLimiter, projectsRouter);
+app.use('/api/preview', apiLimiter, previewsRouter);
+app.use('/api/exports', apiLimiter, exportsRouter);
+app.use('/api/recording', apiLimiter, recordingRouter);
+app.use('/api/audio', apiLimiter, audioRouter);
+app.use('/api/streaming', apiLimiter, streamingRouter);
+app.use('/api/switcher', apiLimiter, switcherRouter);
+app.use('/api/integrations', apiLimiter, integrationsRouter);
+app.use('/api/webhooks', apiLimiter, webhooksRouter);
+app.use('/api/collaboration', apiLimiter, collaborationRouter);
+app.use('/api/analytics', apiLimiter, analyticsRouter);
+app.use('/api/analytics', analyticsAdvancedRouter);
+app.use('/api/bot', apiLimiter, botRouter);
+app.use('/api/testing', apiLimiter, testingRouter);
+app.use('/api/ai', aiRouter);
+app.use('/api/scenes3d', apiLimiter, scenes3dRouter);
+app.use('/api/i18n', i18nRouter);
 
 const collabManager = new CollaborationManager(io);
 app.set('collabManager', collabManager);

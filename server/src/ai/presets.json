@@ -1,0 +1,6758 @@
+[
+  {
+    "id": "preset-cricket-sb-ipl",
+    "name": "IPL Cricket Scoreboard",
+    "sport": "cricket",
+    "type": "scoreboard",
+    "description": "Classic IPL-style scoreboard",
+    "canvas": {
+      "width": 1920,
+      "height": 150
+    },
+    "elements": [
+      {
+        "id": "bg",
+        "type": "shape",
+        "position": {
+          "x": 0,
+          "y": 0,
+          "width": 1920,
+          "height": 150
+        },
+        "style": {
+          "backgroundColor": "linear-gradient(135deg, #1e1b4b 0%, #0f0a2e 100%)",
+          "boxShadow": "0 4px 20px rgba(0,0,0,0.5)"
+        },
+        "content": ""
+      },
+      {
+        "id": "accent",
+        "type": "shape",
+        "position": {
+          "x": 0,
+          "y": 146,
+          "width": 1920,
+          "height": 4
+        },
+        "style": {
+          "backgroundColor": "linear-gradient(90deg, #818cf8, #6366f1, #818cf8)"
+        },
+        "content": ""
+      },
+      {
+        "id": "tournament",
+        "type": "text",
+        "position": {
+          "x": 30,
+          "y": 10,
+          "width": 200,
+          "height": 35
+        },
+        "style": {
+          "color": "#818cf8",
+          "fontSize": 16,
+          "fontWeight": "700",
+          "fontFamily": "Outfit",
+          "letterSpacing": 4
+        },
+        "content": "IPL 2025"
+      },
+      {
+        "id": "match-num",
+        "type": "text",
+        "position": {
+          "x": 30,
+          "y": 40,
+          "width": 150,
+          "height": 55
+        },
+        "style": {
+          "color": "#ffffff",
+          "fontSize": 14,
+          "fontWeight": "600",
+          "fontFamily": "Outfit",
+          "letterSpacing": 2
+        },
+        "content": "MATCH 1"
+      },
+      {
+        "id": "divider1",
+        "type": "shape",
+        "position": {
+          "x": 250,
+          "y": 15,
+          "width": 2,
+          "height": 120
+        },
+        "style": {
+          "backgroundColor": "rgba(129,140,248,0.3)",
+          "borderRadius": 1
+        },
+        "content": ""
+      },
+      {
+        "id": "teamA-name",
+        "type": "text",
+        "position": {
+          "x": 280,
+          "y": 10,
+          "width": 300,
+          "height": 35
+        },
+        "style": {
+          "color": "#fbbf24",
+          "fontSize": 18,
+          "fontWeight": "700",
+          "fontFamily": "Outfit",
+          "letterSpacing": 2
+        },
+        "content": "TEAM A"
+      },
+      {
+        "id": "teamA-score",
+        "type": "text",
+        "position": {
+          "x": 280,
+          "y": 45,
+          "width": 250,
+          "height": 70
+        },
+        "style": {
+          "color": "#ffffff",
+          "fontSize": 64,
+          "fontWeight": "900",
+          "fontFamily": "Teko",
+          "textShadow": "0 4px 15px rgba(0,0,0,0.5)"
+        },
+        "content": "0/0"
+      },
+      {
+        "id": "teamA-overs",
+        "type": "text",
+        "position": {
+          "x": 540,
+          "y": 60,
+          "width": 120,
+          "height": 35
+        },
+        "style": {
+          "color": "#64748b",
+          "fontSize": 16,
+          "fontWeight": "500",
+          "fontFamily": "Outfit",
+          "letterSpacing": 1
+        },
+        "content": "(0.0 ov)"
+      },
+      {
+        "id": "vs",
+        "type": "text",
+        "position": {
+          "x": 800,
+          "y": 30,
+          "width": 320,
+          "height": 90
+        },
+        "style": {
+          "color": "#fbbf24",
+          "fontSize": 48,
+          "fontWeight": "900",
+          "fontFamily": "Teko",
+          "textAlign": "center",
+          "letterSpacing": 4
+        },
+        "content": "VS"
+      },
+      {
+        "id": "teamB-name",
+        "type": "text",
+        "position": {
+          "x": 1300,
+          "y": 10,
+          "width": 300,
+          "height": 35
+        },
+        "style": {
+          "color": "#60a5fa",
+          "fontSize": 18,
+          "fontWeight": "700",
+          "fontFamily": "Outfit",
+          "letterSpacing": 2,
+          "textAlign": "right"
+        },
+        "content": "TEAM B"
+      },
+      {
+        "id": "teamB-score",
+        "type": "text",
+        "position": {
+          "x": 1300,
+          "y": 45,
+          "width": 300,
+          "height": 70
+        },
+        "style": {
+          "color": "#ffffff",
+          "fontSize": 64,
+          "fontWeight": "900",
+          "fontFamily": "Teko",
+          "textShadow": "0 4px 15px rgba(0,0,0,0.5)",
+          "textAlign": "right"
+        },
+        "content": "0/0"
+      },
+      {
+        "id": "teamB-status",
+        "type": "text",
+        "position": {
+          "x": 1300,
+          "y": 115,
+          "width": 300,
+          "height": 25
+        },
+        "style": {
+          "color": "#64748b",
+          "fontSize": 13,
+          "fontWeight": "500",
+          "fontFamily": "Outfit",
+          "letterSpacing": 1,
+          "textAlign": "right"
+        },
+        "content": "Yet to bat"
+      },
+      {
+        "id": "info-panel",
+        "type": "shape",
+        "position": {
+          "x": 1650,
+          "y": 15,
+          "width": 240,
+          "height": 120
+        },
+        "style": {
+          "backgroundColor": "linear-gradient(135deg, #7c3aed, #4c1d95)",
+          "borderRadius": 12,
+          "boxShadow": "0 4px 15px rgba(124,58,237,0.4)"
+        },
+        "content": ""
+      },
+      {
+        "id": "info-label",
+        "type": "text",
+        "position": {
+          "x": 1660,
+          "y": 20,
+          "width": 220,
+          "height": 25
+        },
+        "style": {
+          "color": "#c4b5fd",
+          "fontSize": 12,
+          "fontWeight": "600",
+          "fontFamily": "Outfit",
+          "letterSpacing": 2
+        },
+        "content": "MATCH INFO"
+      },
+      {
+        "id": "info-value",
+        "type": "text",
+        "position": {
+          "x": 1660,
+          "y": 45,
+          "width": 220,
+          "height": 45
+        },
+        "style": {
+          "color": "#ffffff",
+          "fontSize": 24,
+          "fontWeight": "900",
+          "fontFamily": "Teko",
+          "textShadow": "0 2px 8px rgba(0,0,0,0.5)"
+        },
+        "content": "LIVE"
+      },
+      {
+        "id": "info-sub",
+        "type": "text",
+        "position": {
+          "x": 1660,
+          "y": 95,
+          "width": 220,
+          "height": 25
+        },
+        "style": {
+          "color": "#a78bfa",
+          "fontSize": 13,
+          "fontWeight": "600",
+          "fontFamily": "Outfit",
+          "letterSpacing": 1
+        },
+        "content": "T20 · Wankhede"
+      }
+    ]
+  },
+  {
+    "id": "preset-cricket-sb-simple",
+    "name": "Simple Cricket Scoreboard",
+    "sport": "cricket",
+    "type": "scoreboard",
+    "description": "Minimal cricket scoreboard for quick overlays",
+    "canvas": {
+      "width": 1920,
+      "height": 100
+    },
+    "elements": [
+      {
+        "id": "bg",
+        "type": "shape",
+        "position": {
+          "x": 0,
+          "y": 0,
+          "width": 1920,
+          "height": 100
+        },
+        "style": {
+          "backgroundColor": "linear-gradient(180deg, #1a1a2e 0%, #0d0d1a 100%)",
+          "boxShadow": "0 4px 20px rgba(0,0,0,0.5)"
+        },
+        "content": ""
+      },
+      {
+        "id": "teamA",
+        "type": "text",
+        "position": {
+          "x": 40,
+          "y": 10,
+          "width": 300,
+          "height": 40
+        },
+        "style": {
+          "color": "#fbbf24",
+          "fontSize": 22,
+          "fontWeight": "800",
+          "fontFamily": "Outfit",
+          "letterSpacing": 2
+        },
+        "content": "TEAM A"
+      },
+      {
+        "id": "scoreA",
+        "type": "text",
+        "position": {
+          "x": 40,
+          "y": 45,
+          "width": 300,
+          "height": 50
+        },
+        "style": {
+          "color": "#ffffff",
+          "fontSize": 48,
+          "fontWeight": "900",
+          "fontFamily": "Teko"
+        },
+        "content": "0/0"
+      },
+      {
+        "id": "oversA",
+        "type": "text",
+        "position": {
+          "x": 340,
+          "y": 60,
+          "width": 100,
+          "height": 30
+        },
+        "style": {
+          "color": "#64748b",
+          "fontSize": 14,
+          "fontWeight": "500",
+          "fontFamily": "Outfit"
+        },
+        "content": "(0 ov)"
+      },
+      {
+        "id": "vs",
+        "type": "text",
+        "position": {
+          "x": 900,
+          "y": 20,
+          "width": 120,
+          "height": 60
+        },
+        "style": {
+          "color": "#475569",
+          "fontSize": 36,
+          "fontWeight": "900",
+          "fontFamily": "Teko",
+          "textAlign": "center"
+        },
+        "content": "VS"
+      },
+      {
+        "id": "teamB",
+        "type": "text",
+        "position": {
+          "x": 1200,
+          "y": 10,
+          "width": 300,
+          "height": 40
+        },
+        "style": {
+          "color": "#60a5fa",
+          "fontSize": 22,
+          "fontWeight": "800",
+          "fontFamily": "Outfit",
+          "letterSpacing": 2,
+          "textAlign": "right"
+        },
+        "content": "TEAM B"
+      },
+      {
+        "id": "scoreB",
+        "type": "text",
+        "position": {
+          "x": 1200,
+          "y": 45,
+          "width": 300,
+          "height": 50
+        },
+        "style": {
+          "color": "#ffffff",
+          "fontSize": 48,
+          "fontWeight": "900",
+          "fontFamily": "Teko",
+          "textAlign": "right"
+        },
+        "content": "0/0"
+      }
+    ]
+  },
+  {
+    "id": "preset-cricket-sb-minimal",
+    "name": "Minimal Scoreboard",
+    "sport": "cricket",
+    "type": "scoreboard",
+    "description": "Ultra-minimal bottom bar scoreboard",
+    "canvas": {
+      "width": 1920,
+      "height": 60
+    },
+    "elements": [
+      {
+        "id": "bg",
+        "type": "shape",
+        "position": {
+          "x": 0,
+          "y": 0,
+          "width": 1920,
+          "height": 60
+        },
+        "style": {
+          "backgroundColor": "rgba(0,0,0,0.85)",
+          "boxShadow": "0 4px 20px rgba(0,0,0,0.5)"
+        },
+        "content": ""
+      },
+      {
+        "id": "teamA",
+        "type": "text",
+        "position": {
+          "x": 20,
+          "y": 10,
+          "width": 200,
+          "height": 40
+        },
+        "style": {
+          "color": "#fbbf24",
+          "fontSize": 20,
+          "fontWeight": "800",
+          "fontFamily": "Outfit"
+        },
+        "content": "TEAM A"
+      },
+      {
+        "id": "scoreA",
+        "type": "text",
+        "position": {
+          "x": 230,
+          "y": 5,
+          "width": 150,
+          "height": 50
+        },
+        "style": {
+          "color": "#ffffff",
+          "fontSize": 40,
+          "fontWeight": "900",
+          "fontFamily": "Teko"
+        },
+        "content": "0/0"
+      },
+      {
+        "id": "sep",
+        "type": "text",
+        "position": {
+          "x": 920,
+          "y": 8,
+          "width": 80,
+          "height": 44
+        },
+        "style": {
+          "color": "#475569",
+          "fontSize": 24,
+          "fontWeight": "900",
+          "fontFamily": "Teko",
+          "textAlign": "center"
+        },
+        "content": "-"
+      },
+      {
+        "id": "scoreB",
+        "type": "text",
+        "position": {
+          "x": 1200,
+          "y": 5,
+          "width": 150,
+          "height": 50
+        },
+        "style": {
+          "color": "#ffffff",
+          "fontSize": 40,
+          "fontWeight": "900",
+          "fontFamily": "Teko",
+          "textAlign": "right"
+        },
+        "content": "0/0"
+      },
+      {
+        "id": "teamB",
+        "type": "text",
+        "position": {
+          "x": 1370,
+          "y": 10,
+          "width": 200,
+          "height": 40
+        },
+        "style": {
+          "color": "#60a5fa",
+          "fontSize": 20,
+          "fontWeight": "800",
+          "fontFamily": "Outfit",
+          "textAlign": "right"
+        },
+        "content": "TEAM B"
+      }
+    ]
+  },
+  {
+    "id": "preset-cricket-sb-detailed",
+    "name": "Detailed Cricket Scoreboard",
+    "sport": "cricket",
+    "type": "scoreboard",
+    "description": "Full scoreboard with batters, bowler, and match info",
+    "canvas": {
+      "width": 1920,
+      "height": 180
+    },
+    "elements": [
+      {
+        "id": "bg",
+        "type": "shape",
+        "position": {
+          "x": 0,
+          "y": 0,
+          "width": 1920,
+          "height": 180
+        },
+        "style": {
+          "backgroundColor": "linear-gradient(135deg, #0f172a 0%, #020617 100%)",
+          "boxShadow": "0 4px 20px rgba(0,0,0,0.5)"
+        },
+        "content": ""
+      },
+      {
+        "id": "accent",
+        "type": "shape",
+        "position": {
+          "x": 0,
+          "y": 0,
+          "width": 1920,
+          "height": 4
+        },
+        "style": {
+          "backgroundColor": "linear-gradient(90deg, #fbbf24, #f59e0b, #fbbf24)"
+        },
+        "content": ""
+      },
+      {
+        "id": "teamA-abbr",
+        "type": "text",
+        "position": {
+          "x": 20,
+          "y": 30,
+          "width": 60,
+          "height": 40
+        },
+        "style": {
+          "color": "#ffffff",
+          "fontSize": 20,
+          "fontWeight": "900",
+          "fontFamily": "Teko",
+          "textAlign": "center"
+        },
+        "content": "IND"
+      },
+      {
+        "id": "teamA-name",
+        "type": "text",
+        "position": {
+          "x": 100,
+          "y": 20,
+          "width": 200,
+          "height": 30
+        },
+        "style": {
+          "color": "#fbbf24",
+          "fontSize": 16,
+          "fontWeight": "700",
+          "fontFamily": "Outfit",
+          "letterSpacing": 2
+        },
+        "content": "INDIA"
+      },
+      {
+        "id": "teamA-score",
+        "type": "text",
+        "position": {
+          "x": 100,
+          "y": 45,
+          "width": 200,
+          "height": 45
+        },
+        "style": {
+          "color": "#ffffff",
+          "fontSize": 48,
+          "fontWeight": "900",
+          "fontFamily": "Teko"
+        },
+        "content": "186/4"
+      },
+      {
+        "id": "teamA-overs",
+        "type": "text",
+        "position": {
+          "x": 100,
+          "y": 90,
+          "width": 150,
+          "height": 25
+        },
+        "style": {
+          "color": "#64748b",
+          "fontSize": 14,
+          "fontWeight": "500",
+          "fontFamily": "Outfit"
+        },
+        "content": "15.2 Overs"
+      },
+      {
+        "id": "divider1",
+        "type": "shape",
+        "position": {
+          "x": 350,
+          "y": 20,
+          "width": 2,
+          "height": 140
+        },
+        "style": {
+          "backgroundColor": "#334155",
+          "borderRadius": 1
+        },
+        "content": ""
+      },
+      {
+        "id": "batter-label",
+        "type": "text",
+        "position": {
+          "x": 380,
+          "y": 20,
+          "width": 120,
+          "height": 25
+        },
+        "style": {
+          "color": "#94a3b8",
+          "fontSize": 12,
+          "fontWeight": "600",
+          "fontFamily": "Outfit",
+          "letterSpacing": 2
+        },
+        "content": "BATTERS"
+      },
+      {
+        "id": "batter1",
+        "type": "text",
+        "position": {
+          "x": 380,
+          "y": 45,
+          "width": 180,
+          "height": 30
+        },
+        "style": {
+          "color": "#ffffff",
+          "fontSize": 20,
+          "fontWeight": "700",
+          "fontFamily": "Teko"
+        },
+        "content": "V. Kohli 67*"
+      },
+      {
+        "id": "batter2",
+        "type": "text",
+        "position": {
+          "x": 380,
+          "y": 80,
+          "width": 180,
+          "height": 30
+        },
+        "style": {
+          "color": "#94a3b8",
+          "fontSize": 18,
+          "fontWeight": "600",
+          "fontFamily": "Teko"
+        },
+        "content": "R. Pant 23"
+      },
+      {
+        "id": "divider2",
+        "type": "shape",
+        "position": {
+          "x": 600,
+          "y": 20,
+          "width": 2,
+          "height": 140
+        },
+        "style": {
+          "backgroundColor": "#334155",
+          "borderRadius": 1
+        },
+        "content": ""
+      },
+      {
+        "id": "bowler-label",
+        "type": "text",
+        "position": {
+          "x": 630,
+          "y": 20,
+          "width": 120,
+          "height": 25
+        },
+        "style": {
+          "color": "#94a3b8",
+          "fontSize": 12,
+          "fontWeight": "600",
+          "fontFamily": "Outfit",
+          "letterSpacing": 2
+        },
+        "content": "BOWLER"
+      },
+      {
+        "id": "bowler-name",
+        "type": "text",
+        "position": {
+          "x": 630,
+          "y": 45,
+          "width": 180,
+          "height": 30
+        },
+        "style": {
+          "color": "#ffffff",
+          "fontSize": 20,
+          "fontWeight": "700",
+          "fontFamily": "Teko"
+        },
+        "content": "P. Cummins"
+      },
+      {
+        "id": "bowler-figures",
+        "type": "text",
+        "position": {
+          "x": 630,
+          "y": 80,
+          "width": 180,
+          "height": 30
+        },
+        "style": {
+          "color": "#ef4444",
+          "fontSize": 18,
+          "fontWeight": "700",
+          "fontFamily": "Teko"
+        },
+        "content": "0-42 (3.2 ov)"
+      },
+      {
+        "id": "teamB-name",
+        "type": "text",
+        "position": {
+          "x": 1160,
+          "y": 15,
+          "width": 300,
+          "height": 35
+        },
+        "style": {
+          "color": "#60a5fa",
+          "fontSize": 16,
+          "fontWeight": "700",
+          "fontFamily": "Outfit",
+          "letterSpacing": 3
+        },
+        "content": "AUSTRALIA"
+      },
+      {
+        "id": "teamB-score",
+        "type": "text",
+        "position": {
+          "x": 1160,
+          "y": 50,
+          "width": 300,
+          "height": 50
+        },
+        "style": {
+          "color": "#ffffff",
+          "fontSize": 44,
+          "fontWeight": "900",
+          "fontFamily": "Teko"
+        },
+        "content": "0/0"
+      },
+      {
+        "id": "teamB-status",
+        "type": "text",
+        "position": {
+          "x": 1160,
+          "y": 110,
+          "width": 300,
+          "height": 25
+        },
+        "style": {
+          "color": "#64748b",
+          "fontSize": 13,
+          "fontWeight": "500",
+          "fontFamily": "Outfit"
+        },
+        "content": "Yet to bat"
+      }
+    ]
+  },
+  {
+    "id": "preset-cricket-sb-gold",
+    "name": "Gold Cricket Scoreboard",
+    "sport": "cricket",
+    "type": "scoreboard",
+    "description": "Elegant gold-themed cricket scoreboard",
+    "canvas": {
+      "width": 1920,
+      "height": 140
+    },
+    "elements": [
+      {
+        "id": "bg",
+        "type": "shape",
+        "position": {
+          "x": 0,
+          "y": 0,
+          "width": 1920,
+          "height": 140
+        },
+        "style": {
+          "backgroundColor": "linear-gradient(135deg, #1a1a2e 0%, #0f0d1a 100%)",
+          "boxShadow": "0 4px 20px rgba(0,0,0,0.5)"
+        },
+        "content": ""
+      },
+      {
+        "id": "accent",
+        "type": "shape",
+        "position": {
+          "x": 0,
+          "y": 136,
+          "width": 1920,
+          "height": 4
+        },
+        "style": {
+          "backgroundColor": "linear-gradient(90deg, #E3B23C, #d4a017, #E3B23C)"
+        },
+        "content": ""
+      },
+      {
+        "id": "teamA",
+        "type": "text",
+        "position": {
+          "x": 40,
+          "y": 15,
+          "width": 300,
+          "height": 35
+        },
+        "style": {
+          "color": "#E3B23C",
+          "fontSize": 20,
+          "fontWeight": "800",
+          "fontFamily": "Outfit",
+          "letterSpacing": 3
+        },
+        "content": "TEAM A"
+      },
+      {
+        "id": "scoreA",
+        "type": "text",
+        "position": {
+          "x": 40,
+          "y": 45,
+          "width": 300,
+          "height": 60
+        },
+        "style": {
+          "color": "#ffffff",
+          "fontSize": 56,
+          "fontWeight": "900",
+          "fontFamily": "Teko",
+          "textShadow": "0 4px 15px rgba(0,0,0,0.5)"
+        },
+        "content": "0/0"
+      },
+      {
+        "id": "oversA",
+        "type": "text",
+        "position": {
+          "x": 350,
+          "y": 70,
+          "width": 100,
+          "height": 30
+        },
+        "style": {
+          "color": "#64748b",
+          "fontSize": 14,
+          "fontWeight": "500",
+          "fontFamily": "Outfit"
+        },
+        "content": "(0 ov)"
+      },
+      {
+        "id": "vs",
+        "type": "text",
+        "position": {
+          "x": 850,
+          "y": 35,
+          "width": 220,
+          "height": 70
+        },
+        "style": {
+          "color": "#E3B23C",
+          "fontSize": 42,
+          "fontWeight": "900",
+          "fontFamily": "Teko",
+          "textAlign": "center",
+          "letterSpacing": 4
+        },
+        "content": "VS"
+      },
+      {
+        "id": "teamB",
+        "type": "text",
+        "position": {
+          "x": 1300,
+          "y": 15,
+          "width": 300,
+          "height": 35
+        },
+        "style": {
+          "color": "#60a5fa",
+          "fontSize": 20,
+          "fontWeight": "800",
+          "fontFamily": "Outfit",
+          "letterSpacing": 3,
+          "textAlign": "right"
+        },
+        "content": "TEAM B"
+      },
+      {
+        "id": "scoreB",
+        "type": "text",
+        "position": {
+          "x": 1300,
+          "y": 45,
+          "width": 300,
+          "height": 60
+        },
+        "style": {
+          "color": "#ffffff",
+          "fontSize": 56,
+          "fontWeight": "900",
+          "fontFamily": "Teko",
+          "textAlign": "right",
+          "textShadow": "0 4px 15px rgba(0,0,0,0.5)"
+        },
+        "content": "0/0"
+      }
+    ]
+  },
+  {
+    "id": "preset-cricket-sb-bbl",
+    "name": "Big Bash Scoreboard",
+    "sport": "cricket",
+    "type": "scoreboard",
+    "description": "BBL-style vibrant cricket scoreboard",
+    "canvas": {
+      "width": 1920,
+      "height": 130
+    },
+    "elements": [
+      {
+        "id": "bg",
+        "type": "shape",
+        "position": {
+          "x": 0,
+          "y": 0,
+          "width": 1920,
+          "height": 130
+        },
+        "style": {
+          "backgroundColor": "linear-gradient(135deg, #4a148c 0%, #1a0533 100%)",
+          "boxShadow": "0 4px 20px rgba(0,0,0,0.5)"
+        },
+        "content": ""
+      },
+      {
+        "id": "accent",
+        "type": "shape",
+        "position": {
+          "x": 0,
+          "y": 126,
+          "width": 1920,
+          "height": 4
+        },
+        "style": {
+          "backgroundColor": "linear-gradient(90deg, #ff6f00, #ffca28, #ff6f00)"
+        },
+        "content": ""
+      },
+      {
+        "id": "teamA",
+        "type": "text",
+        "position": {
+          "x": 40,
+          "y": 10,
+          "width": 250,
+          "height": 35
+        },
+        "style": {
+          "color": "#ffca28",
+          "fontSize": 18,
+          "fontWeight": "800",
+          "fontFamily": "Outfit",
+          "letterSpacing": 3
+        },
+        "content": "TEAM A"
+      },
+      {
+        "id": "scoreA",
+        "type": "text",
+        "position": {
+          "x": 40,
+          "y": 40,
+          "width": 250,
+          "height": 60
+        },
+        "style": {
+          "color": "#ffffff",
+          "fontSize": 56,
+          "fontWeight": "900",
+          "fontFamily": "Teko",
+          "textShadow": "0 4px 15px rgba(255,111,0,0.4)"
+        },
+        "content": "0/0"
+      },
+      {
+        "id": "vs",
+        "type": "text",
+        "position": {
+          "x": 880,
+          "y": 20,
+          "width": 160,
+          "height": 90
+        },
+        "style": {
+          "color": "#ff6f00",
+          "fontSize": 48,
+          "fontWeight": "900",
+          "fontFamily": "Teko",
+          "textAlign": "center",
+          "letterSpacing": 4
+        },
+        "content": "VS"
+      },
+      {
+        "id": "teamB",
+        "type": "text",
+        "position": {
+          "x": 1200,
+          "y": 10,
+          "width": 250,
+          "height": 35
+        },
+        "style": {
+          "color": "#00e5ff",
+          "fontSize": 18,
+          "fontWeight": "800",
+          "fontFamily": "Outfit",
+          "letterSpacing": 3,
+          "textAlign": "right"
+        },
+        "content": "TEAM B"
+      },
+      {
+        "id": "scoreB",
+        "type": "text",
+        "position": {
+          "x": 1200,
+          "y": 40,
+          "width": 250,
+          "height": 60
+        },
+        "style": {
+          "color": "#ffffff",
+          "fontSize": 56,
+          "fontWeight": "900",
+          "fontFamily": "Teko",
+          "textAlign": "right",
+          "textShadow": "0 4px 15px rgba(0,229,255,0.4)"
+        },
+        "content": "0/0"
+      }
+    ]
+  },
+  {
+    "id": "preset-cricket-sb-wc",
+    "name": "World Cup Scoreboard",
+    "sport": "cricket",
+    "type": "scoreboard",
+    "description": "Official World Cup style scoreboard",
+    "canvas": {
+      "width": 1920,
+      "height": 160
+    },
+    "elements": [
+      {
+        "id": "bg",
+        "type": "shape",
+        "position": {
+          "x": 0,
+          "y": 0,
+          "width": 1920,
+          "height": 160
+        },
+        "style": {
+          "backgroundColor": "linear-gradient(135deg, #0d47a1 0%, #01579b 100%)",
+          "boxShadow": "0 4px 20px rgba(0,0,0,0.5)"
+        },
+        "content": ""
+      },
+      {
+        "id": "accent",
+        "type": "shape",
+        "position": {
+          "x": 0,
+          "y": 156,
+          "width": 1920,
+          "height": 4
+        },
+        "style": {
+          "backgroundColor": "linear-gradient(90deg, #ffd600, #ffab00, #ffd600)"
+        },
+        "content": ""
+      },
+      {
+        "id": "wc-text",
+        "type": "text",
+        "position": {
+          "x": 40,
+          "y": 25,
+          "width": 80,
+          "height": 50
+        },
+        "style": {
+          "color": "#ffd600",
+          "fontSize": 16,
+          "fontWeight": "900",
+          "fontFamily": "Teko",
+          "textAlign": "center"
+        },
+        "content": "WC"
+      },
+      {
+        "id": "teamA",
+        "type": "text",
+        "position": {
+          "x": 140,
+          "y": 10,
+          "width": 300,
+          "height": 35
+        },
+        "style": {
+          "color": "#ffd600",
+          "fontSize": 18,
+          "fontWeight": "700",
+          "fontFamily": "Outfit",
+          "letterSpacing": 3
+        },
+        "content": "TEAM A"
+      },
+      {
+        "id": "scoreA",
+        "type": "text",
+        "position": {
+          "x": 140,
+          "y": 45,
+          "width": 300,
+          "height": 65
+        },
+        "style": {
+          "color": "#ffffff",
+          "fontSize": 64,
+          "fontWeight": "900",
+          "fontFamily": "Teko"
+        },
+        "content": "0/0"
+      },
+      {
+        "id": "vs",
+        "type": "text",
+        "position": {
+          "x": 880,
+          "y": 20,
+          "width": 160,
+          "height": 120
+        },
+        "style": {
+          "color": "#ffd600",
+          "fontSize": 48,
+          "fontWeight": "900",
+          "fontFamily": "Teko",
+          "textAlign": "center",
+          "letterSpacing": 4
+        },
+        "content": "VS"
+      },
+      {
+        "id": "teamB",
+        "type": "text",
+        "position": {
+          "x": 1100,
+          "y": 10,
+          "width": 300,
+          "height": 35
+        },
+        "style": {
+          "color": "#ffd600",
+          "fontSize": 18,
+          "fontWeight": "700",
+          "fontFamily": "Outfit",
+          "letterSpacing": 3,
+          "textAlign": "right"
+        },
+        "content": "TEAM B"
+      },
+      {
+        "id": "scoreB",
+        "type": "text",
+        "position": {
+          "x": 1100,
+          "y": 45,
+          "width": 300,
+          "height": 65
+        },
+        "style": {
+          "color": "#ffffff",
+          "fontSize": 64,
+          "fontWeight": "900",
+          "fontFamily": "Teko",
+          "textAlign": "right"
+        },
+        "content": "0/0"
+      }
+    ]
+  },
+  {
+    "id": "preset-cricket-sb-t20",
+    "name": "T20 Blitz Scoreboard",
+    "sport": "cricket",
+    "type": "scoreboard",
+    "description": "Fast-paced T20 style scoreboard with run rate",
+    "canvas": {
+      "width": 1920,
+      "height": 110
+    },
+    "elements": [
+      {
+        "id": "bg",
+        "type": "shape",
+        "position": {
+          "x": 0,
+          "y": 0,
+          "width": 1920,
+          "height": 110
+        },
+        "style": {
+          "backgroundColor": "linear-gradient(180deg, #1b1b2f 0%, #162447 100%)",
+          "boxShadow": "0 4px 20px rgba(0,0,0,0.5)"
+        },
+        "content": ""
+      },
+      {
+        "id": "accent",
+        "type": "shape",
+        "position": {
+          "x": 0,
+          "y": 106,
+          "width": 1920,
+          "height": 4
+        },
+        "style": {
+          "backgroundColor": "linear-gradient(90deg, #e94560, #0f3460, #e94560)"
+        },
+        "content": ""
+      },
+      {
+        "id": "teamA",
+        "type": "text",
+        "position": {
+          "x": 30,
+          "y": 8,
+          "width": 200,
+          "height": 30
+        },
+        "style": {
+          "color": "#e94560",
+          "fontSize": 16,
+          "fontWeight": "700",
+          "fontFamily": "Outfit",
+          "letterSpacing": 2
+        },
+        "content": "TEAM A"
+      },
+      {
+        "id": "scoreA",
+        "type": "text",
+        "position": {
+          "x": 30,
+          "y": 35,
+          "width": 200,
+          "height": 55
+        },
+        "style": {
+          "color": "#ffffff",
+          "fontSize": 52,
+          "fontWeight": "900",
+          "fontFamily": "Teko"
+        },
+        "content": "0/0"
+      },
+      {
+        "id": "rr",
+        "type": "text",
+        "position": {
+          "x": 250,
+          "y": 50,
+          "width": 100,
+          "height": 25
+        },
+        "style": {
+          "color": "#e94560",
+          "fontSize": 13,
+          "fontWeight": "600",
+          "fontFamily": "Outfit",
+          "letterSpacing": 1
+        },
+        "content": "RR: 0.00"
+      },
+      {
+        "id": "vs",
+        "type": "text",
+        "position": {
+          "x": 900,
+          "y": 15,
+          "width": 120,
+          "height": 80
+        },
+        "style": {
+          "color": "#475569",
+          "fontSize": 32,
+          "fontWeight": "900",
+          "fontFamily": "Teko",
+          "textAlign": "center"
+        },
+        "content": "VS"
+      },
+      {
+        "id": "teamB",
+        "type": "text",
+        "position": {
+          "x": 1300,
+          "y": 8,
+          "width": 200,
+          "height": 30
+        },
+        "style": {
+          "color": "#0f3460",
+          "fontSize": 16,
+          "fontWeight": "700",
+          "fontFamily": "Outfit",
+          "letterSpacing": 2,
+          "textAlign": "right"
+        },
+        "content": "TEAM B"
+      },
+      {
+        "id": "scoreB",
+        "type": "text",
+        "position": {
+          "x": 1300,
+          "y": 35,
+          "width": 200,
+          "height": 55
+        },
+        "style": {
+          "color": "#ffffff",
+          "fontSize": 52,
+          "fontWeight": "900",
+          "fontFamily": "Teko",
+          "textAlign": "right"
+        },
+        "content": "0/0"
+      }
+    ]
+  },
+  {
+    "id": "preset-cricket-sb-odi",
+    "name": "ODI Scoreboard",
+    "sport": "cricket",
+    "type": "scoreboard",
+    "description": "One Day International style scoreboard",
+    "canvas": {
+      "width": 1920,
+      "height": 120
+    },
+    "elements": [
+      {
+        "id": "bg",
+        "type": "shape",
+        "position": {
+          "x": 0,
+          "y": 0,
+          "width": 1920,
+          "height": 120
+        },
+        "style": {
+          "backgroundColor": "linear-gradient(135deg, #1b5e20 0%, #0a3010 100%)",
+          "boxShadow": "0 4px 20px rgba(0,0,0,0.5)"
+        },
+        "content": ""
+      },
+      {
+        "id": "accent",
+        "type": "shape",
+        "position": {
+          "x": 0,
+          "y": 116,
+          "width": 1920,
+          "height": 4
+        },
+        "style": {
+          "backgroundColor": "linear-gradient(90deg, #4caf50, #81c784, #4caf50)"
+        },
+        "content": ""
+      },
+      {
+        "id": "teamA",
+        "type": "text",
+        "position": {
+          "x": 40,
+          "y": 10,
+          "width": 250,
+          "height": 35
+        },
+        "style": {
+          "color": "#81c784",
+          "fontSize": 18,
+          "fontWeight": "700",
+          "fontFamily": "Outfit",
+          "letterSpacing": 3
+        },
+        "content": "TEAM A"
+      },
+      {
+        "id": "scoreA",
+        "type": "text",
+        "position": {
+          "x": 40,
+          "y": 45,
+          "width": 250,
+          "height": 55
+        },
+        "style": {
+          "color": "#ffffff",
+          "fontSize": 52,
+          "fontWeight": "900",
+          "fontFamily": "Teko"
+        },
+        "content": "0/0"
+      },
+      {
+        "id": "oversA",
+        "type": "text",
+        "position": {
+          "x": 300,
+          "y": 65,
+          "width": 100,
+          "height": 25
+        },
+        "style": {
+          "color": "#a5d6a7",
+          "fontSize": 14,
+          "fontWeight": "500",
+          "fontFamily": "Outfit"
+        },
+        "content": "(0 ov)"
+      },
+      {
+        "id": "vs",
+        "type": "text",
+        "position": {
+          "x": 880,
+          "y": 15,
+          "width": 160,
+          "height": 90
+        },
+        "style": {
+          "color": "#4caf50",
+          "fontSize": 42,
+          "fontWeight": "900",
+          "fontFamily": "Teko",
+          "textAlign": "center",
+          "letterSpacing": 4
+        },
+        "content": "VS"
+      },
+      {
+        "id": "teamB",
+        "type": "text",
+        "position": {
+          "x": 1200,
+          "y": 10,
+          "width": 250,
+          "height": 35
+        },
+        "style": {
+          "color": "#66bb6a",
+          "fontSize": 18,
+          "fontWeight": "700",
+          "fontFamily": "Outfit",
+          "letterSpacing": 3,
+          "textAlign": "right"
+        },
+        "content": "TEAM B"
+      },
+      {
+        "id": "scoreB",
+        "type": "text",
+        "position": {
+          "x": 1200,
+          "y": 45,
+          "width": 250,
+          "height": 55
+        },
+        "style": {
+          "color": "#ffffff",
+          "fontSize": 52,
+          "fontWeight": "900",
+          "fontFamily": "Teko",
+          "textAlign": "right"
+        },
+        "content": "0/0"
+      }
+    ]
+  },
+  {
+    "id": "preset-cricket-sb-ipl2",
+    "name": "IPL Scoreboard V2",
+    "sport": "cricket",
+    "type": "scoreboard",
+    "description": "IPL style scoreboard with powerplay info",
+    "canvas": {
+      "width": 1920,
+      "height": 150
+    },
+    "elements": [
+      {
+        "id": "bg",
+        "type": "shape",
+        "position": {
+          "x": 0,
+          "y": 0,
+          "width": 1920,
+          "height": 150
+        },
+        "style": {
+          "backgroundColor": "linear-gradient(135deg, #1e1b4b 0%, #0f0a2e 100%)",
+          "boxShadow": "0 4px 20px rgba(0,0,0,0.5)"
+        },
+        "content": ""
+      },
+      {
+        "id": "accent",
+        "type": "shape",
+        "position": {
+          "x": 0,
+          "y": 146,
+          "width": 1920,
+          "height": 4
+        },
+        "style": {
+          "backgroundColor": "linear-gradient(90deg, #818cf8, #6366f1, #818cf8)"
+        },
+        "content": ""
+      },
+      {
+        "id": "teamA",
+        "type": "text",
+        "position": {
+          "x": 280,
+          "y": 10,
+          "width": 300,
+          "height": 35
+        },
+        "style": {
+          "color": "#fbbf24",
+          "fontSize": 18,
+          "fontWeight": "700",
+          "fontFamily": "Outfit",
+          "letterSpacing": 2
+        },
+        "content": "CHENNAI SUPER KINGS"
+      },
+      {
+        "id": "scoreA",
+        "type": "text",
+        "position": {
+          "x": 280,
+          "y": 45,
+          "width": 250,
+          "height": 70
+        },
+        "style": {
+          "color": "#ffffff",
+          "fontSize": 64,
+          "fontWeight": "900",
+          "fontFamily": "Teko"
+        },
+        "content": "192/4"
+      },
+      {
+        "id": "teamB",
+        "type": "text",
+        "position": {
+          "x": 1250,
+          "y": 10,
+          "width": 300,
+          "height": 35
+        },
+        "style": {
+          "color": "#60a5fa",
+          "fontSize": 18,
+          "fontWeight": "700",
+          "fontFamily": "Outfit",
+          "letterSpacing": 2,
+          "textAlign": "right"
+        },
+        "content": "MUMBAI INDIANS"
+      },
+      {
+        "id": "scoreB",
+        "type": "text",
+        "position": {
+          "x": 1250,
+          "y": 45,
+          "width": 300,
+          "height": 70
+        },
+        "style": {
+          "color": "#ffffff",
+          "fontSize": 64,
+          "fontWeight": "900",
+          "fontFamily": "Teko",
+          "textAlign": "right"
+        },
+        "content": "0/0"
+      },
+      {
+        "id": "info-panel",
+        "type": "shape",
+        "position": {
+          "x": 1650,
+          "y": 15,
+          "width": 240,
+          "height": 120
+        },
+        "style": {
+          "backgroundColor": "linear-gradient(135deg, #7c3aed, #4c1d95)",
+          "borderRadius": 12
+        },
+        "content": ""
+      },
+      {
+        "id": "info-label",
+        "type": "text",
+        "position": {
+          "x": 1660,
+          "y": 20,
+          "width": 220,
+          "height": 25
+        },
+        "style": {
+          "color": "#c4b5fd",
+          "fontSize": 12,
+          "fontWeight": "600",
+          "fontFamily": "Outfit",
+          "letterSpacing": 2
+        },
+        "content": "POWERPLAY"
+      },
+      {
+        "id": "info-value",
+        "type": "text",
+        "position": {
+          "x": 1660,
+          "y": 45,
+          "width": 220,
+          "height": 45
+        },
+        "style": {
+          "color": "#ffffff",
+          "fontSize": 32,
+          "fontWeight": "900",
+          "fontFamily": "Teko"
+        },
+        "content": "58/1"
+      },
+      {
+        "id": "info-sub",
+        "type": "text",
+        "position": {
+          "x": 1660,
+          "y": 95,
+          "width": 220,
+          "height": 25
+        },
+        "style": {
+          "color": "#a78bfa",
+          "fontSize": 13,
+          "fontWeight": "600",
+          "fontFamily": "Outfit",
+          "letterSpacing": 1
+        },
+        "content": "Overs 1-6"
+      }
+    ]
+  },
+  {
+    "id": "preset-cricket-lt-player",
+    "name": "Player Lower Third",
+    "sport": "cricket",
+    "type": "lower-third",
+    "description": "Player introduction lower third with stats",
+    "canvas": {
+      "width": 1920,
+      "height": 120
+    },
+    "elements": [
+      {
+        "id": "bg",
+        "type": "shape",
+        "position": {
+          "x": 0,
+          "y": 0,
+          "width": 1920,
+          "height": 120
+        },
+        "style": {
+          "backgroundColor": "linear-gradient(180deg, #1a5e1f 0%, #0d3d12 100%)",
+          "boxShadow": "0 4px 20px rgba(0,0,0,0.5)"
+        },
+        "content": ""
+      },
+      {
+        "id": "accent-bar",
+        "type": "shape",
+        "position": {
+          "x": 0,
+          "y": 0,
+          "width": 8,
+          "height": 120
+        },
+        "style": {
+          "backgroundColor": "#E3B23C"
+        },
+        "content": ""
+      },
+      {
+        "id": "player-num",
+        "type": "text",
+        "position": {
+          "x": 60,
+          "y": 35,
+          "width": 60,
+          "height": 50
+        },
+        "style": {
+          "color": "#ffffff",
+          "fontSize": 24,
+          "fontWeight": "900",
+          "fontFamily": "Teko",
+          "textAlign": "center"
+        },
+        "content": "7"
+      },
+      {
+        "id": "role-label",
+        "type": "text",
+        "position": {
+          "x": 140,
+          "y": 15,
+          "width": 400,
+          "height": 25
+        },
+        "style": {
+          "color": "#E3B23C",
+          "fontSize": 12,
+          "fontWeight": "700",
+          "fontFamily": "Outfit",
+          "letterSpacing": 4
+        },
+        "content": "BATSMAN"
+      },
+      {
+        "id": "player-name",
+        "type": "text",
+        "position": {
+          "x": 140,
+          "y": 40,
+          "width": 500,
+          "height": 50
+        },
+        "style": {
+          "color": "#ffffff",
+          "fontSize": 40,
+          "fontWeight": "900",
+          "fontFamily": "Teko",
+          "textShadow": "0 2px 8px rgba(0,0,0,0.4)"
+        },
+        "content": "VIRAT KOHLI"
+      },
+      {
+        "id": "player-info",
+        "type": "text",
+        "position": {
+          "x": 140,
+          "y": 85,
+          "width": 300,
+          "height": 25
+        },
+        "style": {
+          "color": "rgba(255,255,255,0.7)",
+          "fontSize": 13,
+          "fontWeight": "500",
+          "fontFamily": "Outfit"
+        },
+        "content": "Right-Hand Bat · India"
+      },
+      {
+        "id": "divider",
+        "type": "shape",
+        "position": {
+          "x": 700,
+          "y": 15,
+          "width": 2,
+          "height": 90
+        },
+        "style": {
+          "backgroundColor": "rgba(255,255,255,0.2)",
+          "borderRadius": 1
+        },
+        "content": ""
+      },
+      {
+        "id": "runs-label",
+        "type": "text",
+        "position": {
+          "x": 730,
+          "y": 15,
+          "width": 100,
+          "height": 20
+        },
+        "style": {
+          "color": "#E3B23C",
+          "fontSize": 11,
+          "fontWeight": "600",
+          "fontFamily": "Outfit",
+          "letterSpacing": 2
+        },
+        "content": "RUNS"
+      },
+      {
+        "id": "runs-value",
+        "type": "text",
+        "position": {
+          "x": 730,
+          "y": 35,
+          "width": 100,
+          "height": 45
+        },
+        "style": {
+          "color": "#ffffff",
+          "fontSize": 38,
+          "fontWeight": "900",
+          "fontFamily": "Teko"
+        },
+        "content": "67"
+      },
+      {
+        "id": "balls-label",
+        "type": "text",
+        "position": {
+          "x": 850,
+          "y": 15,
+          "width": 100,
+          "height": 20
+        },
+        "style": {
+          "color": "#E3B23C",
+          "fontSize": 11,
+          "fontWeight": "600",
+          "fontFamily": "Outfit",
+          "letterSpacing": 2
+        },
+        "content": "BALLS"
+      },
+      {
+        "id": "balls-value",
+        "type": "text",
+        "position": {
+          "x": 850,
+          "y": 35,
+          "width": 100,
+          "height": 45
+        },
+        "style": {
+          "color": "#ffffff",
+          "fontSize": 38,
+          "fontWeight": "900",
+          "fontFamily": "Teko"
+        },
+        "content": "48"
+      },
+      {
+        "id": "sr-label",
+        "type": "text",
+        "position": {
+          "x": 970,
+          "y": 15,
+          "width": 100,
+          "height": 20
+        },
+        "style": {
+          "color": "#E3B23C",
+          "fontSize": 11,
+          "fontWeight": "600",
+          "fontFamily": "Outfit",
+          "letterSpacing": 2
+        },
+        "content": "S/R"
+      },
+      {
+        "id": "sr-value",
+        "type": "text",
+        "position": {
+          "x": 970,
+          "y": 35,
+          "width": 100,
+          "height": 45
+        },
+        "style": {
+          "color": "#16a34a",
+          "fontSize": 38,
+          "fontWeight": "900",
+          "fontFamily": "Teko"
+        },
+        "content": "139"
+      }
+    ]
+  },
+  {
+    "id": "preset-cricket-lt-bowler",
+    "name": "Bowler Lower Third",
+    "sport": "cricket",
+    "type": "lower-third",
+    "description": "Bowler introduction with figures",
+    "canvas": {
+      "width": 1920,
+      "height": 120
+    },
+    "elements": [
+      {
+        "id": "bg",
+        "type": "shape",
+        "position": {
+          "x": 0,
+          "y": 0,
+          "width": 1920,
+          "height": 120
+        },
+        "style": {
+          "backgroundColor": "linear-gradient(180deg, #1a3c5e 0%, #0d1e30 100%)",
+          "boxShadow": "0 4px 20px rgba(0,0,0,0.5)"
+        },
+        "content": ""
+      },
+      {
+        "id": "accent-bar",
+        "type": "shape",
+        "position": {
+          "x": 0,
+          "y": 0,
+          "width": 8,
+          "height": 120
+        },
+        "style": {
+          "backgroundColor": "#60a5fa"
+        },
+        "content": ""
+      },
+      {
+        "id": "player-num",
+        "type": "text",
+        "position": {
+          "x": 60,
+          "y": 35,
+          "width": 60,
+          "height": 50
+        },
+        "style": {
+          "color": "#ffffff",
+          "fontSize": 24,
+          "fontWeight": "900",
+          "fontFamily": "Teko",
+          "textAlign": "center"
+        },
+        "content": "11"
+      },
+      {
+        "id": "role-label",
+        "type": "text",
+        "position": {
+          "x": 140,
+          "y": 15,
+          "width": 400,
+          "height": 25
+        },
+        "style": {
+          "color": "#60a5fa",
+          "fontSize": 12,
+          "fontWeight": "700",
+          "fontFamily": "Outfit",
+          "letterSpacing": 4
+        },
+        "content": "BOWLER"
+      },
+      {
+        "id": "player-name",
+        "type": "text",
+        "position": {
+          "x": 140,
+          "y": 40,
+          "width": 500,
+          "height": 50
+        },
+        "style": {
+          "color": "#ffffff",
+          "fontSize": 40,
+          "fontWeight": "900",
+          "fontFamily": "Teko",
+          "textShadow": "0 2px 8px rgba(0,0,0,0.4)"
+        },
+        "content": "JASPRIT BUMRAH"
+      },
+      {
+        "id": "player-info",
+        "type": "text",
+        "position": {
+          "x": 140,
+          "y": 85,
+          "width": 300,
+          "height": 25
+        },
+        "style": {
+          "color": "rgba(255,255,255,0.7)",
+          "fontSize": 13,
+          "fontWeight": "500",
+          "fontFamily": "Outfit"
+        },
+        "content": "Right-Arm Fast · India"
+      },
+      {
+        "id": "divider",
+        "type": "shape",
+        "position": {
+          "x": 700,
+          "y": 15,
+          "width": 2,
+          "height": 90
+        },
+        "style": {
+          "backgroundColor": "rgba(255,255,255,0.2)",
+          "borderRadius": 1
+        },
+        "content": ""
+      },
+      {
+        "id": "figures-label",
+        "type": "text",
+        "position": {
+          "x": 730,
+          "y": 15,
+          "width": 120,
+          "height": 20
+        },
+        "style": {
+          "color": "#60a5fa",
+          "fontSize": 11,
+          "fontWeight": "600",
+          "fontFamily": "Outfit",
+          "letterSpacing": 2
+        },
+        "content": "FIGURES"
+      },
+      {
+        "id": "figures-value",
+        "type": "text",
+        "position": {
+          "x": 730,
+          "y": 35,
+          "width": 120,
+          "height": 45
+        },
+        "style": {
+          "color": "#ef4444",
+          "fontSize": 38,
+          "fontWeight": "900",
+          "fontFamily": "Teko"
+        },
+        "content": "2-34"
+      },
+      {
+        "id": "overs-label",
+        "type": "text",
+        "position": {
+          "x": 870,
+          "y": 15,
+          "width": 100,
+          "height": 20
+        },
+        "style": {
+          "color": "#60a5fa",
+          "fontSize": 11,
+          "fontWeight": "600",
+          "fontFamily": "Outfit",
+          "letterSpacing": 2
+        },
+        "content": "OVERS"
+      },
+      {
+        "id": "overs-value",
+        "type": "text",
+        "position": {
+          "x": 870,
+          "y": 35,
+          "width": 100,
+          "height": 45
+        },
+        "style": {
+          "color": "#ffffff",
+          "fontSize": 38,
+          "fontWeight": "900",
+          "fontFamily": "Teko"
+        },
+        "content": "4.0"
+      }
+    ]
+  },
+  {
+    "id": "preset-cricket-lt-toss",
+    "name": "Toss Result Lower Third",
+    "sport": "cricket",
+    "type": "lower-third",
+    "description": "Toss announcement lower third",
+    "canvas": {
+      "width": 1920,
+      "height": 100
+    },
+    "elements": [
+      {
+        "id": "bg",
+        "type": "shape",
+        "position": {
+          "x": 0,
+          "y": 0,
+          "width": 1920,
+          "height": 100
+        },
+        "style": {
+          "backgroundColor": "linear-gradient(180deg, #7c3aed 0%, #4c1d95 100%)",
+          "boxShadow": "0 4px 20px rgba(0,0,0,0.5)"
+        },
+        "content": ""
+      },
+      {
+        "id": "accent-bar",
+        "type": "shape",
+        "position": {
+          "x": 0,
+          "y": 0,
+          "width": 8,
+          "height": 100
+        },
+        "style": {
+          "backgroundColor": "#fbbf24"
+        },
+        "content": ""
+      },
+      {
+        "id": "toss-label",
+        "type": "text",
+        "position": {
+          "x": 40,
+          "y": 15,
+          "width": 300,
+          "height": 25
+        },
+        "style": {
+          "color": "#fbbf24",
+          "fontSize": 14,
+          "fontWeight": "700",
+          "fontFamily": "Outfit",
+          "letterSpacing": 4
+        },
+        "content": "TOSS RESULT"
+      },
+      {
+        "id": "toss-text",
+        "type": "text",
+        "position": {
+          "x": 40,
+          "y": 40,
+          "width": 600,
+          "height": 50
+        },
+        "style": {
+          "color": "#ffffff",
+          "fontSize": 36,
+          "fontWeight": "900",
+          "fontFamily": "Teko",
+          "textShadow": "0 2px 8px rgba(0,0,0,0.4)"
+        },
+        "content": "INDIA WON THE TOSS"
+      },
+      {
+        "id": "decision",
+        "type": "text",
+        "position": {
+          "x": 700,
+          "y": 40,
+          "width": 400,
+          "height": 50
+        },
+        "style": {
+          "color": "#c4b5fd",
+          "fontSize": 24,
+          "fontWeight": "700",
+          "fontFamily": "Outfit"
+        },
+        "content": "Elected to Bat First"
+      }
+    ]
+  },
+  {
+    "id": "preset-cricket-lt-commentary",
+    "name": "Commentary Lower Third",
+    "sport": "cricket",
+    "type": "lower-third",
+    "description": "Live commentary lower third",
+    "canvas": {
+      "width": 1920,
+      "height": 100
+    },
+    "elements": [
+      {
+        "id": "bg",
+        "type": "shape",
+        "position": {
+          "x": 0,
+          "y": 0,
+          "width": 1920,
+          "height": 100
+        },
+        "style": {
+          "backgroundColor": "linear-gradient(180deg, #1e293b 0%, #0f172a 100%)",
+          "boxShadow": "0 4px 20px rgba(0,0,0,0.5)"
+        },
+        "content": ""
+      },
+      {
+        "id": "commentary-label",
+        "type": "text",
+        "position": {
+          "x": 100,
+          "y": 15,
+          "width": 300,
+          "height": 25
+        },
+        "style": {
+          "color": "#94a3b8",
+          "fontSize": 12,
+          "fontWeight": "600",
+          "fontFamily": "Outfit",
+          "letterSpacing": 3
+        },
+        "content": "COMMENTARY"
+      },
+      {
+        "id": "commentary-text",
+        "type": "text",
+        "position": {
+          "x": 100,
+          "y": 40,
+          "width": 1700,
+          "height": 50
+        },
+        "style": {
+          "color": "#ffffff",
+          "fontSize": 22,
+          "fontWeight": "600",
+          "fontFamily": "Outfit",
+          "textShadow": "0 2px 8px rgba(0,0,0,0.4)"
+        },
+        "content": "And that is a magnificent cover drive for four!"
+      }
+    ]
+  },
+  {
+    "id": "preset-cricket-lt-superover",
+    "name": "Super Over Lower Third",
+    "sport": "cricket",
+    "type": "lower-third",
+    "description": "Super over announcement",
+    "canvas": {
+      "width": 1920,
+      "height": 120
+    },
+    "elements": [
+      {
+        "id": "bg",
+        "type": "shape",
+        "position": {
+          "x": 0,
+          "y": 0,
+          "width": 1920,
+          "height": 120
+        },
+        "style": {
+          "backgroundColor": "linear-gradient(135deg, #dc2626 0%, #991b1b 100%)",
+          "boxShadow": "0 4px 20px rgba(0,0,0,0.5)"
+        },
+        "content": ""
+      },
+      {
+        "id": "accent-bar",
+        "type": "shape",
+        "position": {
+          "x": 0,
+          "y": 0,
+          "width": 8,
+          "height": 120
+        },
+        "style": {
+          "backgroundColor": "#fbbf24"
+        },
+        "content": ""
+      },
+      {
+        "id": "super-label",
+        "type": "text",
+        "position": {
+          "x": 40,
+          "y": 15,
+          "width": 300,
+          "height": 30
+        },
+        "style": {
+          "color": "#fbbf24",
+          "fontSize": 16,
+          "fontWeight": "800",
+          "fontFamily": "Outfit",
+          "letterSpacing": 6
+        },
+        "content": "SUPER OVER"
+      },
+      {
+        "id": "super-text",
+        "type": "text",
+        "position": {
+          "x": 40,
+          "y": 45,
+          "width": 600,
+          "height": 60
+        },
+        "style": {
+          "color": "#ffffff",
+          "fontSize": 48,
+          "fontWeight": "900",
+          "fontFamily": "Teko",
+          "textShadow": "0 4px 15px rgba(0,0,0,0.5)"
+        },
+        "content": "SUPER OVER!"
+      },
+      {
+        "id": "teams",
+        "type": "text",
+        "position": {
+          "x": 700,
+          "y": 45,
+          "width": 600,
+          "height": 50
+        },
+        "style": {
+          "color": "#fca5a5",
+          "fontSize": 24,
+          "fontWeight": "700",
+          "fontFamily": "Outfit"
+        },
+        "content": "India vs Australia"
+      }
+    ]
+  },
+  {
+    "id": "preset-cricket-lt-boundary",
+    "name": "Boundary Tracker",
+    "sport": "cricket",
+    "type": "lower-third",
+    "description": "Four and six counter lower third",
+    "canvas": {
+      "width": 1920,
+      "height": 80
+    },
+    "elements": [
+      {
+        "id": "bg",
+        "type": "shape",
+        "position": {
+          "x": 0,
+          "y": 0,
+          "width": 1920,
+          "height": 80
+        },
+        "style": {
+          "backgroundColor": "linear-gradient(180deg, #0f172a 0%, #020617 100%)",
+          "boxShadow": "0 4px 20px rgba(0,0,0,0.5)"
+        },
+        "content": ""
+      },
+      {
+        "id": "accent",
+        "type": "shape",
+        "position": {
+          "x": 0,
+          "y": 76,
+          "width": 1920,
+          "height": 4
+        },
+        "style": {
+          "backgroundColor": "linear-gradient(90deg, #fbbf24, #22d3ee, #fbbf24)"
+        },
+        "content": ""
+      },
+      {
+        "id": "fours-label",
+        "type": "text",
+        "position": {
+          "x": 40,
+          "y": 10,
+          "width": 100,
+          "height": 25
+        },
+        "style": {
+          "color": "#22d3ee",
+          "fontSize": 14,
+          "fontWeight": "700",
+          "fontFamily": "Outfit",
+          "letterSpacing": 2
+        },
+        "content": "4s"
+      },
+      {
+        "id": "fours-value",
+        "type": "text",
+        "position": {
+          "x": 40,
+          "y": 35,
+          "width": 100,
+          "height": 40
+        },
+        "style": {
+          "color": "#ffffff",
+          "fontSize": 36,
+          "fontWeight": "900",
+          "fontFamily": "Teko"
+        },
+        "content": "8"
+      },
+      {
+        "id": "sixes-label",
+        "type": "text",
+        "position": {
+          "x": 160,
+          "y": 10,
+          "width": 100,
+          "height": 25
+        },
+        "style": {
+          "color": "#fbbf24",
+          "fontSize": 14,
+          "fontWeight": "700",
+          "fontFamily": "Outfit",
+          "letterSpacing": 2
+        },
+        "content": "6s"
+      },
+      {
+        "id": "sixes-value",
+        "type": "text",
+        "position": {
+          "x": 160,
+          "y": 35,
+          "width": 100,
+          "height": 40
+        },
+        "style": {
+          "color": "#ffffff",
+          "fontSize": 36,
+          "fontWeight": "900",
+          "fontFamily": "Teko"
+        },
+        "content": "4"
+      },
+      {
+        "id": "dots-label",
+        "type": "text",
+        "position": {
+          "x": 330,
+          "y": 10,
+          "width": 100,
+          "height": 25
+        },
+        "style": {
+          "color": "#94a3b8",
+          "fontSize": 14,
+          "fontWeight": "700",
+          "fontFamily": "Outfit",
+          "letterSpacing": 2
+        },
+        "content": "DOTS"
+      },
+      {
+        "id": "dots-value",
+        "type": "text",
+        "position": {
+          "x": 330,
+          "y": 35,
+          "width": 100,
+          "height": 40
+        },
+        "style": {
+          "color": "#ffffff",
+          "fontSize": 36,
+          "fontWeight": "900",
+          "fontFamily": "Teko"
+        },
+        "content": "22"
+      }
+    ]
+  },
+  {
+    "id": "preset-cricket-lt-milestone",
+    "name": "Milestone Lower Third",
+    "sport": "cricket",
+    "type": "lower-third",
+    "description": "Player milestone celebration (50/100)",
+    "canvas": {
+      "width": 1920,
+      "height": 120
+    },
+    "elements": [
+      {
+        "id": "bg",
+        "type": "shape",
+        "position": {
+          "x": 0,
+          "y": 0,
+          "width": 1920,
+          "height": 120
+        },
+        "style": {
+          "backgroundColor": "linear-gradient(135deg, #fbbf24 0%, #d97706 100%)",
+          "boxShadow": "0 4px 20px rgba(0,0,0,0.5)"
+        },
+        "content": ""
+      },
+      {
+        "id": "player-name",
+        "type": "text",
+        "position": {
+          "x": 40,
+          "y": 10,
+          "width": 400,
+          "height": 40
+        },
+        "style": {
+          "color": "#1a1a2e",
+          "fontSize": 20,
+          "fontWeight": "800",
+          "fontFamily": "Outfit",
+          "letterSpacing": 2
+        },
+        "content": "VIRAT KOHLI"
+      },
+      {
+        "id": "milestone",
+        "type": "text",
+        "position": {
+          "x": 40,
+          "y": 45,
+          "width": 400,
+          "height": 65
+        },
+        "style": {
+          "color": "#1a1a2e",
+          "fontSize": 56,
+          "fontWeight": "900",
+          "fontFamily": "Teko"
+        },
+        "content": "100*"
+      },
+      {
+        "id": "achievement",
+        "type": "text",
+        "position": {
+          "x": 500,
+          "y": 30,
+          "width": 400,
+          "height": 60
+        },
+        "style": {
+          "color": "#1a1a2e",
+          "fontSize": 28,
+          "fontWeight": "900",
+          "fontFamily": "Teko"
+        },
+        "content": "CENTURY!"
+      }
+    ]
+  },
+  {
+    "id": "preset-football-lt-goal",
+    "name": "Goal Event Lower Third",
+    "sport": "football",
+    "type": "lower-third",
+    "description": "Goal scored announcement",
+    "canvas": {
+      "width": 1920,
+      "height": 120
+    },
+    "elements": [
+      {
+        "id": "bg",
+        "type": "shape",
+        "position": {
+          "x": 0,
+          "y": 0,
+          "width": 1920,
+          "height": 120
+        },
+        "style": {
+          "backgroundColor": "linear-gradient(135deg, #065f46 0%, #064e3b 100%)",
+          "boxShadow": "0 4px 20px rgba(0,0,0,0.5)"
+        },
+        "content": ""
+      },
+      {
+        "id": "accent-bar",
+        "type": "shape",
+        "position": {
+          "x": 0,
+          "y": 0,
+          "width": 8,
+          "height": 120
+        },
+        "style": {
+          "backgroundColor": "#10b981"
+        },
+        "content": ""
+      },
+      {
+        "id": "goal-label",
+        "type": "text",
+        "position": {
+          "x": 40,
+          "y": 15,
+          "width": 300,
+          "height": 25
+        },
+        "style": {
+          "color": "#10b981",
+          "fontSize": 18,
+          "fontWeight": "800",
+          "fontFamily": "Outfit",
+          "letterSpacing": 6
+        },
+        "content": "GOAL!"
+      },
+      {
+        "id": "player-name",
+        "type": "text",
+        "position": {
+          "x": 40,
+          "y": 40,
+          "width": 500,
+          "height": 50
+        },
+        "style": {
+          "color": "#ffffff",
+          "fontSize": 40,
+          "fontWeight": "900",
+          "fontFamily": "Teko"
+        },
+        "content": "Mohamed Salah"
+      },
+      {
+        "id": "minute",
+        "type": "text",
+        "position": {
+          "x": 600,
+          "y": 40,
+          "width": 200,
+          "height": 50
+        },
+        "style": {
+          "color": "#34d399",
+          "fontSize": 48,
+          "fontWeight": "900",
+          "fontFamily": "Teko"
+        },
+        "content": "72'"
+      }
+    ]
+  },
+  {
+    "id": "preset-football-lt-substitution",
+    "name": "Substitution Lower Third",
+    "sport": "football",
+    "type": "lower-third",
+    "description": "Player substitution announcement",
+    "canvas": {
+      "width": 1920,
+      "height": 100
+    },
+    "elements": [
+      {
+        "id": "bg",
+        "type": "shape",
+        "position": {
+          "x": 0,
+          "y": 0,
+          "width": 1920,
+          "height": 100
+        },
+        "style": {
+          "backgroundColor": "linear-gradient(180deg, #1e293b 0%, #0f172a 100%)",
+          "boxShadow": "0 4px 20px rgba(0,0,0,0.5)"
+        },
+        "content": ""
+      },
+      {
+        "id": "sub-label",
+        "type": "text",
+        "position": {
+          "x": 40,
+          "y": 10,
+          "width": 300,
+          "height": 25
+        },
+        "style": {
+          "color": "#fbbf24",
+          "fontSize": 12,
+          "fontWeight": "700",
+          "fontFamily": "Outfit",
+          "letterSpacing": 4
+        },
+        "content": "SUBSTITUTION"
+      },
+      {
+        "id": "out-player",
+        "type": "text",
+        "position": {
+          "x": 40,
+          "y": 35,
+          "width": 400,
+          "height": 25
+        },
+        "style": {
+          "color": "#ef4444",
+          "fontSize": 18,
+          "fontWeight": "700",
+          "fontFamily": "Outfit"
+        },
+        "content": "OUT: Marcus Rashford"
+      },
+      {
+        "id": "in-player",
+        "type": "text",
+        "position": {
+          "x": 40,
+          "y": 65,
+          "width": 400,
+          "height": 25
+        },
+        "style": {
+          "color": "#22c55e",
+          "fontSize": 18,
+          "fontWeight": "700",
+          "fontFamily": "Outfit"
+        },
+        "content": "IN: Alejandro Garnacho"
+      }
+    ]
+  },
+  {
+    "id": "preset-basketball-lt-player",
+    "name": "Basketball Player Lower Third",
+    "sport": "basketball",
+    "type": "lower-third",
+    "description": "Player introduction for basketball",
+    "canvas": {
+      "width": 1920,
+      "height": 120
+    },
+    "elements": [
+      {
+        "id": "bg",
+        "type": "shape",
+        "position": {
+          "x": 0,
+          "y": 0,
+          "width": 1920,
+          "height": 120
+        },
+        "style": {
+          "backgroundColor": "linear-gradient(180deg, #991b1b 0%, #7f1d1d 100%)",
+          "boxShadow": "0 4px 20px rgba(0,0,0,0.5)"
+        },
+        "content": ""
+      },
+      {
+        "id": "accent-bar",
+        "type": "shape",
+        "position": {
+          "x": 0,
+          "y": 0,
+          "width": 8,
+          "height": 120
+        },
+        "style": {
+          "backgroundColor": "#fbbf24"
+        },
+        "content": ""
+      },
+      {
+        "id": "player-num",
+        "type": "text",
+        "position": {
+          "x": 60,
+          "y": 35,
+          "width": 60,
+          "height": 50
+        },
+        "style": {
+          "color": "#fbbf24",
+          "fontSize": 24,
+          "fontWeight": "900",
+          "fontFamily": "Teko",
+          "textAlign": "center"
+        },
+        "content": "23"
+      },
+      {
+        "id": "role-label",
+        "type": "text",
+        "position": {
+          "x": 140,
+          "y": 15,
+          "width": 400,
+          "height": 25
+        },
+        "style": {
+          "color": "#fbbf24",
+          "fontSize": 12,
+          "fontWeight": "700",
+          "fontFamily": "Outfit",
+          "letterSpacing": 4
+        },
+        "content": "SMALL FORWARD"
+      },
+      {
+        "id": "player-name",
+        "type": "text",
+        "position": {
+          "x": 140,
+          "y": 40,
+          "width": 500,
+          "height": 50
+        },
+        "style": {
+          "color": "#ffffff",
+          "fontSize": 40,
+          "fontWeight": "900",
+          "fontFamily": "Teko",
+          "textShadow": "0 2px 8px rgba(0,0,0,0.4)"
+        },
+        "content": "MICHAEL JORDAN"
+      },
+      {
+        "id": "player-info",
+        "type": "text",
+        "position": {
+          "x": 140,
+          "y": 85,
+          "width": 300,
+          "height": 25
+        },
+        "style": {
+          "color": "rgba(255,255,255,0.7)",
+          "fontSize": 13,
+          "fontWeight": "500",
+          "fontFamily": "Outfit"
+        },
+        "content": "Chicago Bulls #23"
+      }
+    ]
+  },
+  {
+    "id": "preset-cricket-tm-match",
+    "name": "Match Timer",
+    "sport": "cricket",
+    "type": "timer",
+    "description": "Match duration timer with session info",
+    "canvas": {
+      "width": 400,
+      "height": 80
+    },
+    "elements": [
+      {
+        "id": "bg",
+        "type": "shape",
+        "position": {
+          "x": 0,
+          "y": 0,
+          "width": 400,
+          "height": 80
+        },
+        "style": {
+          "backgroundColor": "linear-gradient(135deg, #1e293b 0%, #0f172a 100%)",
+          "borderRadius": 12,
+          "boxShadow": "0 4px 20px rgba(0,0,0,0.5)"
+        },
+        "content": ""
+      },
+      {
+        "id": "timer-label",
+        "type": "text",
+        "position": {
+          "x": 15,
+          "y": 8,
+          "width": 150,
+          "height": 25
+        },
+        "style": {
+          "color": "#94a3b8",
+          "fontSize": 11,
+          "fontWeight": "600",
+          "fontFamily": "Outfit",
+          "letterSpacing": 2
+        },
+        "content": "MATCH TIME"
+      },
+      {
+        "id": "timer-value",
+        "type": "text",
+        "position": {
+          "x": 15,
+          "y": 30,
+          "width": 200,
+          "height": 45
+        },
+        "style": {
+          "color": "#22c55e",
+          "fontSize": 36,
+          "fontWeight": "900",
+          "fontFamily": "Teko"
+        },
+        "content": "02:45:30"
+      },
+      {
+        "id": "session",
+        "type": "text",
+        "position": {
+          "x": 250,
+          "y": 15,
+          "width": 130,
+          "height": 50
+        },
+        "style": {
+          "color": "#64748b",
+          "fontSize": 14,
+          "fontWeight": "600",
+          "fontFamily": "Outfit",
+          "textAlign": "right"
+        },
+        "content": "Session 2"
+      }
+    ]
+  },
+  {
+    "id": "preset-cricket-tm-innings",
+    "name": "Innings Break Timer",
+    "sport": "cricket",
+    "type": "timer",
+    "description": "Innings break countdown timer",
+    "canvas": {
+      "width": 500,
+      "height": 100
+    },
+    "elements": [
+      {
+        "id": "bg",
+        "type": "shape",
+        "position": {
+          "x": 0,
+          "y": 0,
+          "width": 500,
+          "height": 100
+        },
+        "style": {
+          "backgroundColor": "linear-gradient(135deg, #7c3aed 0%, #4c1d95 100%)",
+          "borderRadius": 16,
+          "boxShadow": "0 4px 20px rgba(0,0,0,0.5)"
+        },
+        "content": ""
+      },
+      {
+        "id": "label",
+        "type": "text",
+        "position": {
+          "x": 15,
+          "y": 10,
+          "width": 200,
+          "height": 25
+        },
+        "style": {
+          "color": "#c4b5fd",
+          "fontSize": 12,
+          "fontWeight": "600",
+          "fontFamily": "Outfit",
+          "letterSpacing": 3
+        },
+        "content": "INNINGS BREAK"
+      },
+      {
+        "id": "timer",
+        "type": "text",
+        "position": {
+          "x": 15,
+          "y": 35,
+          "width": 200,
+          "height": 55
+        },
+        "style": {
+          "color": "#ffffff",
+          "fontSize": 48,
+          "fontWeight": "900",
+          "fontFamily": "Teko"
+        },
+        "content": "12:45"
+      },
+      {
+        "id": "info",
+        "type": "text",
+        "position": {
+          "x": 250,
+          "y": 25,
+          "width": 230,
+          "height": 50
+        },
+        "style": {
+          "color": "#a78bfa",
+          "fontSize": 16,
+          "fontWeight": "600",
+          "fontFamily": "Outfit",
+          "textAlign": "right"
+        },
+        "content": "CSK: 192/4 (20 ov)"
+      }
+    ]
+  },
+  {
+    "id": "preset-cricket-tm-over",
+    "name": "Over Countdown",
+    "sport": "cricket",
+    "type": "timer",
+    "description": "Between overs countdown",
+    "canvas": {
+      "width": 300,
+      "height": 60
+    },
+    "elements": [
+      {
+        "id": "bg",
+        "type": "shape",
+        "position": {
+          "x": 0,
+          "y": 0,
+          "width": 300,
+          "height": 60
+        },
+        "style": {
+          "backgroundColor": "linear-gradient(135deg, #1e293b 0%, #0f172a 100%)",
+          "borderRadius": 10,
+          "boxShadow": "0 4px 20px rgba(0,0,0,0.5)"
+        },
+        "content": ""
+      },
+      {
+        "id": "label",
+        "type": "text",
+        "position": {
+          "x": 15,
+          "y": 8,
+          "width": 100,
+          "height": 20
+        },
+        "style": {
+          "color": "#94a3b8",
+          "fontSize": 10,
+          "fontWeight": "600",
+          "fontFamily": "Outfit",
+          "letterSpacing": 2
+        },
+        "content": "NEXT OVER"
+      },
+      {
+        "id": "timer",
+        "type": "text",
+        "position": {
+          "x": 15,
+          "y": 25,
+          "width": 150,
+          "height": 35
+        },
+        "style": {
+          "color": "#fbbf24",
+          "fontSize": 28,
+          "fontWeight": "900",
+          "fontFamily": "Teko"
+        },
+        "content": "0:25"
+      },
+      {
+        "id": "over-info",
+        "type": "text",
+        "position": {
+          "x": 180,
+          "y": 15,
+          "width": 100,
+          "height": 30
+        },
+        "style": {
+          "color": "#64748b",
+          "fontSize": 14,
+          "fontWeight": "600",
+          "fontFamily": "Outfit",
+          "textAlign": "right"
+        },
+        "content": "Over 15"
+      }
+    ]
+  },
+  {
+    "id": "preset-cricket-tm-drink",
+    "name": "Drinks Break Timer",
+    "sport": "cricket",
+    "type": "timer",
+    "description": "Drinks break countdown",
+    "canvas": {
+      "width": 400,
+      "height": 80
+    },
+    "elements": [
+      {
+        "id": "bg",
+        "type": "shape",
+        "position": {
+          "x": 0,
+          "y": 0,
+          "width": 400,
+          "height": 80
+        },
+        "style": {
+          "backgroundColor": "linear-gradient(135deg, #0ea5e9 0%, #0369a1 100%)",
+          "borderRadius": 12,
+          "boxShadow": "0 4px 20px rgba(0,0,0,0.5)"
+        },
+        "content": ""
+      },
+      {
+        "id": "label",
+        "type": "text",
+        "position": {
+          "x": 60,
+          "y": 10,
+          "width": 150,
+          "height": 25
+        },
+        "style": {
+          "color": "#e0f2fe",
+          "fontSize": 12,
+          "fontWeight": "700",
+          "fontFamily": "Outfit",
+          "letterSpacing": 3
+        },
+        "content": "DRINKS BREAK"
+      },
+      {
+        "id": "timer",
+        "type": "text",
+        "position": {
+          "x": 60,
+          "y": 35,
+          "width": 150,
+          "height": 40
+        },
+        "style": {
+          "color": "#ffffff",
+          "fontSize": 32,
+          "fontWeight": "900",
+          "fontFamily": "Teko"
+        },
+        "content": "05:00"
+      },
+      {
+        "id": "status",
+        "type": "text",
+        "position": {
+          "x": 250,
+          "y": 25,
+          "width": 130,
+          "height": 30
+        },
+        "style": {
+          "color": "#bae6fd",
+          "fontSize": 14,
+          "fontWeight": "600",
+          "fontFamily": "Outfit",
+          "textAlign": "right"
+        },
+        "content": "Over 25"
+      }
+    ]
+  },
+  {
+    "id": "preset-cricket-tm-strategic",
+    "name": "Strategic Timeout",
+    "sport": "cricket",
+    "type": "timer",
+    "description": "Strategic timeout timer",
+    "canvas": {
+      "width": 400,
+      "height": 80
+    },
+    "elements": [
+      {
+        "id": "bg",
+        "type": "shape",
+        "position": {
+          "x": 0,
+          "y": 0,
+          "width": 400,
+          "height": 80
+        },
+        "style": {
+          "backgroundColor": "linear-gradient(135deg, #f97316 0%, #c2410c 100%)",
+          "borderRadius": 12,
+          "boxShadow": "0 4px 20px rgba(0,0,0,0.5)"
+        },
+        "content": ""
+      },
+      {
+        "id": "label",
+        "type": "text",
+        "position": {
+          "x": 15,
+          "y": 10,
+          "width": 200,
+          "height": 25
+        },
+        "style": {
+          "color": "#fed7aa",
+          "fontSize": 12,
+          "fontWeight": "700",
+          "fontFamily": "Outfit",
+          "letterSpacing": 3
+        },
+        "content": "STRATEGIC TIMEOUT"
+      },
+      {
+        "id": "timer",
+        "type": "text",
+        "position": {
+          "x": 15,
+          "y": 35,
+          "width": 200,
+          "height": 40
+        },
+        "style": {
+          "color": "#ffffff",
+          "fontSize": 32,
+          "fontWeight": "900",
+          "fontFamily": "Teko"
+        },
+        "content": "02:30"
+      },
+      {
+        "id": "info",
+        "type": "text",
+        "position": {
+          "x": 250,
+          "y": 25,
+          "width": 130,
+          "height": 30
+        },
+        "style": {
+          "color": "#fdba74",
+          "fontSize": 14,
+          "fontWeight": "600",
+          "fontFamily": "Outfit",
+          "textAlign": "right"
+        },
+        "content": "Over 10-40"
+      }
+    ]
+  },
+  {
+    "id": "preset-cricket-st-partnership",
+    "name": "Partnership Stats",
+    "sport": "cricket",
+    "type": "stats",
+    "description": "Batting partnership statistics",
+    "canvas": {
+      "width": 400,
+      "height": 150
+    },
+    "elements": [
+      {
+        "id": "bg",
+        "type": "shape",
+        "position": {
+          "x": 0,
+          "y": 0,
+          "width": 400,
+          "height": 150
+        },
+        "style": {
+          "backgroundColor": "linear-gradient(135deg, #1e293b 0%, #0f172a 100%)",
+          "borderRadius": 12,
+          "boxShadow": "0 4px 20px rgba(0,0,0,0.5)"
+        },
+        "content": ""
+      },
+      {
+        "id": "label",
+        "type": "text",
+        "position": {
+          "x": 15,
+          "y": 10,
+          "width": 200,
+          "height": 25
+        },
+        "style": {
+          "color": "#94a3b8",
+          "fontSize": 12,
+          "fontWeight": "600",
+          "fontFamily": "Outfit",
+          "letterSpacing": 2
+        },
+        "content": "PARTNERSHIP"
+      },
+      {
+        "id": "runs",
+        "type": "text",
+        "position": {
+          "x": 15,
+          "y": 35,
+          "width": 200,
+          "height": 55
+        },
+        "style": {
+          "color": "#ffffff",
+          "fontSize": 48,
+          "fontWeight": "900",
+          "fontFamily": "Teko"
+        },
+        "content": "87"
+      },
+      {
+        "id": "balls",
+        "type": "text",
+        "position": {
+          "x": 230,
+          "y": 45,
+          "width": 150,
+          "height": 35
+        },
+        "style": {
+          "color": "#94a3b8",
+          "fontSize": 18,
+          "fontWeight": "600",
+          "fontFamily": "Outfit"
+        },
+        "content": "of 52 balls"
+      },
+      {
+        "id": "players",
+        "type": "text",
+        "position": {
+          "x": 15,
+          "y": 100,
+          "width": 370,
+          "height": 30
+        },
+        "style": {
+          "color": "#64748b",
+          "fontSize": 13,
+          "fontWeight": "500",
+          "fontFamily": "Outfit"
+        },
+        "content": "V. Kohli 45* & R. Pant 38*"
+      }
+    ]
+  },
+  {
+    "id": "preset-cricket-st-runrate",
+    "name": "Run Rate Tracker",
+    "sport": "cricket",
+    "type": "stats",
+    "description": "Run rate comparison and projection",
+    "canvas": {
+      "width": 500,
+      "height": 120
+    },
+    "elements": [
+      {
+        "id": "bg",
+        "type": "shape",
+        "position": {
+          "x": 0,
+          "y": 0,
+          "width": 500,
+          "height": 120
+        },
+        "style": {
+          "backgroundColor": "linear-gradient(135deg, #1e293b 0%, #0f172a 100%)",
+          "borderRadius": 12,
+          "boxShadow": "0 4px 20px rgba(0,0,0,0.5)"
+        },
+        "content": ""
+      },
+      {
+        "id": "label",
+        "type": "text",
+        "position": {
+          "x": 15,
+          "y": 10,
+          "width": 200,
+          "height": 20
+        },
+        "style": {
+          "color": "#94a3b8",
+          "fontSize": 11,
+          "fontWeight": "600",
+          "fontFamily": "Outfit",
+          "letterSpacing": 2
+        },
+        "content": "RUN RATE"
+      },
+      {
+        "id": "current-rr",
+        "type": "text",
+        "position": {
+          "x": 15,
+          "y": 30,
+          "width": 150,
+          "height": 45
+        },
+        "style": {
+          "color": "#22c55e",
+          "fontSize": 38,
+          "fontWeight": "900",
+          "fontFamily": "Teko"
+        },
+        "content": "9.60"
+      },
+      {
+        "id": "required-rr",
+        "type": "text",
+        "position": {
+          "x": 180,
+          "y": 30,
+          "width": 150,
+          "height": 45
+        },
+        "style": {
+          "color": "#ef4444",
+          "fontSize": 38,
+          "fontWeight": "900",
+          "fontFamily": "Teko"
+        },
+        "content": "9.65"
+      },
+      {
+        "id": "current-label",
+        "type": "text",
+        "position": {
+          "x": 15,
+          "y": 75,
+          "width": 100,
+          "height": 20
+        },
+        "style": {
+          "color": "#22c55e",
+          "fontSize": 10,
+          "fontWeight": "600",
+          "fontFamily": "Outfit",
+          "letterSpacing": 1
+        },
+        "content": "CURRENT"
+      },
+      {
+        "id": "required-label",
+        "type": "text",
+        "position": {
+          "x": 180,
+          "y": 75,
+          "width": 100,
+          "height": 20
+        },
+        "style": {
+          "color": "#ef4444",
+          "fontSize": 10,
+          "fontWeight": "600",
+          "fontFamily": "Outfit",
+          "letterSpacing": 1
+        },
+        "content": "REQUIRED"
+      }
+    ]
+  },
+  {
+    "id": "preset-cricket-st-target",
+    "name": "Target Tracker",
+    "sport": "cricket",
+    "type": "stats",
+    "description": "Chasing team target tracker",
+    "canvas": {
+      "width": 500,
+      "height": 100
+    },
+    "elements": [
+      {
+        "id": "bg",
+        "type": "shape",
+        "position": {
+          "x": 0,
+          "y": 0,
+          "width": 500,
+          "height": 100
+        },
+        "style": {
+          "backgroundColor": "linear-gradient(135deg, #1e293b 0%, #0f172a 100%)",
+          "borderRadius": 12,
+          "boxShadow": "0 4px 20px rgba(0,0,0,0.5)"
+        },
+        "content": ""
+      },
+      {
+        "id": "label",
+        "type": "text",
+        "position": {
+          "x": 15,
+          "y": 8,
+          "width": 150,
+          "height": 20
+        },
+        "style": {
+          "color": "#E3B23C",
+          "fontSize": 11,
+          "fontWeight": "600",
+          "fontFamily": "Outfit",
+          "letterSpacing": 2
+        },
+        "content": "TARGET"
+      },
+      {
+        "id": "target",
+        "type": "text",
+        "position": {
+          "x": 15,
+          "y": 28,
+          "width": 200,
+          "height": 45
+        },
+        "style": {
+          "color": "#ffffff",
+          "fontSize": 38,
+          "fontWeight": "900",
+          "fontFamily": "Teko"
+        },
+        "content": "193"
+      },
+      {
+        "id": "need",
+        "type": "text",
+        "position": {
+          "x": 230,
+          "y": 15,
+          "width": 250,
+          "height": 35
+        },
+        "style": {
+          "color": "#ef4444",
+          "fontSize": 16,
+          "fontWeight": "700",
+          "fontFamily": "Outfit"
+        },
+        "content": "Need 95 runs from 30 balls"
+      },
+      {
+        "id": "rrr",
+        "type": "text",
+        "position": {
+          "x": 230,
+          "y": 55,
+          "width": 250,
+          "height": 30
+        },
+        "style": {
+          "color": "#94a3b8",
+          "fontSize": 14,
+          "fontWeight": "500",
+          "fontFamily": "Outfit"
+        },
+        "content": "Required RR: 19.00"
+      }
+    ]
+  },
+  {
+    "id": "preset-cricket-st-extras",
+    "name": "Extras Summary",
+    "sport": "cricket",
+    "type": "stats",
+    "description": "Extras breakdown panel",
+    "canvas": {
+      "width": 400,
+      "height": 120
+    },
+    "elements": [
+      {
+        "id": "bg",
+        "type": "shape",
+        "position": {
+          "x": 0,
+          "y": 0,
+          "width": 400,
+          "height": 120
+        },
+        "style": {
+          "backgroundColor": "linear-gradient(135deg, #1e293b 0%, #0f172a 100%)",
+          "borderRadius": 12,
+          "boxShadow": "0 4px 20px rgba(0,0,0,0.5)"
+        },
+        "content": ""
+      },
+      {
+        "id": "label",
+        "type": "text",
+        "position": {
+          "x": 15,
+          "y": 10,
+          "width": 200,
+          "height": 25
+        },
+        "style": {
+          "color": "#E3B23C",
+          "fontSize": 12,
+          "fontWeight": "700",
+          "fontFamily": "Outfit",
+          "letterSpacing": 3
+        },
+        "content": "EXTRAS"
+      },
+      {
+        "id": "total",
+        "type": "text",
+        "position": {
+          "x": 15,
+          "y": 35,
+          "width": 150,
+          "height": 45
+        },
+        "style": {
+          "color": "#ffffff",
+          "fontSize": 36,
+          "fontWeight": "900",
+          "fontFamily": "Teko"
+        },
+        "content": "12"
+      },
+      {
+        "id": "wides",
+        "type": "text",
+        "position": {
+          "x": 15,
+          "y": 85,
+          "width": 80,
+          "height": 25
+        },
+        "style": {
+          "color": "#94a3b8",
+          "fontSize": 12,
+          "fontWeight": "500",
+          "fontFamily": "Outfit"
+        },
+        "content": "WD: 3"
+      },
+      {
+        "id": "noballs",
+        "type": "text",
+        "position": {
+          "x": 100,
+          "y": 85,
+          "width": 80,
+          "height": 25
+        },
+        "style": {
+          "color": "#94a3b8",
+          "fontSize": 12,
+          "fontWeight": "500",
+          "fontFamily": "Outfit"
+        },
+        "content": "NB: 1"
+      },
+      {
+        "id": "byes",
+        "type": "text",
+        "position": {
+          "x": 185,
+          "y": 85,
+          "width": 80,
+          "height": 25
+        },
+        "style": {
+          "color": "#94a3b8",
+          "fontSize": 12,
+          "fontWeight": "500",
+          "fontFamily": "Outfit"
+        },
+        "content": "B: 4"
+      },
+      {
+        "id": "lb",
+        "type": "text",
+        "position": {
+          "x": 270,
+          "y": 85,
+          "width": 80,
+          "height": 25
+        },
+        "style": {
+          "color": "#94a3b8",
+          "fontSize": 12,
+          "fontWeight": "500",
+          "fontFamily": "Outfit"
+        },
+        "content": "LB: 4"
+      }
+    ]
+  },
+  {
+    "id": "preset-cricket-st-fow",
+    "name": "Fall of Wickets",
+    "sport": "cricket",
+    "type": "stats",
+    "description": "Fall of wickets timeline",
+    "canvas": {
+      "width": 450,
+      "height": 200
+    },
+    "elements": [
+      {
+        "id": "bg",
+        "type": "shape",
+        "position": {
+          "x": 0,
+          "y": 0,
+          "width": 450,
+          "height": 200
+        },
+        "style": {
+          "backgroundColor": "linear-gradient(135deg, #1e293b 0%, #0f172a 100%)",
+          "borderRadius": 12,
+          "boxShadow": "0 4px 20px rgba(0,0,0,0.5)"
+        },
+        "content": ""
+      },
+      {
+        "id": "label",
+        "type": "text",
+        "position": {
+          "x": 15,
+          "y": 10,
+          "width": 200,
+          "height": 25
+        },
+        "style": {
+          "color": "#ef4444",
+          "fontSize": 13,
+          "fontWeight": "700",
+          "fontFamily": "Outfit",
+          "letterSpacing": 3
+        },
+        "content": "FALL OF WICKETS"
+      },
+      {
+        "id": "w1",
+        "type": "text",
+        "position": {
+          "x": 15,
+          "y": 45,
+          "width": 300,
+          "height": 22
+        },
+        "style": {
+          "color": "#e2e8f0",
+          "fontSize": 13,
+          "fontWeight": "600",
+          "fontFamily": "Outfit"
+        },
+        "content": "1/1 - Rohit Sharma (2.3)"
+      },
+      {
+        "id": "w2",
+        "type": "text",
+        "position": {
+          "x": 15,
+          "y": 72,
+          "width": 300,
+          "height": 22
+        },
+        "style": {
+          "color": "#e2e8f0",
+          "fontSize": 13,
+          "fontWeight": "600",
+          "fontFamily": "Outfit"
+        },
+        "content": "2/45 - Shubman Gill (8.1)"
+      },
+      {
+        "id": "w3",
+        "type": "text",
+        "position": {
+          "x": 15,
+          "y": 99,
+          "width": 300,
+          "height": 22
+        },
+        "style": {
+          "color": "#e2e8f0",
+          "fontSize": 13,
+          "fontWeight": "600",
+          "fontFamily": "Outfit"
+        },
+        "content": "3/89 - Suryakumar (12.4)"
+      },
+      {
+        "id": "w4",
+        "type": "text",
+        "position": {
+          "x": 15,
+          "y": 126,
+          "width": 300,
+          "height": 22
+        },
+        "style": {
+          "color": "#e2e8f0",
+          "fontSize": 13,
+          "fontWeight": "600",
+          "fontFamily": "Outfit"
+        },
+        "content": "4/134 - Hardik Pandya (16.2)"
+      }
+    ]
+  },
+  {
+    "id": "preset-cricket-st-powerplay",
+    "name": "Powerplay Stats",
+    "sport": "cricket",
+    "type": "stats",
+    "description": "Powerplay bowling and batting stats",
+    "canvas": {
+      "width": 350,
+      "height": 180
+    },
+    "elements": [
+      {
+        "id": "bg",
+        "type": "shape",
+        "position": {
+          "x": 0,
+          "y": 0,
+          "width": 350,
+          "height": 180
+        },
+        "style": {
+          "backgroundColor": "linear-gradient(135deg, #1e293b 0%, #0f172a 100%)",
+          "borderRadius": 12,
+          "boxShadow": "0 4px 20px rgba(0,0,0,0.5)"
+        },
+        "content": ""
+      },
+      {
+        "id": "label",
+        "type": "text",
+        "position": {
+          "x": 15,
+          "y": 10,
+          "width": 200,
+          "height": 25
+        },
+        "style": {
+          "color": "#E3B23C",
+          "fontSize": 13,
+          "fontWeight": "700",
+          "fontFamily": "Outfit",
+          "letterSpacing": 3
+        },
+        "content": "POWERPLAY"
+      },
+      {
+        "id": "overs",
+        "type": "text",
+        "position": {
+          "x": 15,
+          "y": 35,
+          "width": 200,
+          "height": 30
+        },
+        "style": {
+          "color": "#64748b",
+          "fontSize": 14,
+          "fontWeight": "500",
+          "fontFamily": "Outfit"
+        },
+        "content": "Overs 1-6"
+      },
+      {
+        "id": "runs",
+        "type": "text",
+        "position": {
+          "x": 15,
+          "y": 70,
+          "width": 150,
+          "height": 50
+        },
+        "style": {
+          "color": "#ffffff",
+          "fontSize": 42,
+          "fontWeight": "900",
+          "fontFamily": "Teko"
+        },
+        "content": "58/1"
+      },
+      {
+        "id": "run-rate",
+        "type": "text",
+        "position": {
+          "x": 180,
+          "y": 75,
+          "width": 150,
+          "height": 40
+        },
+        "style": {
+          "color": "#94a3b8",
+          "fontSize": 16,
+          "fontWeight": "600",
+          "fontFamily": "Outfit"
+        },
+        "content": "RR: 9.67"
+      },
+      {
+        "id": "wickets",
+        "type": "text",
+        "position": {
+          "x": 15,
+          "y": 130,
+          "width": 320,
+          "height": 25
+        },
+        "style": {
+          "color": "#64748b",
+          "fontSize": 13,
+          "fontWeight": "500",
+          "fontFamily": "Outfit"
+        },
+        "content": "Fours: 6 | Sixes: 2 | Dots: 18"
+      }
+    ]
+  },
+  {
+    "id": "preset-cricket-st-thisover",
+    "name": "This Over Stats",
+    "sport": "cricket",
+    "type": "stats",
+    "description": "Ball-by-ball this over breakdown",
+    "canvas": {
+      "width": 350,
+      "height": 120
+    },
+    "elements": [
+      {
+        "id": "bg",
+        "type": "shape",
+        "position": {
+          "x": 0,
+          "y": 0,
+          "width": 350,
+          "height": 120
+        },
+        "style": {
+          "backgroundColor": "linear-gradient(135deg, #1e293b 0%, #0f172a 100%)",
+          "borderRadius": 12,
+          "boxShadow": "0 4px 20px rgba(0,0,0,0.5)"
+        },
+        "content": ""
+      },
+      {
+        "id": "label",
+        "type": "text",
+        "position": {
+          "x": 15,
+          "y": 10,
+          "width": 200,
+          "height": 25
+        },
+        "style": {
+          "color": "#94a3b8",
+          "fontSize": 12,
+          "fontWeight": "600",
+          "fontFamily": "Outfit",
+          "letterSpacing": 2
+        },
+        "content": "THIS OVER"
+      },
+      {
+        "id": "over-info",
+        "type": "text",
+        "position": {
+          "x": 200,
+          "y": 10,
+          "width": 130,
+          "height": 25
+        },
+        "style": {
+          "color": "#64748b",
+          "fontSize": 12,
+          "fontWeight": "500",
+          "fontFamily": "Outfit",
+          "textAlign": "right"
+        },
+        "content": "Over 15"
+      },
+      {
+        "id": "b1-text",
+        "type": "text",
+        "position": {
+          "x": 15,
+          "y": 50,
+          "width": 44,
+          "height": 34
+        },
+        "style": {
+          "color": "#ffffff",
+          "fontSize": 18,
+          "fontWeight": "900",
+          "fontFamily": "Teko",
+          "textAlign": "center"
+        },
+        "content": "4"
+      },
+      {
+        "id": "b2-text",
+        "type": "text",
+        "position": {
+          "x": 67,
+          "y": 50,
+          "width": 44,
+          "height": 34
+        },
+        "style": {
+          "color": "#ffffff",
+          "fontSize": 18,
+          "fontWeight": "900",
+          "fontFamily": "Teko",
+          "textAlign": "center"
+        },
+        "content": "6"
+      },
+      {
+        "id": "b3-text",
+        "type": "text",
+        "position": {
+          "x": 119,
+          "y": 50,
+          "width": 44,
+          "height": 34
+        },
+        "style": {
+          "color": "#ffffff",
+          "fontSize": 18,
+          "fontWeight": "900",
+          "fontFamily": "Teko",
+          "textAlign": "center"
+        },
+        "content": "1"
+      },
+      {
+        "id": "b4-text",
+        "type": "text",
+        "position": {
+          "x": 171,
+          "y": 50,
+          "width": 44,
+          "height": 34
+        },
+        "style": {
+          "color": "#ffffff",
+          "fontSize": 18,
+          "fontWeight": "900",
+          "fontFamily": "Teko",
+          "textAlign": "center"
+        },
+        "content": "W"
+      },
+      {
+        "id": "b5-text",
+        "type": "text",
+        "position": {
+          "x": 223,
+          "y": 50,
+          "width": 44,
+          "height": 34
+        },
+        "style": {
+          "color": "#ffffff",
+          "fontSize": 18,
+          "fontWeight": "900",
+          "fontFamily": "Teko",
+          "textAlign": "center"
+        },
+        "content": "2"
+      },
+      {
+        "id": "b6-text",
+        "type": "text",
+        "position": {
+          "x": 275,
+          "y": 50,
+          "width": 44,
+          "height": 34
+        },
+        "style": {
+          "color": "#ffffff",
+          "fontSize": 18,
+          "fontWeight": "900",
+          "fontFamily": "Teko",
+          "textAlign": "center"
+        },
+        "content": "0"
+      }
+    ]
+  },
+  {
+    "id": "preset-cricket-st-comparison",
+    "name": "Player Comparison",
+    "sport": "cricket",
+    "type": "stats",
+    "description": "Head-to-head player comparison",
+    "canvas": {
+      "width": 800,
+      "height": 300
+    },
+    "elements": [
+      {
+        "id": "bg",
+        "type": "shape",
+        "position": {
+          "x": 0,
+          "y": 0,
+          "width": 800,
+          "height": 300
+        },
+        "style": {
+          "backgroundColor": "linear-gradient(180deg, #0f172a 0%, #020617 100%)",
+          "borderRadius": 16,
+          "boxShadow": "0 8px 32px rgba(0,0,0,0.6)"
+        },
+        "content": ""
+      },
+      {
+        "id": "title",
+        "type": "text",
+        "position": {
+          "x": 300,
+          "y": 10,
+          "width": 200,
+          "height": 30
+        },
+        "style": {
+          "color": "#E3B23C",
+          "fontSize": 14,
+          "fontWeight": "700",
+          "fontFamily": "Outfit",
+          "letterSpacing": 3,
+          "textAlign": "center"
+        },
+        "content": "HEAD TO HEAD"
+      },
+      {
+        "id": "playerA",
+        "type": "text",
+        "position": {
+          "x": 20,
+          "y": 50,
+          "width": 300,
+          "height": 35
+        },
+        "style": {
+          "color": "#60a5fa",
+          "fontSize": 22,
+          "fontWeight": "800",
+          "fontFamily": "Outfit",
+          "letterSpacing": 2
+        },
+        "content": "VIRAT KOHLI"
+      },
+      {
+        "id": "playerB",
+        "type": "text",
+        "position": {
+          "x": 480,
+          "y": 50,
+          "width": 300,
+          "height": 35
+        },
+        "style": {
+          "color": "#f97316",
+          "fontSize": 22,
+          "fontWeight": "800",
+          "fontFamily": "Outfit",
+          "letterSpacing": 2,
+          "textAlign": "right"
+        },
+        "content": "BABAR AZAM"
+      },
+      {
+        "id": "stat1-label",
+        "type": "text",
+        "position": {
+          "x": 350,
+          "y": 100,
+          "width": 100,
+          "height": 25
+        },
+        "style": {
+          "color": "#94a3b8",
+          "fontSize": 11,
+          "fontWeight": "600",
+          "fontFamily": "Outfit",
+          "letterSpacing": 2,
+          "textAlign": "center"
+        },
+        "content": "RUNS"
+      },
+      {
+        "id": "stat1-a",
+        "type": "text",
+        "position": {
+          "x": 50,
+          "y": 100,
+          "width": 200,
+          "height": 35
+        },
+        "style": {
+          "color": "#ffffff",
+          "fontSize": 28,
+          "fontWeight": "900",
+          "fontFamily": "Teko",
+          "textAlign": "right"
+        },
+        "content": "12,480"
+      },
+      {
+        "id": "stat1-b",
+        "type": "text",
+        "position": {
+          "x": 550,
+          "y": 100,
+          "width": 200,
+          "height": 35
+        },
+        "style": {
+          "color": "#ffffff",
+          "fontSize": 28,
+          "fontWeight": "900",
+          "fontFamily": "Teko"
+        },
+        "content": "11,230"
+      },
+      {
+        "id": "stat2-label",
+        "type": "text",
+        "position": {
+          "x": 350,
+          "y": 145,
+          "width": 100,
+          "height": 25
+        },
+        "style": {
+          "color": "#94a3b8",
+          "fontSize": 11,
+          "fontWeight": "600",
+          "fontFamily": "Outfit",
+          "letterSpacing": 2,
+          "textAlign": "center"
+        },
+        "content": "AVERAGE"
+      },
+      {
+        "id": "stat2-a",
+        "type": "text",
+        "position": {
+          "x": 50,
+          "y": 145,
+          "width": 200,
+          "height": 35
+        },
+        "style": {
+          "color": "#ffffff",
+          "fontSize": 28,
+          "fontWeight": "900",
+          "fontFamily": "Teko",
+          "textAlign": "right"
+        },
+        "content": "57.3"
+      },
+      {
+        "id": "stat2-b",
+        "type": "text",
+        "position": {
+          "x": 550,
+          "y": 145,
+          "width": 200,
+          "height": 35
+        },
+        "style": {
+          "color": "#ffffff",
+          "fontSize": 28,
+          "fontWeight": "900",
+          "fontFamily": "Teko"
+        },
+        "content": "52.1"
+      },
+      {
+        "id": "stat3-label",
+        "type": "text",
+        "position": {
+          "x": 350,
+          "y": 190,
+          "width": 100,
+          "height": 25
+        },
+        "style": {
+          "color": "#94a3b8",
+          "fontSize": 11,
+          "fontWeight": "600",
+          "fontFamily": "Outfit",
+          "letterSpacing": 2,
+          "textAlign": "center"
+        },
+        "content": "100s"
+      },
+      {
+        "id": "stat3-a",
+        "type": "text",
+        "position": {
+          "x": 50,
+          "y": 190,
+          "width": 200,
+          "height": 35
+        },
+        "style": {
+          "color": "#ffffff",
+          "fontSize": 28,
+          "fontWeight": "900",
+          "fontFamily": "Teko",
+          "textAlign": "right"
+        },
+        "content": "46"
+      },
+      {
+        "id": "stat3-b",
+        "type": "text",
+        "position": {
+          "x": 550,
+          "y": 190,
+          "width": 200,
+          "height": 35
+        },
+        "style": {
+          "color": "#ffffff",
+          "fontSize": 28,
+          "fontWeight": "900",
+          "fontFamily": "Teko"
+        },
+        "content": "31"
+      }
+    ]
+  },
+  {
+    "id": "preset-cricket-st-bowling",
+    "name": "Bowling Stats Panel",
+    "sport": "cricket",
+    "type": "stats",
+    "description": "Bowling performance comparison",
+    "canvas": {
+      "width": 600,
+      "height": 350
+    },
+    "elements": [
+      {
+        "id": "bg",
+        "type": "shape",
+        "position": {
+          "x": 0,
+          "y": 0,
+          "width": 600,
+          "height": 350
+        },
+        "style": {
+          "backgroundColor": "linear-gradient(180deg, #0f172a 0%, #020617 100%)",
+          "borderRadius": 16,
+          "boxShadow": "0 8px 32px rgba(0,0,0,0.6)"
+        },
+        "content": ""
+      },
+      {
+        "id": "title",
+        "type": "text",
+        "position": {
+          "x": 20,
+          "y": 12,
+          "width": 300,
+          "height": 30
+        },
+        "style": {
+          "color": "#60a5fa",
+          "fontSize": 16,
+          "fontWeight": "700",
+          "fontFamily": "Outfit",
+          "letterSpacing": 3
+        },
+        "content": "BOWLING STATS"
+      },
+      {
+        "id": "col1",
+        "type": "text",
+        "position": {
+          "x": 20,
+          "y": 60,
+          "width": 200,
+          "height": 25
+        },
+        "style": {
+          "color": "#94a3b8",
+          "fontSize": 12,
+          "fontWeight": "600",
+          "fontFamily": "Outfit",
+          "letterSpacing": 2
+        },
+        "content": "BOWLER"
+      },
+      {
+        "id": "col2",
+        "type": "text",
+        "position": {
+          "x": 230,
+          "y": 60,
+          "width": 80,
+          "height": 25
+        },
+        "style": {
+          "color": "#94a3b8",
+          "fontSize": 12,
+          "fontWeight": "600",
+          "fontFamily": "Outfit",
+          "letterSpacing": 2,
+          "textAlign": "center"
+        },
+        "content": "O"
+      },
+      {
+        "id": "col3",
+        "type": "text",
+        "position": {
+          "x": 320,
+          "y": 60,
+          "width": 80,
+          "height": 25
+        },
+        "style": {
+          "color": "#94a3b8",
+          "fontSize": 12,
+          "fontWeight": "600",
+          "fontFamily": "Outfit",
+          "letterSpacing": 2,
+          "textAlign": "center"
+        },
+        "content": "M"
+      },
+      {
+        "id": "col4",
+        "type": "text",
+        "position": {
+          "x": 410,
+          "y": 60,
+          "width": 80,
+          "height": 25
+        },
+        "style": {
+          "color": "#94a3b8",
+          "fontSize": 12,
+          "fontWeight": "600",
+          "fontFamily": "Outfit",
+          "letterSpacing": 2,
+          "textAlign": "center"
+        },
+        "content": "R"
+      },
+      {
+        "id": "col5",
+        "type": "text",
+        "position": {
+          "x": 500,
+          "y": 60,
+          "width": 80,
+          "height": 25
+        },
+        "style": {
+          "color": "#94a3b8",
+          "fontSize": 12,
+          "fontWeight": "600",
+          "fontFamily": "Outfit",
+          "letterSpacing": 2,
+          "textAlign": "center"
+        },
+        "content": "W"
+      },
+      {
+        "id": "b1-name",
+        "type": "text",
+        "position": {
+          "x": 30,
+          "y": 95,
+          "width": 180,
+          "height": 28
+        },
+        "style": {
+          "color": "#e2e8f0",
+          "fontSize": 15,
+          "fontWeight": "600",
+          "fontFamily": "Outfit"
+        },
+        "content": "Bumrah"
+      },
+      {
+        "id": "b1-overs",
+        "type": "text",
+        "position": {
+          "x": 230,
+          "y": 95,
+          "width": 80,
+          "height": 28
+        },
+        "style": {
+          "color": "#ffffff",
+          "fontSize": 16,
+          "fontWeight": "700",
+          "fontFamily": "Teko",
+          "textAlign": "center"
+        },
+        "content": "4"
+      },
+      {
+        "id": "b1-maidens",
+        "type": "text",
+        "position": {
+          "x": 320,
+          "y": 95,
+          "width": 80,
+          "height": 28
+        },
+        "style": {
+          "color": "#ffffff",
+          "fontSize": 16,
+          "fontWeight": "700",
+          "fontFamily": "Teko",
+          "textAlign": "center"
+        },
+        "content": "1"
+      },
+      {
+        "id": "b1-runs",
+        "type": "text",
+        "position": {
+          "x": 410,
+          "y": 95,
+          "width": 80,
+          "height": 28
+        },
+        "style": {
+          "color": "#ef4444",
+          "fontSize": 16,
+          "fontWeight": "700",
+          "fontFamily": "Teko",
+          "textAlign": "center"
+        },
+        "content": "28"
+      },
+      {
+        "id": "b1-wickets",
+        "type": "text",
+        "position": {
+          "x": 500,
+          "y": 95,
+          "width": 80,
+          "height": 28
+        },
+        "style": {
+          "color": "#ef4444",
+          "fontSize": 18,
+          "fontWeight": "900",
+          "fontFamily": "Teko",
+          "textAlign": "center"
+        },
+        "content": "2"
+      }
+    ]
+  },
+  {
+    "id": "preset-football-st-matchstats",
+    "name": "Match Stats Panel",
+    "sport": "football",
+    "type": "stats",
+    "description": "Football match statistics comparison",
+    "canvas": {
+      "width": 800,
+      "height": 350
+    },
+    "elements": [
+      {
+        "id": "bg",
+        "type": "shape",
+        "position": {
+          "x": 0,
+          "y": 0,
+          "width": 800,
+          "height": 350
+        },
+        "style": {
+          "backgroundColor": "linear-gradient(180deg, #065f46 0%, #022c22 100%)",
+          "borderRadius": 16,
+          "boxShadow": "0 8px 32px rgba(0,0,0,0.6)"
+        },
+        "content": ""
+      },
+      {
+        "id": "title",
+        "type": "text",
+        "position": {
+          "x": 300,
+          "y": 10,
+          "width": 200,
+          "height": 30
+        },
+        "style": {
+          "color": "#10b981",
+          "fontSize": 14,
+          "fontWeight": "700",
+          "fontFamily": "Outfit",
+          "letterSpacing": 3,
+          "textAlign": "center"
+        },
+        "content": "MATCH STATS"
+      },
+      {
+        "id": "teamA",
+        "type": "text",
+        "position": {
+          "x": 20,
+          "y": 50,
+          "width": 200,
+          "height": 35
+        },
+        "style": {
+          "color": "#fbbf24",
+          "fontSize": 18,
+          "fontWeight": "700",
+          "fontFamily": "Outfit",
+          "letterSpacing": 2
+        },
+        "content": "HOME"
+      },
+      {
+        "id": "teamB",
+        "type": "text",
+        "position": {
+          "x": 580,
+          "y": 50,
+          "width": 200,
+          "height": 35
+        },
+        "style": {
+          "color": "#60a5fa",
+          "fontSize": 18,
+          "fontWeight": "700",
+          "fontFamily": "Outfit",
+          "letterSpacing": 2,
+          "textAlign": "right"
+        },
+        "content": "AWAY"
+      },
+      {
+        "id": "stat1-label",
+        "type": "text",
+        "position": {
+          "x": 330,
+          "y": 100,
+          "width": 140,
+          "height": 25
+        },
+        "style": {
+          "color": "#94a3b8",
+          "fontSize": 11,
+          "fontWeight": "600",
+          "fontFamily": "Outfit",
+          "letterSpacing": 2,
+          "textAlign": "center"
+        },
+        "content": "POSSESSION"
+      },
+      {
+        "id": "stat1-a",
+        "type": "text",
+        "position": {
+          "x": 20,
+          "y": 100,
+          "width": 150,
+          "height": 35
+        },
+        "style": {
+          "color": "#ffffff",
+          "fontSize": 24,
+          "fontWeight": "900",
+          "fontFamily": "Teko",
+          "textAlign": "right"
+        },
+        "content": "58%"
+      },
+      {
+        "id": "stat1-b",
+        "type": "text",
+        "position": {
+          "x": 630,
+          "y": 100,
+          "width": 150,
+          "height": 35
+        },
+        "style": {
+          "color": "#ffffff",
+          "fontSize": 24,
+          "fontWeight": "900",
+          "fontFamily": "Teko"
+        },
+        "content": "42%"
+      },
+      {
+        "id": "stat2-label",
+        "type": "text",
+        "position": {
+          "x": 330,
+          "y": 145,
+          "width": 140,
+          "height": 25
+        },
+        "style": {
+          "color": "#94a3b8",
+          "fontSize": 11,
+          "fontWeight": "600",
+          "fontFamily": "Outfit",
+          "letterSpacing": 2,
+          "textAlign": "center"
+        },
+        "content": "SHOTS"
+      },
+      {
+        "id": "stat2-a",
+        "type": "text",
+        "position": {
+          "x": 20,
+          "y": 145,
+          "width": 150,
+          "height": 35
+        },
+        "style": {
+          "color": "#ffffff",
+          "fontSize": 24,
+          "fontWeight": "900",
+          "fontFamily": "Teko",
+          "textAlign": "right"
+        },
+        "content": "14"
+      },
+      {
+        "id": "stat2-b",
+        "type": "text",
+        "position": {
+          "x": 630,
+          "y": 145,
+          "width": 150,
+          "height": 35
+        },
+        "style": {
+          "color": "#ffffff",
+          "fontSize": 24,
+          "fontWeight": "900",
+          "fontFamily": "Teko"
+        },
+        "content": "8"
+      },
+      {
+        "id": "stat3-label",
+        "type": "text",
+        "position": {
+          "x": 330,
+          "y": 190,
+          "width": 140,
+          "height": 25
+        },
+        "style": {
+          "color": "#94a3b8",
+          "fontSize": 11,
+          "fontWeight": "600",
+          "fontFamily": "Outfit",
+          "letterSpacing": 2,
+          "textAlign": "center"
+        },
+        "content": "ON TARGET"
+      },
+      {
+        "id": "stat3-a",
+        "type": "text",
+        "position": {
+          "x": 20,
+          "y": 190,
+          "width": 150,
+          "height": 35
+        },
+        "style": {
+          "color": "#ffffff",
+          "fontSize": 24,
+          "fontWeight": "900",
+          "fontFamily": "Teko",
+          "textAlign": "right"
+        },
+        "content": "7"
+      },
+      {
+        "id": "stat3-b",
+        "type": "text",
+        "position": {
+          "x": 630,
+          "y": 190,
+          "width": 150,
+          "height": 35
+        },
+        "style": {
+          "color": "#ffffff",
+          "fontSize": 24,
+          "fontWeight": "900",
+          "fontFamily": "Teko"
+        },
+        "content": "3"
+      },
+      {
+        "id": "stat4-label",
+        "type": "text",
+        "position": {
+          "x": 330,
+          "y": 235,
+          "width": 140,
+          "height": 25
+        },
+        "style": {
+          "color": "#94a3b8",
+          "fontSize": 11,
+          "fontWeight": "600",
+          "fontFamily": "Outfit",
+          "letterSpacing": 2,
+          "textAlign": "center"
+        },
+        "content": "CORNERS"
+      },
+      {
+        "id": "stat4-a",
+        "type": "text",
+        "position": {
+          "x": 20,
+          "y": 235,
+          "width": 150,
+          "height": 35
+        },
+        "style": {
+          "color": "#ffffff",
+          "fontSize": 24,
+          "fontWeight": "900",
+          "fontFamily": "Teko",
+          "textAlign": "right"
+        },
+        "content": "6"
+      },
+      {
+        "id": "stat4-b",
+        "type": "text",
+        "position": {
+          "x": 630,
+          "y": 235,
+          "width": 150,
+          "height": 35
+        },
+        "style": {
+          "color": "#ffffff",
+          "fontSize": 24,
+          "fontWeight": "900",
+          "fontFamily": "Teko"
+        },
+        "content": "4"
+      }
+    ]
+  },
+  {
+    "id": "preset-cricket-tk-breaking",
+    "name": "Breaking News Ticker",
+    "sport": "cricket",
+    "type": "ticker",
+    "description": "Breaking news scrolling ticker",
+    "canvas": {
+      "width": 1920,
+      "height": 60
+    },
+    "elements": [
+      {
+        "id": "bg",
+        "type": "shape",
+        "position": {
+          "x": 0,
+          "y": 0,
+          "width": 1920,
+          "height": 60
+        },
+        "style": {
+          "backgroundColor": "linear-gradient(135deg, #dc2626 0%, #991b1b 100%)",
+          "boxShadow": "0 4px 20px rgba(0,0,0,0.5)"
+        },
+        "content": ""
+      },
+      {
+        "id": "badge-bg",
+        "type": "shape",
+        "position": {
+          "x": 0,
+          "y": 0,
+          "width": 240,
+          "height": 60
+        },
+        "style": {
+          "backgroundColor": "linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%)"
+        },
+        "content": ""
+      },
+      {
+        "id": "badge-text",
+        "type": "text",
+        "position": {
+          "x": 20,
+          "y": 12,
+          "width": 200,
+          "height": 36
+        },
+        "style": {
+          "color": "#1a1a2e",
+          "fontSize": 24,
+          "fontWeight": "900",
+          "fontFamily": "Teko",
+          "letterSpacing": 3
+        },
+        "content": "BREAKING"
+      },
+      {
+        "id": "ticker-text",
+        "type": "text",
+        "position": {
+          "x": 280,
+          "y": 15,
+          "width": 1600,
+          "height": 30
+        },
+        "style": {
+          "color": "#ffffff",
+          "fontSize": 20,
+          "fontWeight": "600",
+          "fontFamily": "Outfit"
+        },
+        "content": "Breaking news headline goes here"
+      }
+    ]
+  },
+  {
+    "id": "preset-cricket-tk-score",
+    "name": "Score Ticker",
+    "sport": "cricket",
+    "type": "ticker",
+    "description": "Live score scrolling ticker",
+    "canvas": {
+      "width": 1920,
+      "height": 50
+    },
+    "elements": [
+      {
+        "id": "bg",
+        "type": "shape",
+        "position": {
+          "x": 0,
+          "y": 0,
+          "width": 1920,
+          "height": 50
+        },
+        "style": {
+          "backgroundColor": "rgba(0,0,0,0.9)",
+          "boxShadow": "0 4px 20px rgba(0,0,0,0.5)"
+        },
+        "content": ""
+      },
+      {
+        "id": "accent",
+        "type": "shape",
+        "position": {
+          "x": 0,
+          "y": 46,
+          "width": 1920,
+          "height": 4
+        },
+        "style": {
+          "backgroundColor": "linear-gradient(90deg, #3b82f6, #8b5cf6, #3b82f6)"
+        },
+        "content": ""
+      },
+      {
+        "id": "score-text",
+        "type": "text",
+        "position": {
+          "x": 90,
+          "y": 10,
+          "width": 1800,
+          "height": 30
+        },
+        "style": {
+          "color": "#ffffff",
+          "fontSize": 18,
+          "fontWeight": "600",
+          "fontFamily": "Outfit"
+        },
+        "content": "IND 186/4 (15.2 ov) vs AUS"
+      }
+    ]
+  },
+  {
+    "id": "preset-cricket-tk-schedule",
+    "name": "Schedule Ticker",
+    "sport": "cricket",
+    "type": "ticker",
+    "description": "Match schedule scrolling ticker",
+    "canvas": {
+      "width": 1920,
+      "height": 50
+    },
+    "elements": [
+      {
+        "id": "bg",
+        "type": "shape",
+        "position": {
+          "x": 0,
+          "y": 0,
+          "width": 1920,
+          "height": 50
+        },
+        "style": {
+          "backgroundColor": "linear-gradient(135deg, #1e3a5f 0%, #0f2744 100%)",
+          "boxShadow": "0 4px 20px rgba(0,0,0,0.5)"
+        },
+        "content": ""
+      },
+      {
+        "id": "label",
+        "type": "text",
+        "position": {
+          "x": 15,
+          "y": 12,
+          "width": 150,
+          "height": 26
+        },
+        "style": {
+          "color": "#1a1a2e",
+          "fontSize": 14,
+          "fontWeight": "800",
+          "fontFamily": "Outfit",
+          "letterSpacing": 2,
+          "textAlign": "center"
+        },
+        "content": "SCHEDULE"
+      },
+      {
+        "id": "schedule-text",
+        "type": "text",
+        "position": {
+          "x": 200,
+          "y": 10,
+          "width": 1700,
+          "height": 30
+        },
+        "style": {
+          "color": "#e2e8f0",
+          "fontSize": 16,
+          "fontWeight": "500",
+          "fontFamily": "Outfit"
+        },
+        "content": "Today: IND vs AUS (7:30 PM) | Tomorrow: ENG vs SA"
+      }
+    ]
+  },
+  {
+    "id": "preset-cricket-tk-update",
+    "name": "Match Update Ticker",
+    "sport": "cricket",
+    "type": "ticker",
+    "description": "Match event update ticker",
+    "canvas": {
+      "width": 1920,
+      "height": 50
+    },
+    "elements": [
+      {
+        "id": "bg",
+        "type": "shape",
+        "position": {
+          "x": 0,
+          "y": 0,
+          "width": 1920,
+          "height": 50
+        },
+        "style": {
+          "backgroundColor": "rgba(15,23,42,0.95)",
+          "boxShadow": "0 4px 20px rgba(0,0,0,0.5)"
+        },
+        "content": ""
+      },
+      {
+        "id": "accent",
+        "type": "shape",
+        "position": {
+          "x": 0,
+          "y": 46,
+          "width": 1920,
+          "height": 4
+        },
+        "style": {
+          "backgroundColor": "linear-gradient(90deg, #fbbf24, #22c55e, #fbbf24)"
+        },
+        "content": ""
+      },
+      {
+        "id": "event-text",
+        "type": "text",
+        "position": {
+          "x": 55,
+          "y": 10,
+          "width": 1840,
+          "height": 30
+        },
+        "style": {
+          "color": "#e2e8f0",
+          "fontSize": 17,
+          "fontWeight": "600",
+          "fontFamily": "Outfit"
+        },
+        "content": "WICKET! V. Kohli c Cummins b Starc 67 (48)"
+      }
+    ]
+  },
+  {
+    "id": "preset-cricket-tk-sponsors",
+    "name": "Sponsor Ticker",
+    "sport": "cricket",
+    "type": "ticker",
+    "description": "Sponsor acknowledgment ticker",
+    "canvas": {
+      "width": 1920,
+      "height": 45
+    },
+    "elements": [
+      {
+        "id": "bg",
+        "type": "shape",
+        "position": {
+          "x": 0,
+          "y": 0,
+          "width": 1920,
+          "height": 45
+        },
+        "style": {
+          "backgroundColor": "linear-gradient(135deg, #18181b 0%, #09090b 100%)",
+          "boxShadow": "0 4px 20px rgba(0,0,0,0.5)"
+        },
+        "content": ""
+      },
+      {
+        "id": "accent",
+        "type": "shape",
+        "position": {
+          "x": 0,
+          "y": 41,
+          "width": 1920,
+          "height": 4
+        },
+        "style": {
+          "backgroundColor": "linear-gradient(90deg, #E3B23C, #d4a017, #E3B23C)"
+        },
+        "content": ""
+      },
+      {
+        "id": "label",
+        "type": "text",
+        "position": {
+          "x": 15,
+          "y": 10,
+          "width": 100,
+          "height": 25
+        },
+        "style": {
+          "color": "#E3B23C",
+          "fontSize": 10,
+          "fontWeight": "600",
+          "fontFamily": "Outfit",
+          "letterSpacing": 2
+        },
+        "content": "PARTNERS"
+      },
+      {
+        "id": "sponsors",
+        "type": "text",
+        "position": {
+          "x": 130,
+          "y": 10,
+          "width": 1770,
+          "height": 25
+        },
+        "style": {
+          "color": "#94a3b8",
+          "fontSize": 14,
+          "fontWeight": "500",
+          "fontFamily": "Outfit"
+        },
+        "content": "Title: Dream11 | Associate: MRF | Partner: Paytm"
+      }
+    ]
+  },
+  {
+    "id": "preset-cricket-tk-social",
+    "name": "Social Media Ticker",
+    "sport": "cricket",
+    "type": "ticker",
+    "description": "Social media feed ticker",
+    "canvas": {
+      "width": 1920,
+      "height": 50
+    },
+    "elements": [
+      {
+        "id": "bg",
+        "type": "shape",
+        "position": {
+          "x": 0,
+          "y": 0,
+          "width": 1920,
+          "height": 50
+        },
+        "style": {
+          "backgroundColor": "rgba(0,0,0,0.9)",
+          "boxShadow": "0 4px 20px rgba(0,0,0,0.5)"
+        },
+        "content": ""
+      },
+      {
+        "id": "accent",
+        "type": "shape",
+        "position": {
+          "x": 0,
+          "y": 46,
+          "width": 1920,
+          "height": 4
+        },
+        "style": {
+          "backgroundColor": "linear-gradient(90deg, #3b82f6, #ec4899, #8b5cf6)"
+        },
+        "content": ""
+      },
+      {
+        "id": "social-text",
+        "type": "text",
+        "position": {
+          "x": 55,
+          "y": 10,
+          "width": 1840,
+          "height": 30
+        },
+        "style": {
+          "color": "#e2e8f0",
+          "fontSize": 15,
+          "fontWeight": "500",
+          "fontFamily": "Outfit"
+        },
+        "content": "@BCCI: What a knock by the King! #INDvAUS #Cricket"
+      }
+    ]
+  },
+  {
+    "id": "preset-cricket-tk-twitter",
+    "name": "Twitter Feed Ticker",
+    "sport": "cricket",
+    "type": "ticker",
+    "description": "Twitter/X feed scrolling ticker",
+    "canvas": {
+      "width": 1920,
+      "height": 50
+    },
+    "elements": [
+      {
+        "id": "bg",
+        "type": "shape",
+        "position": {
+          "x": 0,
+          "y": 0,
+          "width": 1920,
+          "height": 50
+        },
+        "style": {
+          "backgroundColor": "rgba(0,0,0,0.95)",
+          "boxShadow": "0 4px 20px rgba(0,0,0,0.5)"
+        },
+        "content": ""
+      },
+      {
+        "id": "accent",
+        "type": "shape",
+        "position": {
+          "x": 0,
+          "y": 46,
+          "width": 1920,
+          "height": 4
+        },
+        "style": {
+          "backgroundColor": "#1d9bf0"
+        },
+        "content": ""
+      },
+      {
+        "id": "tweet-text",
+        "type": "text",
+        "position": {
+          "x": 55,
+          "y": 10,
+          "width": 1840,
+          "height": 30
+        },
+        "style": {
+          "color": "#e2e8f0",
+          "fontSize": 15,
+          "fontWeight": "500",
+          "fontFamily": "Outfit"
+        },
+        "content": "Trending: #INDvAUS #Kohli #T20WorldCup"
+      }
+    ]
+  },
+  {
+    "id": "preset-cricket-tk-live",
+    "name": "Live Score Ticker",
+    "sport": "cricket",
+    "type": "ticker",
+    "description": "Live score bottom ticker",
+    "canvas": {
+      "width": 1920,
+      "height": 40
+    },
+    "elements": [
+      {
+        "id": "bg",
+        "type": "shape",
+        "position": {
+          "x": 0,
+          "y": 0,
+          "width": 1920,
+          "height": 40
+        },
+        "style": {
+          "backgroundColor": "rgba(0,0,0,0.95)",
+          "boxShadow": "0 4px 20px rgba(0,0,0,0.5)"
+        },
+        "content": ""
+      },
+      {
+        "id": "accent",
+        "type": "shape",
+        "position": {
+          "x": 0,
+          "y": 36,
+          "width": 1920,
+          "height": 4
+        },
+        "style": {
+          "backgroundColor": "linear-gradient(90deg, #ef4444, #dc2626, #ef4444)"
+        },
+        "content": ""
+      },
+      {
+        "id": "live-badge",
+        "type": "text",
+        "position": {
+          "x": 10,
+          "y": 6,
+          "width": 50,
+          "height": 28
+        },
+        "style": {
+          "color": "#ffffff",
+          "fontSize": 11,
+          "fontWeight": "800",
+          "fontFamily": "Outfit",
+          "letterSpacing": 2,
+          "textAlign": "center"
+        },
+        "content": "LIVE"
+      },
+      {
+        "id": "score",
+        "type": "text",
+        "position": {
+          "x": 70,
+          "y": 6,
+          "width": 1840,
+          "height": 28
+        },
+        "style": {
+          "color": "#ffffff",
+          "fontSize": 16,
+          "fontWeight": "600",
+          "fontFamily": "Outfit"
+        },
+        "content": "IND 186/4 (15.2 ov) vs AUS | RR: 9.60"
+      }
+    ]
+  },
+  {
+    "id": "preset-cricket-pc-batter",
+    "name": "Batter Card",
+    "sport": "cricket",
+    "type": "player-card",
+    "description": "Detailed batter statistics card",
+    "canvas": {
+      "width": 1920,
+      "height": 150
+    },
+    "elements": [
+      {
+        "id": "bg",
+        "type": "shape",
+        "position": {
+          "x": 0,
+          "y": 0,
+          "width": 1920,
+          "height": 150
+        },
+        "style": {
+          "backgroundColor": "linear-gradient(135deg, #1a1a2e 0%, #16213e 100%)",
+          "boxShadow": "0 4px 20px rgba(0,0,0,0.5)"
+        },
+        "content": ""
+      },
+      {
+        "id": "team-bg",
+        "type": "shape",
+        "position": {
+          "x": 0,
+          "y": 0,
+          "width": 280,
+          "height": 150
+        },
+        "style": {
+          "backgroundColor": "linear-gradient(135deg, #1a5e1f 0%, #0d3d12 100%)"
+        },
+        "content": ""
+      },
+      {
+        "id": "accent-bar",
+        "type": "shape",
+        "position": {
+          "x": 280,
+          "y": 0,
+          "width": 6,
+          "height": 150
+        },
+        "style": {
+          "backgroundColor": "#E3B23C"
+        },
+        "content": ""
+      },
+      {
+        "id": "role",
+        "type": "text",
+        "position": {
+          "x": 145,
+          "y": 30,
+          "width": 120,
+          "height": 25
+        },
+        "style": {
+          "color": "#E3B23C",
+          "fontSize": 14,
+          "fontWeight": "700",
+          "fontFamily": "Outfit",
+          "letterSpacing": 3
+        },
+        "content": "BATTER"
+      },
+      {
+        "id": "first-name",
+        "type": "text",
+        "position": {
+          "x": 145,
+          "y": 55,
+          "width": 120,
+          "height": 50
+        },
+        "style": {
+          "color": "#ffffff",
+          "fontSize": 32,
+          "fontWeight": "900",
+          "fontFamily": "Teko",
+          "letterSpacing": 1
+        },
+        "content": "ROHIT"
+      },
+      {
+        "id": "last-name",
+        "type": "text",
+        "position": {
+          "x": 145,
+          "y": 95,
+          "width": 120,
+          "height": 30
+        },
+        "style": {
+          "color": "rgba(255,255,255,0.6)",
+          "fontSize": 14,
+          "fontWeight": "500",
+          "fontFamily": "Outfit"
+        },
+        "content": "Sharma"
+      },
+      {
+        "id": "runs-label",
+        "type": "text",
+        "position": {
+          "x": 320,
+          "y": 20,
+          "width": 160,
+          "height": 25
+        },
+        "style": {
+          "color": "#E3B23C",
+          "fontSize": 12,
+          "fontWeight": "600",
+          "fontFamily": "Outfit",
+          "letterSpacing": 2,
+          "textAlign": "center"
+        },
+        "content": "RUNS"
+      },
+      {
+        "id": "runs-value",
+        "type": "text",
+        "position": {
+          "x": 320,
+          "y": 40,
+          "width": 160,
+          "height": 70
+        },
+        "style": {
+          "color": "#E3B23C",
+          "fontSize": 64,
+          "fontWeight": "900",
+          "fontFamily": "Teko",
+          "textAlign": "center",
+          "textShadow": "0 4px 15px rgba(227,178,60,0.3)"
+        },
+        "content": "87"
+      },
+      {
+        "id": "runs-status",
+        "type": "text",
+        "position": {
+          "x": 320,
+          "y": 105,
+          "width": 160,
+          "height": 25
+        },
+        "style": {
+          "color": "#64748b",
+          "fontSize": 12,
+          "fontWeight": "500",
+          "fontFamily": "Outfit",
+          "textAlign": "center"
+        },
+        "content": "not out"
+      },
+      {
+        "id": "balls-label",
+        "type": "text",
+        "position": {
+          "x": 550,
+          "y": 20,
+          "width": 150,
+          "height": 25
+        },
+        "style": {
+          "color": "#94a3b8",
+          "fontSize": 12,
+          "fontWeight": "600",
+          "fontFamily": "Outfit",
+          "letterSpacing": 2
+        },
+        "content": "BALLS"
+      },
+      {
+        "id": "balls-value",
+        "type": "text",
+        "position": {
+          "x": 550,
+          "y": 40,
+          "width": 150,
+          "height": 40
+        },
+        "style": {
+          "color": "#ffffff",
+          "fontSize": 36,
+          "fontWeight": "900",
+          "fontFamily": "Teko"
+        },
+        "content": "62"
+      },
+      {
+        "id": "sr-label",
+        "type": "text",
+        "position": {
+          "x": 550,
+          "y": 90,
+          "width": 150,
+          "height": 25
+        },
+        "style": {
+          "color": "#94a3b8",
+          "fontSize": 12,
+          "fontWeight": "600",
+          "fontFamily": "Outfit",
+          "letterSpacing": 2
+        },
+        "content": "S/R"
+      },
+      {
+        "id": "sr-value",
+        "type": "text",
+        "position": {
+          "x": 550,
+          "y": 110,
+          "width": 150,
+          "height": 30
+        },
+        "style": {
+          "color": "#16a34a",
+          "fontSize": 28,
+          "fontWeight": "900",
+          "fontFamily": "Teko"
+        },
+        "content": "140.3"
+      }
+    ]
+  },
+  {
+    "id": "preset-cricket-pc-bowler",
+    "name": "Bowler Card",
+    "sport": "cricket",
+    "type": "player-card",
+    "description": "Detailed bowler statistics card",
+    "canvas": {
+      "width": 1920,
+      "height": 150
+    },
+    "elements": [
+      {
+        "id": "bg",
+        "type": "shape",
+        "position": {
+          "x": 0,
+          "y": 0,
+          "width": 1920,
+          "height": 150
+        },
+        "style": {
+          "backgroundColor": "linear-gradient(135deg, #1a1a2e 0%, #16213e 100%)",
+          "boxShadow": "0 4px 20px rgba(0,0,0,0.5)"
+        },
+        "content": ""
+      },
+      {
+        "id": "team-bg",
+        "type": "shape",
+        "position": {
+          "x": 0,
+          "y": 0,
+          "width": 280,
+          "height": 150
+        },
+        "style": {
+          "backgroundColor": "linear-gradient(135deg, #1a3c5e 0%, #0d1e30 100%)"
+        },
+        "content": ""
+      },
+      {
+        "id": "accent-bar",
+        "type": "shape",
+        "position": {
+          "x": 280,
+          "y": 0,
+          "width": 6,
+          "height": 150
+        },
+        "style": {
+          "backgroundColor": "#60a5fa"
+        },
+        "content": ""
+      },
+      {
+        "id": "role",
+        "type": "text",
+        "position": {
+          "x": 145,
+          "y": 30,
+          "width": 120,
+          "height": 25
+        },
+        "style": {
+          "color": "#60a5fa",
+          "fontSize": 14,
+          "fontWeight": "700",
+          "fontFamily": "Outfit",
+          "letterSpacing": 3
+        },
+        "content": "BOWLER"
+      },
+      {
+        "id": "first-name",
+        "type": "text",
+        "position": {
+          "x": 145,
+          "y": 55,
+          "width": 120,
+          "height": 50
+        },
+        "style": {
+          "color": "#ffffff",
+          "fontSize": 32,
+          "fontWeight": "900",
+          "fontFamily": "Teko",
+          "letterSpacing": 1
+        },
+        "content": "PAT"
+      },
+      {
+        "id": "last-name",
+        "type": "text",
+        "position": {
+          "x": 145,
+          "y": 95,
+          "width": 120,
+          "height": 30
+        },
+        "style": {
+          "color": "rgba(255,255,255,0.6)",
+          "fontSize": 14,
+          "fontWeight": "500",
+          "fontFamily": "Outfit"
+        },
+        "content": "Cummins"
+      },
+      {
+        "id": "figures-label",
+        "type": "text",
+        "position": {
+          "x": 320,
+          "y": 20,
+          "width": 160,
+          "height": 25
+        },
+        "style": {
+          "color": "#60a5fa",
+          "fontSize": 12,
+          "fontWeight": "600",
+          "fontFamily": "Outfit",
+          "letterSpacing": 2,
+          "textAlign": "center"
+        },
+        "content": "FIGURES"
+      },
+      {
+        "id": "figures-value",
+        "type": "text",
+        "position": {
+          "x": 320,
+          "y": 40,
+          "width": 160,
+          "height": 70
+        },
+        "style": {
+          "color": "#ef4444",
+          "fontSize": 64,
+          "fontWeight": "900",
+          "fontFamily": "Teko",
+          "textAlign": "center",
+          "textShadow": "0 4px 15px rgba(239,68,68,0.3)"
+        },
+        "content": "2-34"
+      },
+      {
+        "id": "overs-label",
+        "type": "text",
+        "position": {
+          "x": 550,
+          "y": 20,
+          "width": 120,
+          "height": 25
+        },
+        "style": {
+          "color": "#94a3b8",
+          "fontSize": 12,
+          "fontWeight": "600",
+          "fontFamily": "Outfit",
+          "letterSpacing": 2
+        },
+        "content": "OVERS"
+      },
+      {
+        "id": "overs-value",
+        "type": "text",
+        "position": {
+          "x": 550,
+          "y": 40,
+          "width": 120,
+          "height": 40
+        },
+        "style": {
+          "color": "#ffffff",
+          "fontSize": 36,
+          "fontWeight": "900",
+          "fontFamily": "Teko"
+        },
+        "content": "4"
+      },
+      {
+        "id": "econ-label",
+        "type": "text",
+        "position": {
+          "x": 550,
+          "y": 90,
+          "width": 120,
+          "height": 25
+        },
+        "style": {
+          "color": "#94a3b8",
+          "fontSize": 12,
+          "fontWeight": "600",
+          "fontFamily": "Outfit",
+          "letterSpacing": 2
+        },
+        "content": "ECON"
+      },
+      {
+        "id": "econ-value",
+        "type": "text",
+        "position": {
+          "x": 550,
+          "y": 110,
+          "width": 120,
+          "height": 30
+        },
+        "style": {
+          "color": "#fbbf24",
+          "fontSize": 28,
+          "fontWeight": "900",
+          "fontFamily": "Teko"
+        },
+        "content": "8.50"
+      }
+    ]
+  },
+  {
+    "id": "preset-cricket-pc-fielder",
+    "name": "Fielder Card",
+    "sport": "cricket",
+    "type": "player-card",
+    "description": "Fielder statistics card",
+    "canvas": {
+      "width": 1920,
+      "height": 120
+    },
+    "elements": [
+      {
+        "id": "bg",
+        "type": "shape",
+        "position": {
+          "x": 0,
+          "y": 0,
+          "width": 1920,
+          "height": 120
+        },
+        "style": {
+          "backgroundColor": "linear-gradient(135deg, #1a1a2e 0%, #16213e 100%)",
+          "boxShadow": "0 4px 20px rgba(0,0,0,0.5)"
+        },
+        "content": ""
+      },
+      {
+        "id": "role",
+        "type": "text",
+        "position": {
+          "x": 145,
+          "y": 20,
+          "width": 120,
+          "height": 25
+        },
+        "style": {
+          "color": "#22c55e",
+          "fontSize": 14,
+          "fontWeight": "700",
+          "fontFamily": "Outfit",
+          "letterSpacing": 3
+        },
+        "content": "FIELDER"
+      },
+      {
+        "id": "player-name",
+        "type": "text",
+        "position": {
+          "x": 145,
+          "y": 45,
+          "width": 400,
+          "height": 50
+        },
+        "style": {
+          "color": "#ffffff",
+          "fontSize": 36,
+          "fontWeight": "900",
+          "fontFamily": "Teko"
+        },
+        "content": "RAVINDRA JADEJA"
+      },
+      {
+        "id": "catches-label",
+        "type": "text",
+        "position": {
+          "x": 700,
+          "y": 20,
+          "width": 100,
+          "height": 25
+        },
+        "style": {
+          "color": "#22c55e",
+          "fontSize": 11,
+          "fontWeight": "600",
+          "fontFamily": "Outfit",
+          "letterSpacing": 2
+        },
+        "content": "CATCHES"
+      },
+      {
+        "id": "catches-value",
+        "type": "text",
+        "position": {
+          "x": 700,
+          "y": 40,
+          "width": 100,
+          "height": 50
+        },
+        "style": {
+          "color": "#ffffff",
+          "fontSize": 42,
+          "fontWeight": "900",
+          "fontFamily": "Teko"
+        },
+        "content": "3"
+      },
+      {
+        "id": "runouts-label",
+        "type": "text",
+        "position": {
+          "x": 850,
+          "y": 20,
+          "width": 100,
+          "height": 25
+        },
+        "style": {
+          "color": "#22c55e",
+          "fontSize": 11,
+          "fontWeight": "600",
+          "fontFamily": "Outfit",
+          "letterSpacing": 2
+        },
+        "content": "RUN OUTS"
+      },
+      {
+        "id": "runouts-value",
+        "type": "text",
+        "position": {
+          "x": 850,
+          "y": 40,
+          "width": 100,
+          "height": 50
+        },
+        "style": {
+          "color": "#ffffff",
+          "fontSize": 42,
+          "fontWeight": "900",
+          "fontFamily": "Teko"
+        },
+        "content": "1"
+      }
+    ]
+  },
+  {
+    "id": "preset-football-pc-player",
+    "name": "Football Player Card",
+    "sport": "football",
+    "type": "player-card",
+    "description": "Football player profile card",
+    "canvas": {
+      "width": 1920,
+      "height": 150
+    },
+    "elements": [
+      {
+        "id": "bg",
+        "type": "shape",
+        "position": {
+          "x": 0,
+          "y": 0,
+          "width": 1920,
+          "height": 150
+        },
+        "style": {
+          "backgroundColor": "linear-gradient(135deg, #065f46 0%, #022c22 100%)",
+          "boxShadow": "0 4px 20px rgba(0,0,0,0.5)"
+        },
+        "content": ""
+      },
+      {
+        "id": "team-bg",
+        "type": "shape",
+        "position": {
+          "x": 0,
+          "y": 0,
+          "width": 280,
+          "height": 150
+        },
+        "style": {
+          "backgroundColor": "linear-gradient(135deg, #14532d, #0a3020)"
+        },
+        "content": ""
+      },
+      {
+        "id": "role",
+        "type": "text",
+        "position": {
+          "x": 145,
+          "y": 30,
+          "width": 120,
+          "height": 25
+        },
+        "style": {
+          "color": "#10b981",
+          "fontSize": 14,
+          "fontWeight": "700",
+          "fontFamily": "Outfit",
+          "letterSpacing": 3
+        },
+        "content": "FORWARD"
+      },
+      {
+        "id": "first-name",
+        "type": "text",
+        "position": {
+          "x": 145,
+          "y": 55,
+          "width": 120,
+          "height": 50
+        },
+        "style": {
+          "color": "#ffffff",
+          "fontSize": 32,
+          "fontWeight": "900",
+          "fontFamily": "Teko"
+        },
+        "content": "ERLING"
+      },
+      {
+        "id": "last-name",
+        "type": "text",
+        "position": {
+          "x": 145,
+          "y": 95,
+          "width": 120,
+          "height": 30
+        },
+        "style": {
+          "color": "rgba(255,255,255,0.6)",
+          "fontSize": 14,
+          "fontWeight": "500",
+          "fontFamily": "Outfit"
+        },
+        "content": "Haaland"
+      },
+      {
+        "id": "goals-label",
+        "type": "text",
+        "position": {
+          "x": 320,
+          "y": 20,
+          "width": 100,
+          "height": 25
+        },
+        "style": {
+          "color": "#10b981",
+          "fontSize": 12,
+          "fontWeight": "600",
+          "fontFamily": "Outfit",
+          "letterSpacing": 2
+        },
+        "content": "GOALS"
+      },
+      {
+        "id": "goals-value",
+        "type": "text",
+        "position": {
+          "x": 320,
+          "y": 40,
+          "width": 100,
+          "height": 60
+        },
+        "style": {
+          "color": "#ffffff",
+          "fontSize": 52,
+          "fontWeight": "900",
+          "fontFamily": "Teko"
+        },
+        "content": "28"
+      },
+      {
+        "id": "assists-label",
+        "type": "text",
+        "position": {
+          "x": 450,
+          "y": 20,
+          "width": 100,
+          "height": 25
+        },
+        "style": {
+          "color": "#10b981",
+          "fontSize": 12,
+          "fontWeight": "600",
+          "fontFamily": "Outfit",
+          "letterSpacing": 2
+        },
+        "content": "ASSISTS"
+      },
+      {
+        "id": "assists-value",
+        "type": "text",
+        "position": {
+          "x": 450,
+          "y": 40,
+          "width": 100,
+          "height": 60
+        },
+        "style": {
+          "color": "#ffffff",
+          "fontSize": 52,
+          "fontWeight": "900",
+          "fontFamily": "Teko"
+        },
+        "content": "8"
+      },
+      {
+        "id": "apps-label",
+        "type": "text",
+        "position": {
+          "x": 580,
+          "y": 20,
+          "width": 100,
+          "height": 25
+        },
+        "style": {
+          "color": "#94a3b8",
+          "fontSize": 12,
+          "fontWeight": "600",
+          "fontFamily": "Outfit",
+          "letterSpacing": 2
+        },
+        "content": "APPS"
+      },
+      {
+        "id": "apps-value",
+        "type": "text",
+        "position": {
+          "x": 580,
+          "y": 40,
+          "width": 100,
+          "height": 60
+        },
+        "style": {
+          "color": "#ffffff",
+          "fontSize": 52,
+          "fontWeight": "900",
+          "fontFamily": "Teko"
+        },
+        "content": "35"
+      }
+    ]
+  },
+  {
+    "id": "preset-basketball-pc-player",
+    "name": "Basketball Player Card",
+    "sport": "basketball",
+    "type": "player-card",
+    "description": "Basketball player stats card",
+    "canvas": {
+      "width": 1920,
+      "height": 150
+    },
+    "elements": [
+      {
+        "id": "bg",
+        "type": "shape",
+        "position": {
+          "x": 0,
+          "y": 0,
+          "width": 1920,
+          "height": 150
+        },
+        "style": {
+          "backgroundColor": "linear-gradient(135deg, #991b1b 0%, #7f1d1d 100%)",
+          "boxShadow": "0 4px 20px rgba(0,0,0,0.5)"
+        },
+        "content": ""
+      },
+      {
+        "id": "team-bg",
+        "type": "shape",
+        "position": {
+          "x": 0,
+          "y": 0,
+          "width": 280,
+          "height": 150
+        },
+        "style": {
+          "backgroundColor": "linear-gradient(135deg, #b91c1c, #991b1b)"
+        },
+        "content": ""
+      },
+      {
+        "id": "role",
+        "type": "text",
+        "position": {
+          "x": 145,
+          "y": 30,
+          "width": 120,
+          "height": 25
+        },
+        "style": {
+          "color": "#fbbf24",
+          "fontSize": 14,
+          "fontWeight": "700",
+          "fontFamily": "Outfit",
+          "letterSpacing": 3
+        },
+        "content": "GUARD"
+      },
+      {
+        "id": "first-name",
+        "type": "text",
+        "position": {
+          "x": 145,
+          "y": 55,
+          "width": 120,
+          "height": 50
+        },
+        "style": {
+          "color": "#ffffff",
+          "fontSize": 32,
+          "fontWeight": "900",
+          "fontFamily": "Teko"
+        },
+        "content": "LEBRON"
+      },
+      {
+        "id": "last-name",
+        "type": "text",
+        "position": {
+          "x": 145,
+          "y": 95,
+          "width": 120,
+          "height": 30
+        },
+        "style": {
+          "color": "rgba(255,255,255,0.6)",
+          "fontSize": 14,
+          "fontWeight": "500",
+          "fontFamily": "Outfit"
+        },
+        "content": "James"
+      },
+      {
+        "id": "pts-label",
+        "type": "text",
+        "position": {
+          "x": 320,
+          "y": 20,
+          "width": 100,
+          "height": 25
+        },
+        "style": {
+          "color": "#fbbf24",
+          "fontSize": 12,
+          "fontWeight": "600",
+          "fontFamily": "Outfit",
+          "letterSpacing": 2
+        },
+        "content": "PTS"
+      },
+      {
+        "id": "pts-value",
+        "type": "text",
+        "position": {
+          "x": 320,
+          "y": 40,
+          "width": 100,
+          "height": 60
+        },
+        "style": {
+          "color": "#ffffff",
+          "fontSize": 48,
+          "fontWeight": "900",
+          "fontFamily": "Teko"
+        },
+        "content": "27.4"
+      },
+      {
+        "id": "reb-label",
+        "type": "text",
+        "position": {
+          "x": 450,
+          "y": 20,
+          "width": 100,
+          "height": 25
+        },
+        "style": {
+          "color": "#fbbf24",
+          "fontSize": 12,
+          "fontWeight": "600",
+          "fontFamily": "Outfit",
+          "letterSpacing": 2
+        },
+        "content": "REB"
+      },
+      {
+        "id": "reb-value",
+        "type": "text",
+        "position": {
+          "x": 450,
+          "y": 40,
+          "width": 100,
+          "height": 60
+        },
+        "style": {
+          "color": "#ffffff",
+          "fontSize": 48,
+          "fontWeight": "900",
+          "fontFamily": "Teko"
+        },
+        "content": "8.1"
+      },
+      {
+        "id": "ast-label",
+        "type": "text",
+        "position": {
+          "x": 580,
+          "y": 20,
+          "width": 100,
+          "height": 25
+        },
+        "style": {
+          "color": "#fbbf24",
+          "fontSize": 12,
+          "fontWeight": "600",
+          "fontFamily": "Outfit",
+          "letterSpacing": 2
+        },
+        "content": "AST"
+      },
+      {
+        "id": "ast-value",
+        "type": "text",
+        "position": {
+          "x": 580,
+          "y": 40,
+          "width": 100,
+          "height": 60
+        },
+        "style": {
+          "color": "#ffffff",
+          "fontSize": 48,
+          "fontWeight": "900",
+          "fontFamily": "Teko"
+        },
+        "content": "7.8"
+      }
+    ]
+  },
+  {
+    "id": "preset-tennis-pc-player",
+    "name": "Tennis Player Card",
+    "sport": "tennis",
+    "type": "player-card",
+    "description": "Tennis player profile card",
+    "canvas": {
+      "width": 1920,
+      "height": 130
+    },
+    "elements": [
+      {
+        "id": "bg",
+        "type": "shape",
+        "position": {
+          "x": 0,
+          "y": 0,
+          "width": 1920,
+          "height": 130
+        },
+        "style": {
+          "backgroundColor": "linear-gradient(135deg, #1e3a5f 0%, #0f2744 100%)",
+          "boxShadow": "0 4px 20px rgba(0,0,0,0.5)"
+        },
+        "content": ""
+      },
+      {
+        "id": "role",
+        "type": "text",
+        "position": {
+          "x": 40,
+          "y": 15,
+          "width": 200,
+          "height": 25
+        },
+        "style": {
+          "color": "#60a5fa",
+          "fontSize": 14,
+          "fontWeight": "700",
+          "fontFamily": "Outfit",
+          "letterSpacing": 3
+        },
+        "content": "RANK #1"
+      },
+      {
+        "id": "player-name",
+        "type": "text",
+        "position": {
+          "x": 40,
+          "y": 40,
+          "width": 500,
+          "height": 50
+        },
+        "style": {
+          "color": "#ffffff",
+          "fontSize": 38,
+          "fontWeight": "900",
+          "fontFamily": "Teko"
+        },
+        "content": "NOVAK DJOKOVIC"
+      },
+      {
+        "id": "player-info",
+        "type": "text",
+        "position": {
+          "x": 40,
+          "y": 90,
+          "width": 300,
+          "height": 25
+        },
+        "style": {
+          "color": "rgba(255,255,255,0.7)",
+          "fontSize": 13,
+          "fontWeight": "500",
+          "fontFamily": "Outfit"
+        },
+        "content": "Serbia · Right-Hand"
+      },
+      {
+        "id": "titles-label",
+        "type": "text",
+        "position": {
+          "x": 700,
+          "y": 15,
+          "width": 100,
+          "height": 25
+        },
+        "style": {
+          "color": "#60a5fa",
+          "fontSize": 11,
+          "fontWeight": "600",
+          "fontFamily": "Outfit",
+          "letterSpacing": 2
+        },
+        "content": "TITLES"
+      },
+      {
+        "id": "titles-value",
+        "type": "text",
+        "position": {
+          "x": 700,
+          "y": 35,
+          "width": 100,
+          "height": 50
+        },
+        "style": {
+          "color": "#ffffff",
+          "fontSize": 42,
+          "fontWeight": "900",
+          "fontFamily": "Teko"
+        },
+        "content": "24"
+      },
+      {
+        "id": "win-label",
+        "type": "text",
+        "position": {
+          "x": 850,
+          "y": 15,
+          "width": 100,
+          "height": 25
+        },
+        "style": {
+          "color": "#60a5fa",
+          "fontSize": 11,
+          "fontWeight": "600",
+          "fontFamily": "Outfit",
+          "letterSpacing": 2
+        },
+        "content": "WIN %"
+      },
+      {
+        "id": "win-value",
+        "type": "text",
+        "position": {
+          "x": 850,
+          "y": 35,
+          "width": 100,
+          "height": 50
+        },
+        "style": {
+          "color": "#16a34a",
+          "fontSize": 42,
+          "fontWeight": "900",
+          "fontFamily": "Teko"
+        },
+        "content": "83.2"
+      }
+    ]
+  },
+  {
+    "id": "preset-generic-pc-commentator",
+    "name": "Commentator Card",
+    "sport": "generic",
+    "type": "player-card",
+    "description": "Commentator/pundit profile card",
+    "canvas": {
+      "width": 1920,
+      "height": 120
+    },
+    "elements": [
+      {
+        "id": "bg",
+        "type": "shape",
+        "position": {
+          "x": 0,
+          "y": 0,
+          "width": 1920,
+          "height": 120
+        },
+        "style": {
+          "backgroundColor": "linear-gradient(135deg, #1e293b 0%, #0f172a 100%)",
+          "boxShadow": "0 4px 20px rgba(0,0,0,0.5)"
+        },
+        "content": ""
+      },
+      {
+        "id": "accent-bar",
+        "type": "shape",
+        "position": {
+          "x": 0,
+          "y": 0,
+          "width": 8,
+          "height": 120
+        },
+        "style": {
+          "backgroundColor": "#fbbf24"
+        },
+        "content": ""
+      },
+      {
+        "id": "role",
+        "type": "text",
+        "position": {
+          "x": 40,
+          "y": 15,
+          "width": 300,
+          "height": 25
+        },
+        "style": {
+          "color": "#fbbf24",
+          "fontSize": 12,
+          "fontWeight": "700",
+          "fontFamily": "Outfit",
+          "letterSpacing": 4
+        },
+        "content": "COMMENTATOR"
+      },
+      {
+        "id": "player-name",
+        "type": "text",
+        "position": {
+          "x": 40,
+          "y": 40,
+          "width": 500,
+          "height": 50
+        },
+        "style": {
+          "color": "#ffffff",
+          "fontSize": 36,
+          "fontWeight": "900",
+          "fontFamily": "Teko"
+        },
+        "content": "SUNIL GAVASKAR"
+      },
+      {
+        "id": "player-info",
+        "type": "text",
+        "position": {
+          "x": 40,
+          "y": 85,
+          "width": 400,
+          "height": 25
+        },
+        "style": {
+          "color": "rgba(255,255,255,0.7)",
+          "fontSize": 13,
+          "fontWeight": "500",
+          "fontFamily": "Outfit"
+        },
+        "content": "Former India Captain · Cricket Legend"
+      }
+    ]
+  }
+]

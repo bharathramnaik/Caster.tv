@@ -352,6 +352,57 @@ Back up these files before upgrading.
 
 ---
 
+## [7.0.0] - 2026-06-22
+
+### Added
+
+#### Production Hardening
+- Rate limiting middleware (global: 100/min, auth: 10/min, API: 30/min)
+- Audit logger for all mutation requests with 5MB log rotation
+- Input sanitizer (strips `<script>` tags, `javascript:` protocols, HTML entities)
+- Security headers (X-Content-Type-Options, X-Frame-Options, CSP, Referrer-Policy, etc.)
+
+#### AI Template Generator
+- Natural language template generation from text descriptions
+- 50 pre-built template presets across 6 categories (scoreboards, lower-thirds, timers, stats, tickers, player cards)
+- Smart suggestions and autocomplete for template descriptions
+- API endpoints: POST /api/ai/generate, GET /api/ai/presets, POST /api/ai/suggest, POST /api/ai/autocomplete
+
+#### 3D Graphics Enhancement
+- Three.js-powered 3D scoreboard component with animated scores and glass materials
+- Interactive 3D scene builder with drag-and-drop elements and camera controls
+- 4 transition effects (cube rotation, sphere morph, particle dissolve, page flip)
+- 10 preset 3D scenes for cricket, football, and basketball
+- API endpoints: GET /api/scenes3d/presets, POST /api/scenes3d/render, POST /api/scenes3d/export
+
+#### Advanced Analytics
+- Real-time metrics engine with anomaly detection
+- Usage analytics (page views, feature usage, template popularity)
+- Performance monitoring (response times, slow endpoints, memory usage)
+- SVG chart components (LineChart, BarChart, PieChart, HeatMap, TrendCard, SparkLine)
+- Advanced analytics dashboard with auto-refresh
+- 11 new API endpoints for analytics data
+
+#### Internationalization (i18n)
+- 4 languages: English, Spanish, Hindi, Arabic
+- RTL support for Arabic
+- Language switcher component with flag indicators
+- 150+ translation keys covering all UI text
+- localStorage persistence of language preference
+
+#### Accessibility
+- Skip-to-content link for keyboard navigation
+- Screen reader components (VisuallyHidden, AriaLabel, LiveRegion)
+- Focus trap for modals
+- Keyboard navigation hook (arrow keys, Enter, Escape)
+- High contrast mode detection
+- Visible focus indicators
+
+### Fixed
+- All 12 E2E test bugs (BUG-001 through BUG-012) resolved and verified
+
+---
+
 ## Support
 
 For issues and feature requests, please refer to the project repository.

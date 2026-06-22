@@ -12,6 +12,7 @@
 @import './styles/backgrounds.css';
 @import './styles/status.css';
 @import './styles/navigation.css';
+@import './styles/rtl.css';
 
 /* ── Tokens ────────────────────────────────────────────────── */
 :root,

@@ -1,0 +1,310 @@
+/* ========================================
+   RTL SUPPORT
+   ======================================== */
+
+[dir="rtl"] .navbar {
+  direction: rtl;
+}
+
+[dir="rtl"] .nav-links {
+  margin-left: 0;
+  margin-right: 48px;
+}
+
+[dir="rtl"] .nav-actions {
+  margin-left: 0;
+  margin-right: auto;
+}
+
+[dir="rtl"] .nav-brand {
+  margin-right: 0;
+  margin-left: auto;
+}
+
+[dir="rtl"] .container {
+  text-align: right;
+}
+
+[dir="rtl"] .card {
+  text-align: right;
+}
+
+[dir="rtl"] .stats-table th {
+  text-align: right;
+}
+
+[dir="rtl"] .sc-table th {
+  text-align: right;
+}
+
+[dir="rtl"] .sc-table td.num,
+[dir="rtl"] .sc-table th.num {
+  text-align: left;
+}
+
+[dir="rtl"] .control-score-display {
+  direction: rtl;
+}
+
+[dir="rtl"] .hero {
+  text-align: center;
+}
+
+[dir="rtl"] .hero-content {
+  direction: rtl;
+}
+
+[dir="rtl"] .hero-actions {
+  flex-direction: row-reverse;
+}
+
+[dir="rtl"] .features-grid {
+  direction: rtl;
+}
+
+[dir="rtl"] .scoring-grid {
+  direction: rtl;
+}
+
+[dir="rtl"] .extras-grid {
+  direction: rtl;
+}
+
+[dir="rtl"] .actions-grid {
+  direction: rtl;
+}
+
+[dir="rtl"] .score-btn {
+  direction: rtl;
+}
+
+[dir="rtl"] .section-label {
+  text-align: right;
+}
+
+[dir="rtl"] .last-ball-strip {
+  direction: rtl;
+}
+
+[dir="rtl"] .last-ball-strip .balls {
+  margin-left: 0;
+  margin-right: 8px;
+}
+
+[dir="rtl"] .modal-card {
+  text-align: right;
+  direction: rtl;
+}
+
+[dir="rtl"] .scoreboard-page {
+  direction: rtl;
+}
+
+[dir="rtl"] .auth-page {
+  direction: rtl;
+}
+
+[dir="rtl"] .not-found {
+  direction: rtl;
+}
+
+[dir="rtl"] .toast-container {
+  right: auto;
+  left: 24px;
+}
+
+[dir="rtl"] .toast {
+  animation-name: slideInRtl;
+}
+
+@keyframes slideInRtl {
+  from { opacity: 0; transform: translateX(-40px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+[dir="rtl"] .sidebar-item {
+  padding: var(--space-sm) var(--space-md) var(--space-sm) var(--space-lg);
+}
+
+[dir="rtl"] .sidebar-item::before {
+  left: auto;
+  right: 0;
+}
+
+[dir="rtl"] .sidebar-section-header {
+  text-align: right;
+}
+
+[dir="rtl"] .breadcrumb {
+  flex-direction: row-reverse;
+}
+
+[dir="rtl"] .tabs {
+  direction: rtl;
+}
+
+[dir="rtl"] .dropdown-glass {
+  text-align: right;
+  direction: rtl;
+}
+
+[dir="rtl"] .dropdown-item {
+  flex-direction: row-reverse;
+}
+
+[dir="rtl"] .sb-left {
+  clip-path: polygon(0 0, 15% 0, 100% 100%, 0 100%);
+  padding-left: 20px;
+  padding-right: 0;
+}
+
+[dir="rtl"] .sb-left-batters {
+  padding: 12px 8px 12px 12px;
+}
+
+[dir="rtl"] .sb-bat-runs,
+[dir="rtl"] .sb-bat-balls {
+  text-align: left;
+}
+
+[dir="rtl"] .sb-right {
+  align-items: flex-end;
+  padding: 12px 20px;
+}
+
+[dir="rtl"] .sb-e-name {
+  text-align: right;
+}
+
+[dir="rtl"] .sb-e-content {
+  flex-direction: row-reverse;
+}
+
+[dir="rtl"] .sb-e-pp {
+  border-right: none;
+  border-left: 1px solid rgba(255,255,255,0.15);
+  padding-right: 0;
+  padding-left: 16px;
+}
+
+[dir="rtl"] .sb-e-balls {
+  justify-content: flex-end;
+}
+
+[dir="rtl"] .sb-bowler-row {
+  justify-content: flex-end;
+}
+
+[dir="rtl"] .ipl-scoreboard {
+  direction: rtl;
+}
+
+[dir="rtl"] .ipl-team-section-right {
+  justify-content: flex-end;
+}
+
+[dir="rtl"] .ipl-team-name,
+[dir="rtl"] .ipl-team-sub {
+  text-align: right;
+}
+
+[dir="rtl"] .ipl-score-center {
+  direction: rtl;
+}
+
+[dir="rtl"] .ipl-chase-bar {
+  direction: rtl;
+}
+
+[dir="rtl"] .ipl-result-banner {
+  direction: rtl;
+}
+
+[dir="rtl"] .sc-header {
+  flex-direction: row-reverse;
+}
+
+[dir="rtl"] .sc-header-left {
+  text-align: right;
+}
+
+[dir="rtl"] .sc-header-right {
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 15px 100%);
+  align-items: flex-start;
+  text-align: left;
+}
+
+[dir="rtl"] .sc-columns {
+  flex-direction: row-reverse;
+}
+
+[dir="rtl"] .sc-bat-col {
+  border-right: none;
+  border-left: 1.5px solid rgba(255,255,255,0.08);
+}
+
+[dir="rtl"] .sc-infobar {
+  direction: rtl;
+}
+
+[dir="rtl"] .sc-col-title {
+  text-align: right;
+}
+
+[dir="rtl"] .sc-table th,
+[dir="rtl"] .sc-table td {
+  text-align: right;
+}
+
+[dir="rtl"] .sc-footer-result {
+  direction: rtl;
+}
+
+[dir="rtl"] .sb-over-summary {
+  direction: rtl;
+}
+
+[dir="rtl"] .sb-os-header {
+  text-align: right;
+}
+
+[dir="rtl"] .sb-os-grid {
+  flex-direction: row-reverse;
+}
+
+[dir="rtl"] .sb-os-over {
+  border-right: none;
+  border-left: 1px solid rgba(227,178,60,0.15);
+}
+
+[dir="rtl"] .sb-os-over:last-child {
+  border-left: none;
+}
+
+[dir="rtl"] .sb-os-over-balls {
+  flex-direction: row-reverse;
+}
+
+[dir="rtl"] .sb-card-stats {
+  direction: rtl;
+}
+
+[dir="rtl"] .sb-card-ball {
+  direction: rtl;
+}
+
+[dir="rtl"] .sb-card-balls {
+  flex-direction: row-reverse;
+}
+
+[dir="rtl"] .sb-milestone {
+  direction: rtl;
+}
+
+[dir="rtl"] .sb-ms-center {
+  flex-direction: row-reverse;
+}
+
+[dir="rtl"] .sb-card {
+  direction: rtl;
+}
